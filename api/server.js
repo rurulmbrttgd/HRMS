@@ -2,8 +2,8 @@ import express from 'express'
 import mysql from 'mysql'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import second from 'bcrypt'
-import jwt from 'jsonwebtoken'
+// import second from 'bcrypt'
+// import jwt from 'jsonwebtoken'
 
 const app = express();
 app.use(cors());
@@ -26,15 +26,15 @@ con.connect(function(err) {
 })
 
 app.post('/login', (req, res) => {
-    const sql = "SELECT * FROM users WHERE email = ? AND password = ?";
+    const sql = "SELECT * FROM users WHERE username = ? AND password = ?";
     con.query(sql, [req.body.email, req.body.password], (err, result) => {
         if(err)
             return 
-            res.json({Status: "Error!"});
+            res.json({Status: "Error!", Error: "Error in running query"});
         if(result.length > 0) {
             return res.json({Success: "Success!"});
         } else {
-            return res.json({Status: "Error!"});
+            return res.json({Status: "Error!", Error: "Wrong Credentials!"});
         }
     })
 })

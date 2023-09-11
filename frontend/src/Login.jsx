@@ -9,17 +9,31 @@ function Login() {
         username: '',
         password: ''
     })
+    const navigate = useNavigate()
+    axios.defaults.withCredentials = true;
+
+    const [error, setError] = useState('')
 
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.post('http://localhost:8081/login', values)
-        .then(res => console.log(res))
+        .then(res => {
+            if(res.data.Status === 'Success') {
+                navigate('/');
+            } else {
+                setError(res.data.Error);
+            }
+        })
         .catch(err => console.log(err));
     }
+
 
     return (
         <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>
             <div className='p-3 rounded w-25 border loginForm'>
+                <div className='text-danger'>
+                    {error && error}
+                </div>
                 <div className="text-center"> {/* Added a container for the image and centered it */}
                     <img
                         src="https://res.cloudinary.com/dxzvh2xex/image/upload/v1692943459/capstone-logo_rj4krr.png"
