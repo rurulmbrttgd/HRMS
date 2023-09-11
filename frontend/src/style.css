@@ -1,0 +1,30 @@
+.loginPage {
+    background: url('/public/Images/background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 120%;
+}
+
+.loginForm {
+    background-color: rgb(255, 255, 255);
+    /* color: rgb(70, 0, 141); */
+    color: #313866;
+}
+
+.logo {
+    display: block; /* Make the image a block element */
+    margin: 0 auto; /* Center the image horizontally within the parent */
+    width: 100px; 
+}
+
+.employee_image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.empImg {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+}
