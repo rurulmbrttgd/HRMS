@@ -21,6 +21,7 @@ function Login() {
             if(res.data.Status === 'Success') {
                 navigate('/');
             } else {
+
                 setError(res.data.Error);
             }
         })
