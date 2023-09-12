@@ -185,4 +185,47 @@
     color: #645B8B;
     pointer-events: none;
   }
-  
+
+  /* .formbanner{
+    background-image: url(Images/bg-capstone.jpg);
+    background-size: cover;
+    background-position: center;
+    object-position: top;
+    height: 200px;
+    background-color: red;
+} */
+
+
+.formbanner{
+    background-image: url(public/Images/bg-capstone.jpg);
+    background-size: cover;
+    background-position: center;
+    object-position: top;
+    height: 300px;
+}
+
+.section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 0 20px; /* Added padding to space out the section-boxes */
+}
+
+.section-box {
+    background-color: #6D4C97;
+    height: 75px;
+    width: calc(25% - 20px); /* Divide equally and account for margins */
+    border-radius: 10px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.section-text {
+    font-size: 20px;
+}

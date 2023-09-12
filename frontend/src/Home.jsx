@@ -65,7 +65,7 @@ function Home() {
             </div>
 
             <div className='px-3 pt-2 pb-3 border shadow-sm w-25'>
-            <Calendar /> {/* Insert the Calendar component here */}
+            <ReactCalendar /> {/* Insert the Calendar component here */}
             </div>
         </div>
     </div>
