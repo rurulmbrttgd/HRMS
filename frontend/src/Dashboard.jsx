@@ -39,7 +39,7 @@ function Dashboard() {
                         <span className="fs-5 fw-bolder d-none d-sm-inline align-item">Capstone-Intel HR Management System</span>
                     </a>
 
-                    <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <ul className="nav nav-pills flex-column  mb-sm-auto mb-0 align-items-center align-items-sm-start"  id="menu" style={{ marginTop: '150px' }}>
                     <li>
                         <Link to="/" data-bs-toggle="collapse" className="nav-link text-white px-0 align-middle">
                         <i className="fs-4 bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Dashboard</span>
@@ -50,7 +50,7 @@ function Dashboard() {
                         <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Employees</span>
                         </Link>
                     </li>
-                    {/* Your other navigation items */}
+               
                     </ul>
                     {/* Move the logout button here */}
                     <a onClick={handleLogout} href="#" className="nav-link px-0 align-middle text-white">
