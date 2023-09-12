@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import './style.css'
 import Calendar from 'react-calendar';
 
+
 const ReactCalendar = () => {
     const [date, setDate] = useState(new Date());
   
@@ -12,9 +13,8 @@ const ReactCalendar = () => {
   
     return (
       <div>
-        <Calendar showWeekNumbers onChange={onChange} value={date} />
+        <Calendar onChange={onChange} value={date} />
         {console.log(date)}
-        {date.toString()}
       </div>
     );
   };
@@ -64,8 +64,13 @@ function Home() {
             </div>
             </div>
 
-            <div className='px-3 pt-2 pb-3 border shadow-sm w-25'>
-            <Calendar /> {/* Insert the Calendar component here */}
+              <div class='calendardiv'>
+                <div>
+                  <ReactCalendar /> {/* Insert the Calendar component here */}
+                </div>
+                <div>
+                  
+                </div>
             </div>
         </div>
     </div>

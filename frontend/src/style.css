@@ -98,18 +98,23 @@
     object-position: top;    
 }
 
-
+.dflex{
+  width: 750px;
+  justify-content: space-between;
+}
 
 /* Style for the Calendar container */
 .react-calendar {
     width: 100%;
-    max-width: 300px; /* Adjust the maximum width as needed */
+    max-width: 430px; /* Adjust the maximum width as needed */
     background-color: #645B8B;
     /* border: 1px solid #ccc;
     border-radius: 5px; */
     /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 10px;
+    color: #222;
+    align-items: center;
   }
   
   /* Style for the Calendar navigation buttons */
@@ -150,6 +155,8 @@
   .react-calendar__month-view__weekdays__weekday {
     font-weight: bold;
     color: #ffffff;
+    margin-left: 1px;
+    text-align: center;
   }
   
   /* Style for Calendar days */
@@ -160,11 +167,12 @@
     border: none;
     color: #ffffff;
     background-color: #645B8B;
+    margin-left: 0 ;
 }
   
   /* Style for Calendar days that are not in the current month */
   .react-calendar__tile--neighboringMonth {
-    color: #645B8B;
+    color: #999;
   }
   
   /* Style for Calendar days that are selected */
@@ -186,10 +194,22 @@
     pointer-events: none;
   }
 
-  .banner{
-    background-image: url(public/Images/panelBg.jpg);
-    background-size: cover;
-    background-position: center;
-    margin-left: 8%;
-    object-position: top;    
+  .react-calendar__navigation__label{
+    color: white;
+    background: #645B8B;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    
   }
+  .calendardiv{
+    width: 450px;
+    margin-left: 20px;
+    height: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  
