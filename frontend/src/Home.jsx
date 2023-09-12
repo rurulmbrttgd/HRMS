@@ -1,7 +1,24 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './style.css'
+import Calendar from 'react-calendar';
 
+const ReactCalendar = () => {
+    const [date, setDate] = useState(new Date());
+  
+    const onChange = date => {
+      setDate(date);
+    };
+  
+    return (
+      <div>
+        <Calendar showWeekNumbers onChange={onChange} value={date} />
+        {console.log(date)}
+        {date.toString()}
+      </div>
+    );
+  };
+  
 function Home() {
   const [adminCount, setAdminCount] = useState()
   const [employeeCount, setEmployeeCount] = useState()
@@ -24,51 +41,33 @@ function Home() {
 		}).catch(err => console.log(err));
 
   } , [])
-  return (
-    <div className='d-flex'>
+    return (
+        <div className='d-flex'>
         <div className='d-flex justify-content-around mt-3'>
             <div className='px-3 pt-2 pb-3 department'>
-                <div className='text-center pb-1'>
+            <div className='text-center pb-1'>
                 <h4>Departments</h4>
-                </div>  
-                <div className=''>
+            </div>
+            <div className=''>
                 <h5>Total: {adminCount}</h5>
+            </div>
+            <div className='d-flex justify-content-center'>
+                <div className='no-employees'>
+                <h5>100 Employees</h5>
                 </div>
-                <div className='d-flex justify-content-center'> {/* Add justify-content-center */}
-                    <div className='no-employees'>
-                        <h5>100 Employees</h5> 
-                    </div>
-                    <div className='no-interns'>
-                        <h5>30 Interns</h5> 
-                    </div>
-                    <div className='no-staff'>
-                        <h5>20 Staff</h5> 
-                    </div>
+                <div className='no-interns'>
+                <h5>30 Interns</h5>
+                </div>
+                <div className='no-staff'>
+                <h5>20 Staff</h5>
                 </div>
             </div>
+            </div>
 
-        <div className='px-3 pt-2 pb-3 border shadow-sm w-25'>
-          <div className='text-center pb-1'>
-            <h4>Employee</h4>
-          </div>
-          <hr />
-          <div className=''>
-            <h5>Total: {employeeCount}</h5>
-          </div>
+            <div className='px-3 pt-2 pb-3 border shadow-sm w-25'>
+            <Calendar /> {/* Insert the Calendar component here */}
+            </div>
         </div>
-        {/* <div className='px-3 pt-2 pb-3 border shadow-sm w-25'>
-          <div className='text-center pb-1'>
-            <h4>Salary</h4>
-          </div>
-          <hr />
-          <div className=''>
-            <h5>Total: {salary}</h5>
-          </div>
-        </div> */}
-      </div>
-
-      {/* List of admin  */}
-    
     </div>
   )
 }
