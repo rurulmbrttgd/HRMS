@@ -91,3 +91,97 @@
     height: 500px;
 }
 
+.banner{
+    background-image: url(public/Images/dashboardbanner.jpg);
+    background-size: cover;
+    background-position: center;
+    object-position: top;    
+}
+
+
+
+/* Style for the Calendar container */
+.react-calendar {
+    width: 100%;
+    max-width: 300px; /* Adjust the maximum width as needed */
+    background-color: #645B8B;
+    /* border: 1px solid #ccc;
+    border-radius: 5px; */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    padding: 10px;
+    border-radius: 15px;
+  }
+  
+  /* Style for the Calendar navigation buttons */
+  .react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #645B8B;
+  }
+  
+  /* Style for the Calendar navigation button icons */
+  .react-calendar__navigation__arrow {
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    background-color: #645B8B;
+    color: #ffff;
+  }
+  
+  /* Style for the Calendar header */
+  .react-calendar__year-view__months__month,
+  .react-calendar__decade-view__years__year {
+    font-weight: normal;
+    color: #ffffff;
+    background-color: #645B8B;
+  }
+  
+  /* Style for the Calendar days of the week */
+  .react-calendar__month-view__weekdays {
+    background-color: #645B8B;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+  }
+  
+  /* Style for each day of the week */
+  .react-calendar__month-view__weekdays__weekday {
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  /* Style for Calendar days */
+  .react-calendar__tile {
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    color: #ffffff;
+    background-color: #645B8B;
+}
+  
+  /* Style for Calendar days that are not in the current month */
+  .react-calendar__tile--neighboringMonth {
+    color: #645B8B;
+  }
+  
+  /* Style for Calendar days that are selected */
+  .react-calendar__tile--active {
+    background-color: #332a5b;
+    color: #fff;
+    border-radius: 7px;
+    font-weight:500;
+  }
+  
+  /* Style for Calendar days that are hovered */
+  .react-calendar__tile--hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Style for Calendar days that are disabled */
+  .react-calendar__tile--disabled {
+    color: #645B8B;
+    pointer-events: none;
+  }
