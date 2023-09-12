@@ -91,7 +91,12 @@
     height: 500px;
 }
 
-
+.banner{
+    background-image: url(public/Images/dashboardbanner.jpg);
+    background-size: cover;
+    background-position: center;
+    object-position: top;    
+}
 
 
 
