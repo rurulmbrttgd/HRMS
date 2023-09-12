@@ -11,6 +11,17 @@
     color: #313866;
 }
 
+@font-face {
+    font-family: 'Flama';
+    font-weight: normal;
+    font-weight: normal;
+    src: url('/public/fonts/flamaregular.otf') format('otf');
+}
+
+.h2{
+    font-family: Flama;
+}
+
 .logo {
     display: block; /* Make the image a block element */
     margin: 0 auto; /* Center the image horizontally within the parent */
