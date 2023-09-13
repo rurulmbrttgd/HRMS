@@ -141,19 +141,19 @@ function AddEmployee() {
 					{/* ============================================== First Row ==================================================================*/}
 					<div className="d-flex flex-rows align-items-left first-row">
 						<div class="details">
-							<label for="inputhouseblocklot" class="form-label">House/Block/Lot No<h6 className='tuldok'>*</h6></label>
+							<label for="inputhouseblocklot" class="form-label">House/Block/Lot No<h6 className='tuldok-white'>*</h6></label>
 							<input type="text" class="form-control" id="inputhouseblocklot" placeholder='House/Block/Lot No' autoComplete='off'
-							onChange={e => setData({...data, name: e.target.value})} required/>
+							onChange={e => setData({...data, name: e.target.value})}/>
 						</div>
 						<div class="details">
-							<label for="inputstreet" class="form-label">Street<h6 className='tuldok'>*</h6></label>
+							<label for="inputstreet" class="form-label">Street<h6 className='tuldok-white'>*</h6></label>
 							<input type="text" class="form-control" id="inputstreet" placeholder='Street' autoComplete='off'
-							onChange={e => setData({...data, name: e.target.value})} required/>
+							onChange={e => setData({...data, name: e.target.value})}/>
 						</div>
 						<div class="details">
-							<label for="inputsubdvillage" class="form-label">Subdivision/Village<h6 className='tuldok'>*</h6></label>
+							<label for="inputsubdvillage" class="form-label">Subdivision/Village<h6 className='tuldok-white'>*</h6></label>
 							<input type="text" class="form-control" id="inputsubdvillage" placeholder='Subdivison/Village' autoComplete='off'
-							onChange={e => setData({...data, name: e.target.value})} required/>
+							onChange={e => setData({...data, name: e.target.value})}/>
 						</div>
 						<div class="details" id='barangay'>
 							<label for="inputbarangay" class="form-label">Barangay<h6 className='tuldok'>*</h6></label>
@@ -189,19 +189,19 @@ function AddEmployee() {
 							<div>
 								<div className="d-flex flex-rows align-items-left first-row">
 								<div class="details">
-									<label for="inputhouseblocklot" class="form-label">House/Block/Lot No<h6 className='tuldok'>*</h6></label>
+									<label for="inputhouseblocklot" class="form-label">House/Block/Lot No<h6 className='tuldok-white'>*</h6></label>
 									<input type="text" class="form-control" id="inputhouseblocklot" placeholder='House/Block/Lot No' autoComplete='off'
-									onChange={e => setData({...data, name: e.target.value})} required/>
+									onChange={e => setData({...data, name: e.target.value})}/>
 								</div>
 								<div class="details">
-									<label for="inputstreet" class="form-label">Street<h6 className='tuldok'>*</h6></label>
+									<label for="inputstreet" class="form-label">Street<h6 className='tuldok-white'>*</h6></label>
 									<input type="text" class="form-control" id="inputstreet" placeholder='Street' autoComplete='off'
-									onChange={e => setData({...data, name: e.target.value})} required/>
+									onChange={e => setData({...data, name: e.target.value})}/>
 								</div>
 								<div class="details">
-									<label for="inputsubdvillage" class="form-label">Subdivision/Village<h6 className='tuldok'>*</h6></label>
+									<label for="inputsubdvillage" class="form-label">Subdivision/Village<h6 className='tuldok-white'>*</h6></label>
 									<input type="text" class="form-control" id="inputsubdvillage" placeholder='Subdivision/Village' autoComplete='off'
-									onChange={e => setData({...data, name: e.target.value})} required/>
+									onChange={e => setData({...data, name: e.target.value})}/>
 								</div>
 								<div class="details" id='barangay'>
 									<label for="inputbarangay" class="form-label">Barangay<h6 className='tuldok'>*</h6></label>
@@ -233,22 +233,22 @@ function AddEmployee() {
 						<div class="col-2 details">
 							<label for="inputpagibig" class="form-label">Pag-Ibig ID No<h6 className='tuldok-white'>*</h6></label>
 							<input type="text" class="form-control" id="inputpagibig" placeholder='Pag-Ibig ID No' autoComplete='off'
-							onChange={e => setData({...data, name: e.target.value})} required/>
+							onChange={e => setData({...data, name: e.target.value})}/>
 						</div>
 						<div class="col-3 details">
 							<label for="inputphilhealth" class="form-label">PhilHealth No <h6 className='tuldok-white'>*</h6></label>
 							<input type="text" class="form-control" id="inputphilhealth" placeholder='PhilHealth No' autoComplete='off'
-							onChange={e => setData({...data, name: e.target.value})} required/>
+							onChange={e => setData({...data, name: e.target.value})}/>
 						</div>
 						<div class="col-3 details">
 							<label for="inputsss" class="form-label">SSS No<h6 className='tuldok-white'>*</h6></label>
 							<input type="text" class="form-control" id="inputsss" placeholder='SSS No' autoComplete='off'
-							onChange={e => setData({...data, name: e.target.value})} required/>
+							onChange={e => setData({...data, name: e.target.value})}/>
 						</div>
 						<div class="col-3 details" id='status'>
 							<label for="inputtin" class="form-label">TIN No <h6 className='tuldok-white'>*</h6></label>
 							<input type="text" class="form-control" id="inputtin" placeholder='Tin No' autoComplete='off'
-							onChange={e => setData({...data, name: e.target.value})} required/>
+							onChange={e => setData({...data, name: e.target.value})}/>
 						</div>
 					</div>
 				</div>
