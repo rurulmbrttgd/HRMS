@@ -214,14 +214,135 @@
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-  /* .formbanner{
+
+.banner{
+    background-image: url(public/Images/dashboardbanner.jpg);
+    background-size: cover;
+    background-position: center;
+    object-position: top;    
+}
+
+.dflex{
+    width: 750px;
+    justify-content: space-between;
+  }
+  
+  /* Style for the Calendar container */
+  .react-calendar {
+      width: 100%;
+      max-width: 430px; /* Adjust the maximum width as needed */
+      background-color: #645B8B;
+      /* border: 1px solid #ccc;
+      border-radius: 5px; */
+      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+      padding: 10px;
+      border-radius: 10px;
+      color: #222;
+      align-items: center;
+    }
+    
+    /* Style for the Calendar navigation buttons */
+    .react-calendar__navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      color: #645B8B;
+    }
+    
+    /* Style for the Calendar navigation button icons */
+    .react-calendar__navigation__arrow {
+      font-size: 20px;
+      cursor: pointer;
+      border: none;
+      background-color: #645B8B;
+      color: #ffff;
+    }
+    
+    /* Style for the Calendar header */
+    .react-calendar__year-view__months__month,
+    .react-calendar__decade-view__years__year {
+      font-weight: normal;
+      color: #ffffff;
+      background-color: #645B8B;
+    }
+    
+    /* Style for the Calendar days of the week */
+    .react-calendar__month-view__weekdays {
+      background-color: #645B8B;
+      display: flex;
+      justify-content: space-around;
+      padding: 5px 0;
+    }
+    
+    /* Style for each day of the week */
+    .react-calendar__month-view__weekdays__weekday {
+      font-weight: bold;
+      color: #ffffff;
+      margin-left: 1px;
+      text-align: center;
+    }
+    
+    /* Style for Calendar days */
+    .react-calendar__tile {
+      padding: 5px;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      color: #ffffff;
+      background-color: #645B8B;
+      margin-left: 0 ;
+  }
+    
+    /* Style for Calendar days that are not in the current month */
+    .react-calendar__tile--neighboringMonth {
+      color: #999;
+    }
+    
+    /* Style for Calendar days that are selected */
+    .react-calendar__tile--active {
+      background-color: #332a5b;
+      color: #fff;
+      border-radius: 7px;
+      font-weight:500;
+    }
+    
+    /* Style for Calendar days that are hovered */
+    .react-calendar__tile--hover {
+      background-color: #e0e0e0;
+    }
+    
+    /* Style for Calendar days that are disabled */
+    .react-calendar__tile--disabled {
+      color: #645B8B;
+      pointer-events: none;
+    }
+  
+    .react-calendar__navigation__label{
+      color: white;
+      background: #645B8B;
+      border: none;
+      text-align: center;
+      font-weight: bold;
+      
+    }
+    .calendardiv{
+      width: 450px;
+      margin-left: 20px;
+      height: auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  .formbanner{
     background-image: url(Images/bg-capstone.jpg);
     background-size: cover;
     background-position: center;
     object-position: top;
     height: 200px;
-    background-color: red;
-} */
+    /* background-color: red; */
+}
 
 
 .banner{
@@ -397,11 +518,10 @@
   background-color: #ffffff;
   padding: 0 20px; /* Added padding to space out the section-boxes */
 }
-
 .section-box {
   background-color: #ffffff;
   height: 65px;
-  width: calc(30% - 15px); /* Divide equally and account for margins */
+  width: calc(25% - 20px); /* Divide equally and account for margins */
   border-radius: 5px;
   text-align: center;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Added transition for hover effect */
@@ -416,8 +536,6 @@
 
 .section-box:hover {
   background-color: #6D4C97; /* Change to the desired hover background color */
- 
-  
 }
 
 .section-text {
@@ -427,5 +545,61 @@
 
 .section-box:hover .section-text {
   color: #fff; /* Set the text color to white when .section-box is hovered */
+}
+
+.section-text h3{
+  font-size: 21px;
+  color: #6D4C97;
+}
+
+.section-box:hover .section-text h3{
+  color: #ffffff; /* Set the text color to white when .section-box is hovered */
+}
+
+/* CSS to style the TaskList container */
+.right-container{
+  border-color: none;
+ }
+.TaskList {
+  background-color: #8C94C9;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  height:300px ;
+ 
+}
+
+/* CSS to style the task list items */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border: none;
+  word-break: break-word; /* Allow text to wrap to the next line */
+}
+
+/* CSS to style the Edit and Delete buttons */
+.bi-edit,
+.bi-delete {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #37802B;
+  margin-left: 5px; 
+}
+
+.bi-delete {
+  color: #B24343;
+}
+
+.bi-add {
+  background-color: transparent;
+  border: none;
+  font-weight: bolder;
+  color: #ffffff;
 }
 
