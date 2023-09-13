@@ -229,7 +229,7 @@
     object-position: top;
     height: 300px;
 }
-
+/* 
 .section {
     display: flex;
     justify-content: space-between;
@@ -240,18 +240,61 @@
     margin-right: 20px;
     border-radius: 10px;
     background-color: #ffffff;
-    padding: 0 20px; /* Added padding to space out the section-boxes */
+    padding: 0 20px;
 }
-
 .section-box {
-    background-color: #6D4C97;
+    background-color: #ffffff;
     height: 75px;
-    width: calc(25% - 20px); /* Divide equally and account for margins */
+    width: calc(25% - 20px);
     border-radius: 10px;
     color: #ffffff;
     text-align: center;
+    transition: background-color 0.3s ease-in-out; 
+}
+
+.section-box:hover {
+    background-color: #6D4C97;
+} */
+
+/* ====================*/
+/* ... (previously defined styles) ... */
+
+/* ... (previously defined styles) ... */
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 0 20px; /* Added padding to space out the section-boxes */
+}
+
+.section-box {
+  background-color: #ffffff;
+  height: 75px;
+  width: calc(25% - 20px); /* Divide equally and account for margins */
+  border-radius: 10px;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Added transition for hover effect */
+  cursor: pointer; /* Add pointer cursor to indicate clickable */
+  display: flex; /* Add this to center content vertically */
+  flex-direction: column; /* Add this to center content vertically */
+  align-items: center; /* Add this to center content vertically */
+  justify-content: center; /* Add this to center content vertically */
+  text-decoration: none; /* Remove text decoration for links */
+}
+
+.section-box:hover {
+  background-color: #6D4C97; /* Change to the desired hover background color */
+  color: #ffffff;
 }
 
 .section-text {
-    font-size: 20px;
+  font-size: 20px;
+  text-decoration: none; /* Remove text decoration for links */
 }
