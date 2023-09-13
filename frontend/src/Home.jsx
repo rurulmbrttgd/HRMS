@@ -66,7 +66,7 @@ function Home() {
 
               <div class='calendardiv'>
                 <div>
-                  <ReactCalendar /> {/* Insert the Calendar component here */}
+                  <ReactReactCalendar /> {/* Insert the Calendar component here */}
                 </div>
                 <div>
                   

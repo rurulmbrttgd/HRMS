@@ -53,11 +53,9 @@ function Dashboard() {
                
                     </ul>
                     {/* Move the logout button here */}
-                    <li onClick={handleLogout}>
-                    <a href="#" className="nav-link px-0 align-middle text-white">
+                    <a onClick={handleLogout} href="#" className="nav-link px-0 align-middle text-white">
                         <i className="fs-4 bi-power"></i> <span className="ms-1 d-none d-sm-inline">Logout</span>
                     </a>
-                    </li>
                 </div>
                 </div>
 
