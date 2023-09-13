@@ -296,6 +296,15 @@
 
 .section-text h3{
   font-size: 21px;
+  color: #6D4C97;
+}
+
+.section-box:hover .section-text h3{
+  color: #ffffff; /* Set the text color to white when .section-box is hovered */
+}
+
+.section-text h3{
+  font-size: 21px;
 }
 
 /* CSS to style the TaskList container */
