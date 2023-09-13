@@ -36,7 +36,7 @@ function Dashboard() {
                 <div className="d-flex flex-column align-items-center justify-content-center px-3 pt-2 text-white min-vh-100 text-center">
                     <a href="/" className="d-flex-direction-row align-items-center pb-3 mb-md-1 mt-md-3 me-md-auto text-white text-decoration-none">
                         <img src="/public/Images/Capstone-logo.png" alt="HRMS Logo" className="sidebarlogo" />
-                        <span className="fs-5 fw-bolder d-none d-sm-inline align-item">Capstone-Intel HR Management System</span>
+                        <span className="fs-5 fw-bolder d-none d-sm-inline align-item">Capstone-Intel <br></br>HR Management System</span>
                     </a>
 
                     <ul className="nav nav-pills flex-column  mb-sm-auto mb-0 align-items-center align-items-sm-start"  id="menu" style={{ marginTop: '150px' }}>
