@@ -8,6 +8,8 @@ import Home from './Home';
 import AddEmployee from './AddEmployee';
 import FormTopbar from './FormTopbar';
 import WorkExperience from './WorkExperience';
+import OtherInformation from './OtherInformation';
+import LearningDev from './LearningDev';
 
 function App() {
   return (
@@ -19,9 +21,11 @@ function App() {
           {/* <Route path='/profile' element={<Profile />}></Route> */}
         </Route>
 
-        <Route path='/' element={<FormTopbar />}>
+        <Route path="/" element={<FormTopbar />}>
           <Route path="/create" element={<AddEmployee />} />
           <Route path="/workexperience" element={<WorkExperience />} />
+          <Route path="/learningdevelopment" element={<LearningDev />} />
+          <Route path="/otherinformation" element={<OtherInformation />} />
         </Route>
         
         <Route path="/login" element={<Login />} />
