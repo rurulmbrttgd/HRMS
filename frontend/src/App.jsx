@@ -10,16 +10,22 @@ import FormTopbar from './FormTopbar';
 import WorkExperience from './WorkExperience';
 import OtherInformation from './OtherInformation';
 import LearningDev from './LearningDev';
+import TopbarEmployee from './TopbarEmployee';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        
         <Route path="/" element={<Dashboard />}>
           <Route path="/" element={<Home />} />
-          <Route path="/employee" element={<Employee />} />
-          {/* <Route path='/profile' element={<Profile />}></Route> */}
         </Route>
+
+        <Route path="/" element={<TopbarEmployee /> }>
+          <Route path="/employee" element={<Employee />} />
+        </Route>
+          {/* <Route path='/profile' element={<Profile />}></Route> */}
+        
 
         <Route path="/" element={<FormTopbar />}>
           <Route path="/create" element={<AddEmployee />} />

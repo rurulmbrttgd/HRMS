@@ -220,38 +220,6 @@
     object-position: top;
     height: 300px;
 }
-/* 
-.section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100px;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    padding: 0 20px;
-}
-.section-box {
-    background-color: #ffffff;
-    height: 75px;
-    width: calc(25% - 20px);
-    border-radius: 10px;
-    color: #ffffff;
-    text-align: center;
-    transition: background-color 0.3s ease-in-out; 
-}
-
-.section-box:hover {
-    background-color: #6D4C97;
-} */
-
-/* ====================*/
-/* ... (previously defined styles) ... */
-
-/* ... (previously defined styles) ... */
-
 .section {
   display: flex;
   justify-content: space-between;
@@ -281,8 +249,6 @@
 
 .section-box:hover {
   background-color: #6D4C97; /* Change to the desired hover background color */
- 
-  
 }
 
 .section-text {
@@ -301,10 +267,6 @@
 
 .section-box:hover .section-text h3{
   color: #ffffff; /* Set the text color to white when .section-box is hovered */
-}
-
-.section-text h3{
-  font-size: 21px;
 }
 
 /* CSS to style the TaskList container */
@@ -353,3 +315,4 @@
   font-weight: bolder;
   color: #ffffff;
 }
+
