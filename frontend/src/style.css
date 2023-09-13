@@ -1,3 +1,5 @@
+@import url("addemployee.css");
+
 .loginPage {
     background: url('/public/Images/background.png');
     background-position: center;
@@ -399,7 +401,7 @@
 .section-box {
   background-color: #ffffff;
   height: 65px;
-  width: calc(25% - 20px); /* Divide equally and account for margins */
+  width: calc(30% - 15px); /* Divide equally and account for margins */
   border-radius: 5px;
   text-align: center;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Added transition for hover effect */
@@ -409,6 +411,7 @@
   align-items: center; /* Add this to center content vertically */
   justify-content: center; /* Add this to center content vertically */
   text-decoration: none; /* Remove text decoration for links */
+
 }
 
 .section-box:hover {
@@ -426,6 +429,3 @@
   color: #fff; /* Set the text color to white when .section-box is hovered */
 }
 
-.section-text h3{
-  font-size: 20px;
-}
