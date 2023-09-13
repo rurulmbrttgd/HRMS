@@ -30,12 +30,12 @@ function AddEmployee() {
 	}
 	return (
 		<div className='d-flex flex-column align-items-center pt-4'>
-			<h2>Add Employee</h2>
+			<h2>Personal Information</h2>
 			<form class="row g-3 w-50" onSubmit={handleSubmit}>
 			<div class="col-12">
 					<label for="inputName" class="form-label">Name</label>
 					<input type="text" class="form-control" id="inputName" placeholder='Enter Name' autoComplete='off'
-					onChange={e => setData({...data, name: e.target.value})}/>
+					onChange={e => setData({...data, name: e.target.value})} required/>
 				</div>
 				<div class="col-12">
 					<label for="inputEmail4" class="form-label">Email</label>
