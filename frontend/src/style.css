@@ -268,21 +268,33 @@
 .section-box:hover .section-text h3{
   color: #ffffff; /* Set the text color to white when .section-box is hovered */
 }
+/*HOVER NG ACTIVE COMPONENT*/
+.section-box.active {
+  background-color: #6D4C97; 
 
-/* CSS to style the TaskList container */
+}
+.section-box.active .section-text h3{
+  color: #fff; 
+}
+
+.section-text h3{
+  font-size: 21px;
+}
+
+/*  TaskList container hehe */
 .right-container{
   border-color: none;
  }
 .TaskList {
-  background-color: #8C94C9;
+  background-color: #8C94C9; 
   color: white;
   padding: 10px;
   border-radius: 5px;
-  height:300px ;
- 
+  height: 300px;
+  overflow-y: auto; 
 }
 
-/* CSS to style the task list items */
+/* Other styles for task list items */
 .task-item {
   display: flex;
   justify-content: space-between;
@@ -292,17 +304,17 @@
   margin-bottom: 10px;
   background-color: transparent;
   border: none;
-  word-break: break-word; /* Allow text to wrap to the next line */
+  word-break: break-word; 
 }
 
-/* CSS to style the Edit and Delete buttons */
+/* Styles for Edit and Delete buttons */
 .bi-edit,
 .bi-delete {
   background-color: transparent;
   border: none;
   cursor: pointer;
   color: #37802B;
-  margin-left: 5px; 
+  margin-left: 5px;
 }
 
 .bi-delete {
@@ -312,7 +324,14 @@
 .bi-add {
   background-color: transparent;
   border: none;
-  font-weight: bolder;
-  color: #ffffff;
+  font-weight:900;
+  font-size: larger;
+  color: #645B8B;
 }
 
+i .bi-circle{
+  font-size: 10px;
+}
+
+.bi-save, .bi-cancel{background-color: transparent;
+border: none;}
