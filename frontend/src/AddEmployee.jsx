@@ -224,7 +224,7 @@ function AddEmployee() {
 						</div>
 						<div class="details">
 							<label for="inputzip" class="form-label">Zip Code<h6 className='tuldok-white'>*</h6></label>
-							<input type="text" class="form-control" id="inputzip" placeholder='Zip Code' autoComplete='off'
+							<input type="number" class="form-control" id="inputzip" placeholder='Zip Code' autoComplete='off'
 							onChange={e => setData({...data, name: e.target.value})}/>
 						</div>
 					</div>
