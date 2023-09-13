@@ -57,11 +57,11 @@ function AddEmployee() {
 					<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" autoComplete='off'
 					onChange={e => setData({...data, address: e.target.value})}/>
 				</div>
-				<div class="col-12 mb-3">
+				{/* <div class="col-12 mb-3">
 					<label class="form-label" for="inputGroupFile01">Select Image</label>
 					<input type="file" class="form-control" id="inputGroupFile01"
 					onChange={e => setData({...data, image: e.target.files[0]})}/>
-				</div>
+				</div> */}
 				<div class="col-12">
 					<button type="submit" class="btn btn-primary">Create</button>
 				</div>
