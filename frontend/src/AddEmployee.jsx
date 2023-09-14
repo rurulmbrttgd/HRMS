@@ -230,7 +230,7 @@ function AddEmployee() {
 					</div>
 					</div>
 						)}
-					{/* ============================================== Pagibig ==================================================================*/}
+					{/* ============================================= Pagibig ==================================================================*/}
 					<div className="d-flex flex-rows align-items-left first-row">
 						<div class="col-2 details">
 							<label for="inputpagibig" class="form-label">Pag-Ibig ID No<h6 className='tuldok-white'>*</h6></label>
