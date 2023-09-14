@@ -1,7 +1,8 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './style.css';
+import './addemployee.css';
 
 function WorkExperienceForm() {
   const [formData, setFormData] = useState({
@@ -16,19 +17,64 @@ function WorkExperienceForm() {
   });
 
   const [workExperiences, setWorkExperiences] = useState([]);
+  const [formErrors, setFormErrors] = useState({
+    from: '',
+    to: '',
+    positionTitle: '',
+    company: '',
+    // Add error fields for other required fields as needed
+  });
 
   const addWorkExperience = () => {
-    setWorkExperiences([...workExperiences, formData]);
-    setFormData({
-      from: '',
-      to: '',
-      positionTitle: '',
-      company: '',
-      monthlySalary: '',
-      salaryIncrement: '',
-      employmentStatus: '',
-      governmentService: '',
-    });
+    const newFormErrors = { ...formErrors };
+
+    // Check if required fields are not empty
+    if (formData.from === '') {
+      newFormErrors.from = 'Start year is required';
+    } else {
+      newFormErrors.from = '';
+    }
+
+    if (formData.to === '') {
+      newFormErrors.to = 'End year is required';
+    } else {
+      newFormErrors.to = '';
+    }
+
+    if (formData.positionTitle === '') {
+      newFormErrors.positionTitle = 'Position Title is required';
+    } else {
+      newFormErrors.positionTitle = '';
+    }
+
+    if (formData.company === '') {
+      newFormErrors.company = 'Company is required';
+    } else {
+      newFormErrors.company = '';
+    }
+
+    // Check if any of the required fields are empty
+    if (
+      newFormErrors.from === '' &&
+      newFormErrors.to === '' &&
+      newFormErrors.positionTitle === '' &&
+      newFormErrors.company === ''
+    ) {
+      setWorkExperiences([...workExperiences, formData]);
+      setFormData({
+        from: '',
+        to: '',
+        positionTitle: '',
+        company: '',
+        monthlySalary: '',
+        salaryIncrement: '',
+        employmentStatus: '',
+        governmentService: '',
+      });
+    } else {
+      // Update the form errors state to show error messages
+      setFormErrors(newFormErrors);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -56,24 +102,23 @@ function WorkExperienceForm() {
   const years = generateYearOptions(1990, 2030);
 
   return (
-
     <div className='d-flex flex-column align-items-left pt-4 shadow mainContainer'>
-       <div className="row">
-    <div className="col-md-10">
-    <h2>Work Experience</h2>  
-    </div>
-    <div className="col-md-2 text-md-end">
-      <button type="button" className="btn-add" onClick={addWorkExperience}>
-        <i className="bi bi-plus bi-plus-circle-fill"></i> Add New
-      </button>
-    </div>
-  </div>
+      <div className="row">
+        <div className="col-md-10">
+          <h2>Work Experience</h2>
+        </div>
+        <div className="col-md-2 text-md-end">
+          <button type="button" className="btn-add" onClick={addWorkExperience}>
+            <i className="bi bi-plus bi-plus-circle-fill"></i> Add New
+          </button>
+        </div>
+      </div>
       <hr></hr>
       <form className="row g-3 w-100" onSubmit={handleSubmit}>
         <div className="add-container">
           <div className="d-flex flex-rows align-items-left first-row">
             <div className="col-2 details">
-              <label htmlFor="from" className="form-label">From</label>
+              <label htmlFor="from" className="form-label">From<h6 className='tuldok'>*</h6></label>
               <select
                 className="form-select"
                 id="from"
@@ -88,9 +133,10 @@ function WorkExperienceForm() {
                   </option>
                 ))}
               </select>
+              <div className="text-danger">{formErrors.from}</div>
             </div>
             <div className="col-2 details">
-              <label htmlFor="to" className="form-label">To</label>
+              <label htmlFor="to" className="form-label">To<h6 className='tuldok'>*</h6></label>
               <select
                 className="form-select"
                 id="to"
@@ -105,9 +151,10 @@ function WorkExperienceForm() {
                   </option>
                 ))}
               </select>
+              <div className="text-danger">{formErrors.to}</div>
             </div>
             <div className="col-4 details">
-              <label htmlFor="positionTitle" className="form-label">Position Title</label>
+              <label htmlFor="positionTitle" className="form-label">Position Title<h6 className='tuldok'>*</h6></label>
               <input
                 type="text"
                 className="form-control"
@@ -115,10 +162,13 @@ function WorkExperienceForm() {
                 name="positionTitle"
                 placeholder="Position Title"
                 value={formData.positionTitle}
-                onChange={handleChange}/>
+                onChange={handleChange}
+                required
+              />
+              <div className="text-danger">{formErrors.positionTitle}</div>
             </div>
             <div className="col-3 details">
-              <label htmlFor="company" className="form-label">Company</label>
+              <label htmlFor="company" className="form-label">Company<h6 className='tuldok'>*</h6></label>
               <input
                 type="text"
                 className="form-control"
@@ -127,7 +177,10 @@ function WorkExperienceForm() {
                 placeholder="Company"
                 autoComplete="off"
                 value={formData.company}
-                onChange={handleChange}/>
+                onChange={handleChange}
+                required
+              />
+              <div className="text-danger">{formErrors.company}</div>
             </div>
           </div>
           <div className="d-flex flex-rows align-items-left first-row">
@@ -184,9 +237,7 @@ function WorkExperienceForm() {
                 <option value="No">No</option>
               </select>
             </div>
-            
           </div>
-        
         </div>
       </form>
       {/* Display added work experiences */}
