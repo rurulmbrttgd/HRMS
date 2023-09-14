@@ -289,14 +289,14 @@ function OtherInformation() {
                 <div className='d-inline-block w-50'>
                   <textarea name="details" form='details' className='w-100'></textarea>
                 </div>
-              
-              
             </div>  
           </div>  
           </div>
-          
-
-          
+          <div className="col-12">
+            <button type="button" className="btn btn-primary mb-4 bg-" onClick={addWorkExperience}>
+              Done
+            </button>
+          </div>
         </form>
       </div>
     </div>
