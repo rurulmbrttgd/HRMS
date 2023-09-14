@@ -338,6 +338,36 @@ i .bi-circle{
 .bi-save, .bi-cancel{background-color: transparent;
 border: none;}
 
+
+/*WORK EXP AND L&D*/
+.btn-add {
+  border-radius: 50px;
+  background: #008EC2;
+  color: #ffff;
+  border: none;
+  display: flex;
+  width: 157px;
+  height: 58px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: bolder;
+  
+}
+
+.bi-plus {
+  color: #008EC2;
+  background-color: #fff;
+  border-radius: 50%; 
+  width: 20px;
+  height: 20px; 
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; /* Adjust the font size as needed */
+  display:flex;
+}
+
+
 /*WORK EXP AND L&D*/
 .btn-add {
   border-radius: 50px;
