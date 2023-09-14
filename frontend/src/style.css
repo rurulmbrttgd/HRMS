@@ -1,5 +1,6 @@
-@import url("addemployee.css");
-
+#root{
+  font-family: 'Poppins', sans-serif;
+}
 .loginPage {
     background: url('/public/Images/background.png');
     background-position: center;
@@ -138,6 +139,10 @@
       color: #ffff;
     }
     
+    .react-calendar__navigation__next2-button,
+    .react-calendar__navigation__prev2-button {
+    color: #645B8B;
+    } 
     /* Style for the Calendar header */
     .react-calendar__year-view__months__month,
     .react-calendar__decade-view__years__year {
@@ -209,10 +214,8 @@
       width: 450px;
       margin-left: 20px;
       height: auto;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      /* border-radius: 5px; */
+      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
     }
 
 .banner{
@@ -556,21 +559,30 @@
 .section-box:hover .section-text h3{
   color: #ffffff; /* Set the text color to white when .section-box is hovered */
 }
+/*HOVER NG ACTIVE COMPONENT*/
+.section-box.active {
+  background-color: #6D4C97; 
 
-/* CSS to style the TaskList container */
-.right-container{
-  border-color: none;
- }
-.TaskList {
-  background-color: #8C94C9;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  height:300px ;
- 
+}
+.section-box.active .section-text h3{
+  color: #fff; 
 }
 
-/* CSS to style the task list items */
+.section-text h3{
+  font-size: 21px;
+}
+
+/*  TaskList container hehe */
+.TaskList {
+  background-color: #8C94C9; 
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  height: 300px;
+  overflow-y: auto; 
+}
+
+/* Other styles for task list items */
 .task-item {
   display: flex;
   justify-content: space-between;
@@ -580,17 +592,17 @@
   margin-bottom: 10px;
   background-color: transparent;
   border: none;
-  word-break: break-word; /* Allow text to wrap to the next line */
+  word-break: break-word; 
 }
 
-/* CSS to style the Edit and Delete buttons */
+/* Styles for Edit and Delete buttons */
 .bi-edit,
 .bi-delete {
   background-color: transparent;
   border: none;
   cursor: pointer;
   color: #37802B;
-  margin-left: 5px; 
+  margin-left: 5px;
 }
 
 .bi-delete {
@@ -600,14 +612,75 @@
 .bi-add {
   background-color: transparent;
   border: none;
-  font-weight: bolder;
-  color: #ffffff;
+  font-weight:900;
+  font-size: larger;
+  color: #645B8B;
 }
 
-.hr{
-  width: 98%;
-  border: solid 1px;
-  border-color: black;
+i .bi-circle{
+  font-size: 10px;
+}
+
+.bi-save, .bi-cancel{background-color: transparent;
+border: none;}
+
+
+/*WORK EXP AND L&D*/
+.btn-add {
+  border-radius: 50px;
+  background: #008EC2;
+  color: #ffff;
+  border: none;
+  display: flex;
+  width: 157px;
+  height: 58px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: bolder;
+  
+}
+
+.bi-plus {
+  color: #008EC2;
+  background-color: #fff;
+  border-radius: 50%; 
+  width: 20px;
+  height: 20px; 
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; /* Adjust the font size as needed */
+  display:flex;
+}
+
+
+/*WORK EXP AND L&D*/
+.btn-add {
+  border-radius: 50px;
+  background: #008EC2;
+  color: #ffff;
+  border: none;
+  display: flex;
+  width: 157px;
+  height: 58px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: bolder;
+  
+}
+
+
+.bi-plus {
+  color: #008EC2;
+  background-color: #fff;
+  border-radius: 50%; 
+  width: 20px;
+  height: 20px; 
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; /* Adjust the font size as needed */
+  display:flex;
 }
 
 .checkbox{

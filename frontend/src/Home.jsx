@@ -1,9 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './style.css'
-import Calendar from 'react-calendar';
-import TodoList from './TaskList';
-
+import Calendar from 'react-calendar'
+import TodoList from './TaskList'
 
 
 const ReactCalendar = () => {
@@ -71,7 +70,7 @@ function Home() {
               <div>
                 <ReactCalendar /> {/* Insert the Calendar component here */}
               </div>
-              <div className='TaskList-container px-1 pt-2 pb-1 border'>
+              <div className='TaskList-container pt-2 pb-1'>
            <TodoList /> {/* Insert the TodoList component here */}
          </div>
               <div>

@@ -1,33 +1,37 @@
 import React, { useState } from 'react'
+import Dashboard from './Dashboard';
 import './style.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-function Login() {
+export default function Login() {
 
     const [values, setValues] = useState({
         username: '',
         password: ''
     })
+    
     const navigate = useNavigate()
     axios.defaults.withCredentials = true;
-
     const [error, setError] = useState('')
+
+    axios.defaults.withCredentials = true;
 
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.post('http://localhost:8081/login', values)
-        .then(res => {
-            if(res.data.Status === 'Success') {
-                navigate('/');
-            } else {
-
-                setError(res.data.Error);
-            }
-        })
-        .catch(err => console.log(err));
-    }
-
+            .then(res => {
+                if (res.data.Status === "Login Successfully!") {
+                    navigate('/');
+                } else {
+                    setError("Wrong Email or Password");
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                setError("Invalid Credentials");
+            });
+    };
 
     return (
         <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>
@@ -47,9 +51,10 @@ function Login() {
                     <div className="mb-3">
                         <label htmlFor="username"><strong>Username</strong></label>
                         <input
-                            type="username"
+                            type="text"
                             placeholder="Email or Username"
                             name="username"
+                            autoComplete='off'
                             className="form-control rounded-20"
                             onChange={e => setValues({...values, username: e.target.value})}
                         />
@@ -65,14 +70,8 @@ function Login() {
                         />
                     </div>
                     <button type="submit" className="btn btn-success w-100 rounded-20">Log in</button>
-                    <p>You agree to our terms and conditions</p>
-                    {/* <button className="btn btn-default border w-100 bg-light rounded-20">
-                        Create Account
-                    </button> */}
                 </form>
             </div>
         </div>
     );
 }
-
-export default Login;

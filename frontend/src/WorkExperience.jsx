@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import './style.css';
 
 function WorkExperienceForm() {
   const [formData, setFormData] = useState({
@@ -57,7 +58,16 @@ function WorkExperienceForm() {
   return (
 
     <div className='d-flex flex-column align-items-left pt-4 shadow mainContainer'>
-      <h2>Work Experience</h2>
+       <div className="row">
+    <div className="col-md-10">
+    <h2>Work Experience</h2>  
+    </div>
+    <div className="col-md-2 text-md-end">
+      <button type="button" className="btn-add" onClick={addWorkExperience}>
+        <i className="bi bi-plus bi-plus-circle-fill"></i> Add New
+      </button>
+    </div>
+  </div>
       <hr></hr>
       <form className="row g-3 w-100" onSubmit={handleSubmit}>
         <div className="add-container">
@@ -176,13 +186,7 @@ function WorkExperienceForm() {
             </div>
             
           </div>
-          <div className="d-flex flex-rows align-items-left first-row">
-            <div className="col-12">
-                <button type="button" className="btn btn-primary" onClick={addWorkExperience}>
-                  Add Another Field of Work Experience
-                </button>
-            </div>
-          </div>
+        
         </div>
       </form>
       {/* Display added work experiences */}
@@ -192,7 +196,7 @@ function WorkExperienceForm() {
           {workExperiences.map((workExp, index) => (
             <li key={index}>
               {/* Display work experience details here */}
-              {`From: ${workExp.from}, To: ${workExp.to}, Position Title: ${workExp.positionTitle}, Company: ${workExp.company}`}
+              {`From: ${workExp.from}, To: ${workExp.to}, Position Title: ${workExp.positionTitle}, Company: ${workExp.company}, Monthly Salary: ${workExp.monthlySalary}, Salary Increment: ${workExp.salaryIncrement}, Status of Employment: ${workExp.employmentStatus}, Government Service: ${workExp.governmentService}`}
               {/* Add other fields as needed */}
             </li>
           ))}
