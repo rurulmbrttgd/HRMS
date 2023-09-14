@@ -56,7 +56,7 @@ function TaskList() {
           onChange={(e) => setTaskText(e.target.value)}
         />
         <div className="input-group-append">
-          <button className="bi-add bi-plus-lg" type="button" onClick={addTask}></button>
+          <button className="bi-add bi-plus-lg fw-bold" type="button" onClick={addTask}></button>
         </div>
       </div>
       <div className="list-item">
