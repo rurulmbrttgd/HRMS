@@ -235,7 +235,7 @@
   margin-right: 20px;
   border-radius: 10px;
   background-color: #ffffff;
-  padding: 0 20px; /* Added padding to space out the section-boxes */
+  padding: 0 20px;
 }
 .section-box {
   background-color: #ffffff;
@@ -261,7 +261,7 @@
   color: #000000;
 }
 
-.section-box:hover .section-text {
+.section-box:hover .section-text h3 {
   color: #fff; /* Set the text color to white when .section-box is hovered */
 }
 
@@ -270,15 +270,19 @@
   color: #6D4C97;
 }
 
-.section-box:hover .section-text h3{
+.section-box:hover .section-text{
   color: #ffffff; /* Set the text color to white when .section-box is hovered */
 }
+
+
 /*HOVER NG ACTIVE COMPONENT*/
-.section-box.active {
+.section-box.active{
   background-color: #6D4C97; 
+  color: #ffff;
 
 }
-.section-box.active .section-text h3{
+
+.section-box.active .section-text{
   color: #fff; 
 }
 
@@ -293,7 +297,13 @@
   padding: 10px;
   border-radius: 10px;
   height: 300px;
+
+  max-width: 430px;
   overflow-y: auto; 
+}
+
+.TaskList-container{
+  padding-top: 10px;
 }
 
 /* Other styles for task list items */
