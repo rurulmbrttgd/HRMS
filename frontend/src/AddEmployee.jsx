@@ -69,22 +69,21 @@ function AddEmployee() {
 							<label htmlFor="inputsuffix" class="form-label">Suffix <h6 className='tuldok-white'>*</h6></label>
 							{/* <input type="text" class="form-control" id="inputsuffix" placeholder='Suffix' autoComplete='off'
 							onChange={e => setData({...data, name: e.target.value})}/> */}
-							<br></br><select id="suffix">
-								<option>Suffix</option>
-								<option>Jr</option>
-								<option>Sr</option>
-								<option>II</option>
-								<option>III</option>
-								<option>IV</option>
+							<br></br><select id="suffix" defaultValue="">
+								<option value=""hidden>Suffix</option>
+								<option value="Jr">Jr</option>
+								<option value="Sr">Sr</option>
+								<option value="II">II</option>
+								<option value="III">III</option>
+								<option value="IV">IV</option>
 							</select>
 						</div>
 						<div class="col-1 details">
 							<label htmlFor="inputsex" class="form-label">Sex <h6 className='tuldok'>*</h6></label>
-							<br></br><select id="sex">
-								<option>Sex</option>
-								<option>Male</option>
-								<option>Female</option>
-								<option>Prefer not to say</option>
+							<br></br><select id="sex" defaultValue="">
+								<option value="" hidden>Sex</option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
 							</select>
 							{/* <input type="text" class="form-control" id="inputsex" placeholder='Sex' autoComplete='off'
 							onChange={e => setData({...data, name: e.target.value})} required/> */}
@@ -109,13 +108,12 @@ function AddEmployee() {
 						</div>
 						<div class="col-3 details" id='status'>
 							<label htmlFor="inputstatus" class="form-label">Civil Status <h6 className='tuldok'>*</h6></label>
-							<br></br><select id="status">
-								<option>Civil Status</option>
-								<option>Single</option>
-								<option>Married</option>
-								<option>Separated</option>
-								<option>Divorsed</option>
-								<option>Widowed</option>
+							<br></br><select id="status" defaultValue="">
+								<option value="" hidden>Civil Status</option>
+								<option value="Single">Single</option>
+								<option value="Married">Married</option>
+								<option value="Separated">Separated</option>
+								<option value="Divorced">Divorsed</option>
 							</select>
 							{/* <input type="text" class="form-control" id="inputstatus" placeholder='Status' autoComplete='off'
 							onChange={e => setData({...data, name: e.target.value})} required/> */}
