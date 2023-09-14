@@ -136,6 +136,10 @@
       color: #ffff;
     }
     
+    .react-calendar__navigation__next2-button,
+    .react-calendar__navigation__prev2-button {
+    color: #645B8B;
+    } 
     /* Style for the Calendar header */
     .react-calendar__year-view__months__month,
     .react-calendar__decade-view__years__year {
@@ -282,14 +286,11 @@
 }
 
 /*  TaskList container hehe */
-.right-container{
-  border-color: none;
- }
 .TaskList {
   background-color: #8C94C9; 
   color: white;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   height: 300px;
   overflow-y: auto; 
 }
@@ -335,3 +336,32 @@ i .bi-circle{
 
 .bi-save, .bi-cancel{background-color: transparent;
 border: none;}
+
+/*WORK EXP AND L&D*/
+.btn-add {
+  border-radius: 50px;
+  background: #008EC2;
+  color: #ffff;
+  border: none;
+  display: flex;
+  width: 157px;
+  height: 58px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: bolder;
+  
+}
+
+
+.bi-plus {
+  color: #008EC2;
+  background-color: #fff;
+  border-radius: 50%; 
+  width: 20px;
+  height: 20px; 
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; /* Adjust the font size as needed */
+  display:flex;
+}
