@@ -3,19 +3,22 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Employee() {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
 
-  useEffect(()=> {
-    axios.get('http://localhost:8081/getEmployee')
-    .then(res => {
-      if(res.data.Status === "Success") {
-        setData(res.data.Result);
-      } else {
-        alert("Error")
-      }
-    })
-    .catch(err => console.log(err));
-  }, [])
+  useEffect(() => {
+    axios.get('http://localhost:8081/employee')
+      .then((res) => {
+        if (res.data.status === "Success") {
+          setData(res.data.data); // Assuming employee data is in the 'data' field
+        } else {
+          setError("Error: Unable to fetch employee data");
+        }
+      })
+      .catch((err) => {
+        setError(`Error: ${err.message}`);
+      });
+  }, []);
 
   const handleDelete = (id) => {
     axios.delete('http://localhost:8081/delete/'+id)
@@ -39,24 +42,24 @@ function Employee() {
         <table className='table'>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Image</th>
-              <th>Email</th>
-              <th>Address</th>
-              <th>Salary</th>
-              <th>Action</th>
+              <th scope="col">Employee ID</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">Date of Birth</th>
+              <th scope="col">Email</th>
+              <th scope="col">Type</th>
+              <th scope="col">Department</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
             {data.map((employee, index) => {
               return <tr key={index}>
-                  <td>{employee.name}</td>
-                  <td>{
-                    <img src={`http://localhost:8081/images/`+employee.image} alt="" className='employee_image'/>
-                    }</td>
+                  <td>{employee.ID}</td>
+                  <td>{employee.fullName}</td>
+                  <td>{employee.dateOfBirth}</td>
                   <td>{employee.email}</td>
-                  <td>{employee.address}</td>
-                  <td>{employee.salary}</td>
+                  <td>{employee.typeName}</td>
+                  <td>{employee.departments}</td>
                   <td>
                     <Link to={`/employeeEdit/`+employee.id} className='btn btn-primary btn-sm me-2'>edit</Link>
                     <button onClick={e => handleDelete(employee.id)} className='btn btn-sm btn-danger'>delete</button>
