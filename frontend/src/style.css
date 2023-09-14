@@ -550,6 +550,7 @@
 .section-text h3{
   font-size: 21px;
   color: #6D4C97;
+  transition: 1s;
 }
 
 .section-box:hover .section-text h3{
@@ -603,3 +604,20 @@
   color: #ffffff;
 }
 
+.hr{
+  width: 98%;
+  border: solid 1px;
+  border-color: black;
+}
+
+.checkbox{
+  margin-right: 10px;
+}
+
+.answer{
+  margin-right: 10px;
+}
+
+.separated{
+  padding-right: 100px;
+}
