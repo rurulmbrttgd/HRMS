@@ -1,246 +1,60 @@
-// import express from 'express'
-// import mysql from 'mysql'
-// import cors from 'cors'
-// import cookieParser from 'cookie-parser'
-// // import second from 'bcrypt'
-// // import jwt from 'jsonwebtoken'
-
-// const app = express();
-// app.use(cors());
-// app.use(cookieParser());
-// app.use(express.json());
-
-// const con = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "",
-//     database: "signup"
-// })
-
-// con.connect(function(err) {
-//     if(err) {
-//         console.log("Error in Connection");
-//     } else {
-//         console.log("Connected");
-//     }
-// })
-
-// app.post('/login', (req, res) => {
-//     const sql = "SELECT * FROM users WHERE username = ? AND password = ?";
-//     con.query(sql, [req.body.email, req.body.password], (err, result) => {
-//         if(err)
-//             return 
-//             res.json({Status: "Error!", Error: "Error in running query"});
-//         if(result.length > 0) {
-//             return res.json({Success: "Success!"});
-//         } else {
-//             return res.json({Status: "Error!", Error: "Wrong Credentials!"});
-//         }
-//     })
-// })
-// app.listen(8081, () => {
-//     console.log("Running");
-// })
-
 import express from 'express'
 import mysql from 'mysql'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-// import multer from 'multer'
-import path from 'path'
+// import second from 'bcrypt'
 
 const app = express();
+app.use(express.json());
 app.use(cors(
     {
         origin: ["http://localhost:5173"],
-        methods: ["POST", "GET", "PUT"],
+        methods: ["POST", "GET"],
         credentials: true
     }
-));
+))
 app.use(cookieParser());
-app.use(express.json());
-app.use(express.static('public'));
 
-const con = mysql.createConnection({
+const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "signup"
+    database: "capstone_hris"
 })
-
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         cb(null, 'public/images')
-//     },
-//     filename: (req, file, cb) => {
-//         cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname));
-//     }
-// })
-
-// const upload = multer({
-//     storage: storage
-// })
-
-con.connect(function(err) {
-    if(err) {
-        console.log("Error in Connection");
-    } else {
-        console.log("Connected");
-    }
-})
-
-// app.get('/getEmployee', (req, res) => {
-//     const sql = "SELECT * FROM employee";
-//     con.query(sql, (err, result) => {
-//         if(err) return res.json({Error: "Get employee error in sql"});
-//         return res.json({Status: "Success", Result: result})
-//     })
-// })
-
-app.get('/get/:id', (req, res) => {
-    const id = req.params.id;
-    const sql = "SELECT * FROM employee where id = ?";
-    con.query(sql, [id], (err, result) => {
-        if(err) return res.json({Error: "Get employee error in sql"});
-        return res.json({Status: "Success", Result: result})
-    })
-})
-
-// app.put('/update/:id', (req, res) => {
-//     const id = req.params.id;
-//     const sql = "UPDATE employee set salary = ? WHERE id = ?";
-//     con.query(sql, [req.body.salary, id], (err, result) => {
-//         if(err) return res.json({Error: "update employee error in sql"});
-//         return res.json({Status: "Success"})
-//     })
-// })
-
-// app.delete('/delete/:id', (req, res) => {
-//     const id = req.params.id;
-//     const sql = "Delete FROM employee WHERE id = ?";
-//     con.query(sql, [id], (err, result) => {
-//         if(err) return res.json({Error: "delete employee error in sql"});
-//         return res.json({Status: "Success"})
-//     })
-// })
-
-const verifyUser = (req, res, next) => {
-    const token = req.cookies.token;
-    if(!token) {
-        return res.json({Error: "You are no Authenticated"});
-    } else {
-        jwt.verify(token, "jwt-secret-key", (err, decoded) => {
-            if(err) return res.json({Error: "Token wrong"});
-            req.role = decoded.role;
-            req.id = decoded.id;
-            next();
-        } )
-    }
-}
-
-// app.get('/dashboard',verifyUser, (req, res) => {
-//     return res.json({Status: "Success", role: req.role, id: req.id})
-// })
-
-// app.get('/adminCount', (req, res) => {
-//     const sql = "Select count(id) as admin from users";
-//     con.query(sql, (err, result) => {
-//         if(err) return res.json({Error: "Error in runnig query"});
-//         return res.json(result);
-//     })
-// })
-// app.get('/employeeCount', (req, res) => {
-//     const sql = "Select count(id) as employee from employee";
-//     con.query(sql, (err, result) => {
-//         if(err) return res.json({Error: "Error in runnig query"});
-//         return res.json(result);
-//     })
-// })
-
-// app.get('/salary', (req, res) => {
-//     const sql = "Select sum(salary) as sumOfSalary from employee";
-//     con.query(sql, (err, result) => {
-//         if(err) return res.json({Error: "Error in runnig query"});
-//         return res.json(result);
-//     })
-// })
 
 app.post('/login', (req, res) => {
-    const sql = "SELECT * FROM users WHERE username = ? AND  password = ?";
-    con.query(sql, [req.body.email, req.body.password], (err, result) => {
-        if(err) return res.json({Status: "Error", Error: "Error in runnig query"});
-        if(result.length > 0) {
-            const id = result[0].id;
-            const token = jwt.sign({role: "admin"}, "jwt-secret-key", {expiresIn: '1d'});
+    const { username, password } = req.body;
+    const sql = "SELECT * FROM users_login WHERE (username = ? OR email = ?) AND password = ?";
+    db.query(sql, [username, username, password], (err, data) => {
+        if (err) {
+            return res.status(500).json({ Message: "Server Side Error" });
+        }
+        if (data.length === 0) {
+            return res.status(401).json({ Message: "Wrong Email or Password" });
+        } else {
+            const token = jwt.sign({ role: "admin" }, "jwt-secret-key", { expiresIn: '1d' });
             res.cookie('token', token);
-            return res.json({Status: "Success"})
-        } else {
-            return res.json({Status: "Error", Error: "Wrong Email or Password"});
+            return res.json({ Status: "Login Successfully!" });
         }
-    })
-})
+    });
+});
 
-app.post('/employeelogin', (req, res) => {
-    const sql = "SELECT * FROM employee WHERE username = ?";
-    con.query(sql, [req.body.email], (err, result) => {
-        if(err) return res.json({Status: "Error", Error: "Error in runnig query"});
-        if(result.length > 0) {
-            bcrypt.compare(req.body.password.toString(), result[0].password, (err, response)=> {
-                if(err) return res.json({Error: "password error"});
-                if(response) {
-                    const token = jwt.sign({role: "employee", id: result[0].id}, "jwt-secret-key", {expiresIn: '1d'});
-                    res.cookie('token', token);
-                    return res.json({Status: "Success", id: result[0].id})
-                } else {
-                    return res.json({Status: "Error", Error: "Wrong Email or Password"});
-                }
-                
-            })
-            
-        } else {
-            return res.json({Status: "Error", Error: "Wrong Email or Password"});
-        }
-    })
-})
+app.get('/employee', (req, res) => {
+    const sql = `SELECT e.ID, CONCAT(e.firstName, ' ', e.surname) AS fullName, DATE_FORMAT(e.dateOfBirth, '%M %e, %Y') AS dateOfBirth, e.email, t.typeName, GROUP_CONCAT(d.deptName ORDER BY d.deptName ASC SEPARATOR ', ') AS departments FROM employees AS e INNER JOIN type AS t ON e.typeID = t.ID JOIN department_employee AS de ON e.ID = de.employeeID JOIN department AS d ON de.deptID = d.ID GROUP BY e.ID, e.firstName, e.surname, e.dateOfBirth, e.email, t.typeName ORDER BY e.ID`;
 
-// app.get('/employee/:id', (req, res) => {
-//     const id = req.params.id;
-//     const sql = "SELECT * FROM employee where id = ?";
-//     con.query(sql, [id], (err, result) => {
-//         if(err) return res.json({Error: "Get employee error in sql"});
-//         return res.json({Status: "Success", Result: result})
-//     })
-// })
+    db.query(sql, (err, data) => {
+      if (err) {
+        console.error('Error executing query:', err);
+        res.status(500).json({ status: 'Error', message: 'Internal server error' });
+      } else {
+        res.json({ status: 'Success', data });
+      }
+    });
+  });
+  
 
 
-
-
-app.get('/logout', (req, res) => {
-    res.clearCookie('token');
-    return res.json({Status: "Success"});
-})
-
-// app.post('/create',upload.single('image'), (req, res) => {
-//     const sql = "INSERT INTO employee (`name`,`email`,`password`, `address`, `salary`,`image`) VALUES (?)";
-//     bcrypt.hash(req.body.password.toString(), 10, (err, hash) => {
-//         if(err) return res.json({Error: "Error in hashing password"});
-//         const values = [
-//             req.body.name,
-//             req.body.email,
-//             hash,
-//             req.body.address,
-//             req.body.salary,
-//             req.file.filename
-//         ]
-//         con.query(sql, [values], (err, result) => {
-//             if(err) return res.json({Error: "Inside singup query"});
-//             return res.json({Status: "Success"});
-//         })
-//     } )
-// })
-
-app.listen(8081, ()=> {
+app.listen(8081, () => {
     console.log("Running");
 })
