@@ -39,7 +39,7 @@ export default function Login() {
                 <div className='text-danger'>
                     {error && error}
                 </div>
-                <div className="text-center"> {/* Added a container for the image and centered it */}
+                <div className="text-center">
                     <img
                         src="https://res.cloudinary.com/dxzvh2xex/image/upload/v1692943459/capstone-logo_rj4krr.png"
                         alt=""
