@@ -43,8 +43,9 @@
   width: 370px;
 }
 
-.residential{
+.address{
   color: grey;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
