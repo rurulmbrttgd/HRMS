@@ -1,3 +1,6 @@
+#root{
+  font-family: 'Poppins', sans-serif;
+}
 .loginPage {
     background: url('/public/Images/background.png');
     background-position: center;
@@ -55,40 +58,41 @@
     width: 100px; 
 }
 
-.no-employees{
-    background-color: #645B8B;
-    border-radius: 14px;
-    font-size: 20px;
-    color: white;
-    height: 75px;
-    width: 150px;
-    text-align: center;
+.department-counts {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
-.no-interns{
-    background-color: #3720A4;
-    border-radius: 14px;
-    font-size: 20px;
-    color: white;
-    height: 94px;
-    width: 205px;
-    text-align: center;
+
+.department-count {
+  border-radius: 14px;
+  font-size: 20px;
+  color: white;
+  height: 94px; /* Adjust the height to match Interns and Staff */
+  width: 205px;
+  text-align: center;
+  margin: 0 10px;
 }
-.no-staff{
-    background-color: #6E36A6;
-    border-radius: 14px;
-    font-size: 20px;
-    color: white;
-    height: 94px;
-    width: 205px;
-    text-align: center;
+
+.employees-count {
+  background-color: #645B8B; /* Employees' color */
 }
+
+.interns-count {
+  background-color: #3720A4; /* Interns' color */
+}
+
+.staff-count {
+  background-color: #6E36A6; /* Staff's color */
+}
+
 
 .department {
     margin-left: 20px;
     border: 4px solid #313866; /* Add 'solid' for border style and specify the color */
     border-radius: 15px;
-    width: 744px;
-    height: 500px;
+    width: 800px;
+    height: 700px;
 }
 
 
@@ -107,7 +111,7 @@
   /* Style for the Calendar container */
   .react-calendar {
       width: 100%;
-      max-width: 430px; /* Adjust the maximum width as needed */
+      width: 500px; /* Adjust the maximum width as needed */
       background-color: #645B8B;
       /* border: 1px solid #ccc;
       border-radius: 5px; */
@@ -129,13 +133,17 @@
     
     /* Style for the Calendar navigation button icons */
     .react-calendar__navigation__arrow {
-      font-size: 20px;
+      font-size: 70px;
       cursor: pointer;
       border: none;
       background-color: #645B8B;
       color: #ffff;
     }
     
+    .react-calendar__navigation__next2-button,
+    .react-calendar__navigation__prev2-button {
+    color: #645B8B;
+    } 
     /* Style for the Calendar header */
     .react-calendar__year-view__months__month,
     .react-calendar__decade-view__years__year {
@@ -207,10 +215,8 @@
       width: 450px;
       margin-left: 20px;
       height: auto;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      /* border-radius: 5px; */
+      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
     }
 
 .formbanner{
@@ -220,38 +226,6 @@
     object-position: top;
     height: 300px;
 }
-/* 
-.section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100px;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    padding: 0 20px;
-}
-.section-box {
-    background-color: #ffffff;
-    height: 75px;
-    width: calc(25% - 20px);
-    border-radius: 10px;
-    color: #ffffff;
-    text-align: center;
-    transition: background-color 0.3s ease-in-out; 
-}
-
-.section-box:hover {
-    background-color: #6D4C97;
-} */
-
-/* ====================*/
-/* ... (previously defined styles) ... */
-
-/* ... (previously defined styles) ... */
-
 .section {
   display: flex;
   justify-content: space-between;
@@ -262,7 +236,7 @@
   margin-right: 20px;
   border-radius: 10px;
   background-color: #ffffff;
-  padding: 0 20px; /* Added padding to space out the section-boxes */
+  padding: 0 20px;
 }
 .section-box {
   background-color: #ffffff;
@@ -281,8 +255,6 @@
 
 .section-box:hover {
   background-color: #6D4C97; /* Change to the desired hover background color */
- 
-  
 }
 
 .section-text {
@@ -290,7 +262,7 @@
   color: #000000;
 }
 
-.section-box:hover .section-text {
+.section-box:hover .section-text h3 {
   color: #fff; /* Set the text color to white when .section-box is hovered */
 }
 
@@ -299,28 +271,42 @@
   color: #6D4C97;
 }
 
-.section-box:hover .section-text h3{
+.section-box:hover .section-text{
   color: #ffffff; /* Set the text color to white when .section-box is hovered */
+}
+
+
+/*HOVER NG ACTIVE COMPONENT*/
+.section-box.active{
+  background-color: #6D4C97; 
+  color: #ffff;
+
+}
+
+.section-box.active .section-text{
+  color: #fff; 
 }
 
 .section-text h3{
   font-size: 21px;
 }
 
-/* CSS to style the TaskList container */
-.right-container{
-  border-color: none;
- }
+/*  TaskList container hehe */
 .TaskList {
-  background-color: #8C94C9;
+  background-color: #8C94C9; 
   color: white;
   padding: 10px;
-  border-radius: 5px;
-  height:300px ;
- 
+  border-radius: 10px;
+  height: 345px;
+  width: 500px;
+  overflow-y: auto; 
 }
 
-/* CSS to style the task list items */
+.TaskList-container{
+  padding-top: 10px;
+}
+
+/* Other styles for task list items */
 .task-item {
   display: flex;
   justify-content: space-between;
@@ -330,17 +316,17 @@
   margin-bottom: 10px;
   background-color: transparent;
   border: none;
-  word-break: break-word; /* Allow text to wrap to the next line */
+  word-break: break-word; 
 }
 
-/* CSS to style the Edit and Delete buttons */
+/* Styles for Edit and Delete buttons */
 .bi-edit,
 .bi-delete {
   background-color: transparent;
   border: none;
   cursor: pointer;
   color: #37802B;
-  margin-left: 5px; 
+  margin-left: 5px;
 }
 
 .bi-delete {
@@ -350,6 +336,85 @@
 .bi-add {
   background-color: transparent;
   border: none;
+  font-weight:900;
+  font-size: larger;
+  color: #645B8B;
+}
+
+i .bi-circle{
+  font-size: 10px;
+}
+
+.bi-save, .bi-cancel{background-color: transparent;
+border: none;}
+
+
+/*WORK EXP AND L&D*/
+.btn-add {
+  border-radius: 50px;
+  background: #008EC2;
+  color: #ffff;
+  border: none;
+  display: flex;
+  width: 157px;
+  height: 58px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   font-weight: bolder;
-  color: #ffffff;
+  
+}
+
+.bi-plus {
+  color: #008EC2;
+  background-color: #fff;
+  border-radius: 50%; 
+  width: 20px;
+  height: 20px; 
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; /* Adjust the font size as needed */
+  display:flex;
+}
+
+
+/*WORK EXP AND L&D*/
+.btn-add {
+  border-radius: 50px;
+  background: #008EC2;
+  color: #ffff;
+  border: none;
+  display: flex;
+  width: 157px;
+  height: 58px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: bolder;
+  
+}
+
+
+.bi-plus {
+  color: #008EC2;
+  background-color: #fff;
+  border-radius: 50%; 
+  width: 20px;
+  height: 20px; 
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; /* Adjust the font size as needed */
+  display:flex;
+}
+
+.checkbox{
+  margin-right: 10px;
+}
+
+.answer{
+  margin-right: 10px;
+}
+
+.separated{
+  padding-right: 100px;
 }
