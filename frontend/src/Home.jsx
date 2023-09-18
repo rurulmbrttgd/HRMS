@@ -70,7 +70,7 @@ function Home() {
 </div>
         </div>
 
-        <div class='calendardiv'>
+        <div class='calendardiv col-md'>
           <div>
             <ReactCalendar />
           </div>

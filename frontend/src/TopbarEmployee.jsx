@@ -53,15 +53,15 @@ function TopbarEmployee() {
                
                     </ul>
                     {/* Move the logout button here */}
-                    <a onClick={handleLogout} href="/login" className="nav-link px-0 align-middle text-white">
-                        <i className="fs-4 bi-power"></i> <span className="ms-1 d-none d-sm-inline">Logout</span>
+        <a href="#" className="nav-link px-0 align-middle text-white pb-5" onClick={handleLogout}>
+                        <i className="fs-4 bi-box-arrow-in-left pt-2"></i> <span className="ms-1 d-none d-sm-inline">Logout</span>
                     </a>
                 </div>
                 </div>
 
                 <div class="col p-0 m-0">
                     <div className='p-2 d-flex justify-content-left shadow topbar banner'>
-                    <h1 className='p-3 h1text'>EMPLOYEE LISTS</h1>
+                    <h1 className='p-3 h1text'>EMPLOYEE LIST</h1>
                     </div>
                 <Outlet />
                 </div>
