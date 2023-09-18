@@ -60,34 +60,41 @@
   width: 100px; 
 }
 
+/* Updated department counts styling with margins */
 .department-counts {
-display: flex;
-justify-content: center;
-margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
 .department-count {
-border-radius: 14px;
-font-size: 20px;
-color: white;
-height: 94px; /* Adjust the height to match Interns and Staff */
-width: 205px;
-text-align: center;
-margin: 0 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  flex-grow: 1;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  margin: 0 10px; /* Add margin to create spacing between department counts */
 }
 
 .employees-count {
-background-color: #645B8B; /* Employees' color */
+  background-color: #645B8B;
 }
 
 .interns-count {
-background-color: #3720A4; /* Interns' color */
+  background-color: #3720A4;
 }
 
-.staff-count {
-background-color: #6E36A6; /* Staff's color */
+/* Style for active department count */
+.department-count.active {
+  background-color: #6D4C97;
 }
 
+/* Adjust the text color for active department count */
+.department-count.active h5 {
+  color: #fff;
+}
 
 .department {
   margin-left: 20px;
