@@ -80,6 +80,7 @@ app.post('/create', (req, response) => {
     telephoneNo,
     mobileNo,
     email,
+    dual_citizenship,
     primaryAddress,
     residentialAddress,
   } = req.body;
@@ -143,6 +144,24 @@ app.post('/create', (req, response) => {
     email,
   ];
 
+  // Insert into dual_citizenship
+  const dualCitizenshipSql = `
+    INSERT INTO dual_citizenship (
+      dual_citizenshipID,
+      ID,
+      citizenshipType,
+      citizenshipCountry, 
+    ) 
+    VALUES (?, ?, ?, ?)
+  `;
+
+  const dualCitizenshipValues = [
+    null,
+    ID,
+    dual_citizenship.citizenshipType,
+    dual_citizenship.citizenshipCountry,
+  ];
+
   // Insert into primary_address
   const primaryAddressSql = `
       INSERT INTO primary_address (
@@ -199,6 +218,7 @@ app.post('/create', (req, response) => {
     residentialAddress.zipCode,
   ];
 
+
   // Insert data into employees_info
   db.query(employeeInfoSql, employeeInfoValues, (err, res) => {
     if (err) {
@@ -215,47 +235,61 @@ app.post('/create', (req, response) => {
       // Update the placeholder values for primary and residential addresses
       primaryAddressValues[1] = employeeID;
       residentialAddressValues[1] = employeeID;
+      dualCitizenshipValues[1] = employeeID;
 
-      // Insert data into primary_address
-      db.query(primaryAddressSql, primaryAddressValues, (err, res) => {
+      db.query(dualCitizenshipSql, dualCitizenshipValues, (err, res) => {
         if (err) {
           // Roll back the transaction in case of an error
-          console.error('Error inserting primary_address: ', err);
+          console.error('Error inserting dual_citizenship: ', err);
           db.rollback(() => {
             console.error('Transaction rolled back');
             return response.status(500).json({ status: 'Error', message: 'Internal server error' });
           });
-        } else {
-          // Insert data into residential_address
-          db.query(residentialAddressSql, residentialAddressValues, (err, res) => {
-            if (err) {
-              // Roll back the transaction in case of an error
-              console.error('Error inserting residential_address: ', err);
-              db.rollback(() => {
-                console.error('Transaction rolled back');
-                return response.status(500).json({ status: 'Error', message: 'Internal server error' });
-              });
-            } else {
-              // Commit the transaction if all inserts are successful
-              db.commit((err) => {
-                if (err) {
-                  // Roll back the transaction in case of an error during commit
-                  console.error('Error committing transaction: ', err);
-                  db.rollback(() => {
-                    console.error('Transaction rolled back');
-                    return response.status(500).json({ status: 'Error', message: 'Internal server error' });
-                  });
-                } else {
-                  console.log('Transaction committed successfully');
-                  return response.json({ status: 'Success', message: 'Data inserted successfully' });
-                }
-              });
-            }
-          });
         }
-      });
-    }
-  });
+        else {
+
+        }
+
+        // Insert data into primary_address
+        db.query(primaryAddressSql, primaryAddressValues, (err, res) => {
+          if (err) {
+            // Roll back the transaction in case of an error
+            console.error('Error inserting primary_address: ', err);
+            db.rollback(() => {
+              console.error('Transaction rolled back');
+              return response.status(500).json({ status: 'Error', message: 'Internal server error' });
+            });
+          } else {
+            // Insert data into residential_address
+            db.query(residentialAddressSql, residentialAddressValues, (err, res) => {
+              if (err) {
+                // Roll back the transaction in case of an error
+                console.error('Error inserting residential_address: ', err);
+                db.rollback(() => {
+                  console.error('Transaction rolled back');
+                  return response.status(500).json({ status: 'Error', message: 'Internal server error' });
+                });
+              } else {
+                // Commit the transaction if all inserts are successful
+                db.commit((err) => {
+                  if (err) {
+                    // Roll back the transaction in case of an error during commit
+                    console.error('Error committing transaction: ', err);
+                    db.rollback(() => {
+                      console.error('Transaction rolled back');
+                      return response.status(500).json({ status: 'Error', message: 'Internal server error' });
+                    });
+                  } else {
+                    console.log('Transaction committed successfully');
+                    return response.json({ status: 'Success', message: 'Data inserted successfully' });
+                  }
+                });
+              }
+            });
+          }
+        });
+      },
+});
 });
 
 app.listen(8081, () => {
