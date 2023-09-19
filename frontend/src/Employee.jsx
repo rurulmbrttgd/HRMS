@@ -10,7 +10,7 @@ function Employee() {
     axios.get('http://localhost:8081/employee')
       .then((res) => {
         if (res.data.status === "Success") {
-          setData(res.data.data); // Assuming employee data is in the 'data' field
+          setData(res.data.data);
         } else {
           setError("Error: Unable to fetch employee data");
         }
@@ -59,7 +59,7 @@ function Employee() {
                   <td>{employee.dateOfBirth}</td>
                   <td>{employee.email}</td>
                   <td>{employee.typeName}</td>
-                  <td>{employee.departments}</td>
+                  <td>{employee.departmentName}</td>
                   <td>
                     <Link to={`/employeeEdit/`+employee.id} className='btn btn-primary btn-sm me-2'>edit</Link>
                     <button onClick={e => handleDelete(employee.id)} className='btn btn-sm btn-danger'>delete</button>
