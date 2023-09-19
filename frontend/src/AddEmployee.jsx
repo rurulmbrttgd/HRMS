@@ -702,4 +702,3 @@ function AddEmployee() {
 }
 
 export default AddEmployee;
->>>>>>> Stashed changes
