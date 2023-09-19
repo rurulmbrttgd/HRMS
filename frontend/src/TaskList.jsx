@@ -49,6 +49,7 @@ function TaskList() {
       </h4>
       <div className="input-group mb-3">
         <input
+          id='taskId'
           type="text"
           className="form-control"
           placeholder="Add a new task"
@@ -67,6 +68,7 @@ function TaskList() {
                 {task.editing ? (
                   <div>
                     <input
+                      id='editId'
                       type="text"
                       value={editedTaskText} // Use the editedTaskText for input value
                       onChange={(e) => setEditedTaskText(e.target.value)} // Update editedTaskText
