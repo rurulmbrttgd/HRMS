@@ -61,6 +61,15 @@
 }
 
 /* Updated department counts styling with margins */
+
+.department {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border: 4px solid #313866; 
+  border-radius: 15px;
+  width:740px;
+  height: auto;
+}
 .department-counts {
   display: flex;
   justify-content: space-around;
@@ -230,6 +239,8 @@
     width: 100%;
     margin-left: 20px;
     height: auto;
+    margin-right: 10px;
+    margin-bottom: 15px;
     /* border-radius: 5px; */
     /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   }
@@ -331,7 +342,60 @@ font-size: 21px;
   word-break: break-word;
 }
 
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5pxpx;
+  border: none;
+  margin-bottom: 10px;
+  
+  color: #000000;
+  border:#3720A4;
+  border-radius: 2%;
+  word-break: break-word; 
+  }
+
+  .task-list-header {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 50px; /* Adjust the height as needed */
+    background-color: #8C94C9; /* Background color of the header */
+    color: white; /* Text color of the header */
+    border-radius: 10px 10px 0 0; /* Apply rounded corners to the top */
+    padding: 10px;
+  
+  }
+  
+  tas-list-title {
+    margin: 0; 
+  
+  }
+  
+  .task-content {
+    background-color: #fff;
+    margin-bottom: 5px;
+    padding-top: 10px;
+    padding-left: 10px;
+    color: #3720A4;
+    font-weight:500;  
+    width:inherit;
+    
+  }
+  .task-list-container{
+   width: 100%;
+  
+  }
 /* Styles for Edit and Delete buttons */
+/* CSS for positioning the buttons */
+.task-buttons {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the start (left) */
+  align-items: center; /* Center vertically within .task-content */
+  gap: 5px; /* Add some spacing between buttons */
+}
+
 .bi-edit,
 .bi-delete {
   background-color: transparent;
@@ -354,14 +418,15 @@ font-size: 21px;
 } */
 /* Styles for the "+" (plus/add) button */
 .bi-add {
-  background-color: #4CAF50; /* Background color */
+  background-color: #4CAF50; 
   border: none;
-  color: white; /* Text color */
+  color: white;
   font-size: larger;
-  padding: 8px 16px; /* Padding */
-  border-radius: 10px; /* Rounded corners */
+  padding: 8px 16px;
+  border-radius: 10px; 
   cursor: pointer;
-  transition: background-color 0.3s; /* Smooth background color transition */
+  transition: background-color 0.3s; 
+  margin-left: 10px;
 
   /* Optional: Add a hover effect */
   &:hover {

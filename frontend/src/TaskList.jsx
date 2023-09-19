@@ -64,38 +64,43 @@ function TaskList() {
         <div className="task-list-container">
           {tasks.map((task, index) => (
             <div className="list-group-item task-item" key={index}>
-              <div className="task-content">
-                {task.editing ? (
-                  <div>
-                    <input
-                      id='editId'
-                      type="text"
-                      value={editedTaskText} // Use the editedTaskText for input value
-                      onChange={(e) => setEditedTaskText(e.target.value)} // Update editedTaskText
-                    />
-                    <button
-                      className="bi-save bi-check-lg btn-sm text-success"
-                      onClick={() => saveTask(index, editedTaskText)} // Save editedTaskText
-                    ></button>
-                    <button
-                      className="bi-cancel bi-x-lg btn-sm text-danger"
-                      onClick={() => cancelEditing(index)}
-                    ></button>
-                  </div>
-                ) : (
-                  <div>
-                    <span>{task.text}</span>
-                    <button
-                      className="bi-edit bi-pencil-square btn-sm"
-                      onClick={() => startEditing(index, task.text)} // Pass the original text
-                    ></button>
-                    <button
-                      className="bi-delete bi-trash3-fill btn-sm"
-                      onClick={() => deleteTask(index)}
-                    ></button>
-                  </div>
-                )}
-              </div>
+     <div className="task-content">
+  {task.editing ? (
+    <div>
+      <input
+        id='editId'
+        type="text"
+        value={editedTaskText}
+        onChange={(e) => setEditedTaskText(e.target.value)}
+      />
+      <div className='task-buttons'>
+        <button
+          className="bi-save bi-check-lg btn-sm text-success"
+          onClick={() => saveTask(index, editedTaskText)}
+        ></button>
+        <button
+          className="bi-cancel bi-x-lg btn-sm text-danger"
+          onClick={() => cancelEditing(index)}
+        ></button>
+      </div>
+    </div>
+  ) : (
+    <div>
+      <span>{task.text}</span>
+      <div className='task-buttons'>
+        <button
+          className="bi-edit bi-pencil-square btn-sm"
+          onClick={() => startEditing(index, task.text)}
+        ></button>
+        <button
+          className="bi-delete bi-trash3-fill btn-sm"
+          onClick={() => deleteTask(index)}
+        ></button>
+      </div>
+    </div>
+  )}
+</div>
+
             </div>
           ))}
         </div>
