@@ -60,34 +60,41 @@
   width: 100px; 
 }
 
+/* Updated department counts styling with margins */
 .department-counts {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin-top: 20px;
 }
 
 .department-count {
-  border-radius: 14px;
+  border-radius: 10px;
   font-size: 20px;
   color: white;
-  height: 94px; /* Adjust the height to match Interns and Staff */
-  width: 205px;
+  padding: 10px 20px;
   text-align: center;
-  margin: 0 10px;
+  flex-grow: 1;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  margin: 0 10px; /* Add margin to create spacing between department counts */
 }
 
 .employees-count {
-  background-color: #645B8B; /* Employees' color */
+  background-color: #645B8B;
 }
 
 .interns-count {
-  background-color: #3720A4; /* Interns' color */
+  background-color: #3720A4;
 }
 
-.staff-count {
-  background-color: #6E36A6; /* Staff's color */
+/* Style for active department count */
+.department-count.active {
+  background-color: #6D4C97;
 }
 
+/* Adjust the text color for active department count */
+.department-count.active h5 {
+  color: #fff;
+}
 
 .department {
     margin-left: 20px;
@@ -264,7 +271,8 @@
 
 .section-text {
 text-decoration: none; /* Remove text decoration for links */
-color: #000000;
+color: #6D4C97;
+font-size: 20px;
 }
 
 .section-box:hover .section-text h3 {
@@ -295,20 +303,15 @@ color: #6D4C97;
 .section-text h3{
 font-size: 21px;
 }
-
-/*  TaskList container hehe */
+/* TaskList container */
 .TaskList {
-  background-color: #8C94C9; 
+  background-color: #191059;
   color: white;
   padding: 10px;
   border-radius: 10px;
   height: 345px;
-  width: 500px;
-  overflow-y: auto; 
-}
-
-.TaskList-container{
-  padding-top: 10px;
+  width: 100%;
+  overflow-y: auto;
 }
 
 /* Other styles for task list items */
@@ -321,7 +324,7 @@ font-size: 21px;
   margin-bottom: 10px;
   background-color: transparent;
   border: none;
-  word-break: break-word; 
+  word-break: break-word;
 }
 
 /* Styles for Edit and Delete buttons */
@@ -335,24 +338,52 @@ font-size: 21px;
 }
 
 .bi-delete {
-color: #B24343;
+  color: #B24343;
 }
 
-.bi-add {
+/* .bi-add {
   background-color: transparent;
   border: none;
-  font-weight:900;
+  font-weight: 900;
   font-size: larger;
   color: #645B8B;
+} */
+/* Styles for the "+" (plus/add) button */
+.bi-add {
+  background-color: #4CAF50; /* Background color */
+  border: none;
+  color: white; /* Text color */
+  font-size: larger;
+  padding: 8px 16px; /* Padding */
+  border-radius: 10px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth background color transition */
+
+  /* Optional: Add a hover effect */
+  &:hover {
+    background-color: #45a049;
+  }
 }
 
-i .bi-circle{
+i .bi-circle {
   font-size: 10px;
 }
 
-.bi-save, .bi-cancel{background-color: transparent;
-border: none;}
+.bi-save,
+.bi-cancel {
+  background-color: transparent;
+  border: none;
+}
 
+/* Apply border-radius to the placeholder text */
+#taskId::placeholder {
+  border-radius: 10px;
+}
+
+/* Apply border-radius to the form control */
+#taskId {
+  border-radius: 10px;
+}
 
 /*WORK EXP AND L&D*/
 .btn-add {
