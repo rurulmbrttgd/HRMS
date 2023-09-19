@@ -275,7 +275,8 @@ background-color: #6D4C97;
 
 .section-text {
 text-decoration: none; /* Remove text decoration for links */
-color: #000000;
+color: #6D4C97;
+font-size: 20px;
 }
 
 .section-box:hover .section-text h3 {
