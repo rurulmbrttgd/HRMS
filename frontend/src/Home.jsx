@@ -52,9 +52,9 @@ function Home() {
               width='600'
               height='450'
               src='https://lookerstudio.google.com/embed/reporting/dc56af6c-ba1b-456e-b1b2-f388a88e582f/page/RlkcD'
-              frameborder='0'
+              frameBorder='0'
               style={{ border: '0', width: '100%', height: '500px' }}
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
           <div className='department-counts'>
@@ -70,7 +70,7 @@ function Home() {
 </div>
         </div>
 
-        <div class='calendardiv col-md'>
+        <div className='calendardiv col-md'>
           <div>
             <ReactCalendar />
           </div>
