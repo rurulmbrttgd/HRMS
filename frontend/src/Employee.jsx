@@ -59,7 +59,7 @@ function Employee() {
                   <td>{employee.dateOfBirth}</td>
                   <td>{employee.email}</td>
                   <td>{employee.typeName}</td>
-                  <td>{employee.departmentName}</td>
+                  <td>{employee.departmentNames}</td>
                   <td>
                     <Link to={`/employeeEdit/`+employee.id} className='btn btn-primary btn-sm me-2'>edit</Link>
                     <button onClick={e => handleDelete(employee.id)} className='btn btn-sm btn-danger'>delete</button>
