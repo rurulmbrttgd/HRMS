@@ -27,7 +27,8 @@ function FormTopbar() {
   return (
     <div className="flex-col">
       <div className="col p-0 m-0">
-        <div className="d-flex justify-content-left shadow formbanner"></div>
+      <Link to="/">
+            <div className="d-flex justify-content-left shadow formbanner"></div></Link> 
       </div>
       <div className="col p-0 m-0">
         <div className="p-2 d-flex justify-content-between shadow section">
