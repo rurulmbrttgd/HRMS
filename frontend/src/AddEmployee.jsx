@@ -730,9 +730,16 @@ function AddEmployee() {
 									/>
 								</div>
 							</div>
-							<div className="col-12 text-end"> 
-        <button type="submit" className="btn btn-primary btn-lg">
-          Next
+							<div className="col-12 text-end"> {/* Use Bootstrap class to right-align */}
+        <button type="submit" className="btn btn-primary btn-lg" 
+		style={{
+			width: '150px',
+			height: '50px',
+			fontSize: '20px',
+			marginTop: '20px',
+			marginBottom: '20px',
+			marginRight: '20px',
+		  }}> Next
         </button>
 							</div>
 						
