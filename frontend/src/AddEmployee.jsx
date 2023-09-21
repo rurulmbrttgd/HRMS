@@ -730,9 +730,15 @@ function AddEmployee() {
 									/>
 								</div>
 							</div>
+<<<<<<< Updated upstream
 							<div className='col details'>
 								<button type='submit' className='btn btn-permanent'>
 									Submit
+=======
+							<div className='col details '>
+								<button type='submit' className='btn btn-primary btn-lg' style={{width: '100px', height: '50px', fontSize: '20px', marginLeft: '1585px'}}>
+									Next
+>>>>>>> Stashed changes
 								</button>
 							</div>
 							<div className='col-5 details'>
