@@ -11,6 +11,7 @@ import WorkExperience from './WorkExperience';
 import OtherInformation from './OtherInformation';
 import LearningDev from './LearningDev';
 import TopbarEmployee from './TopbarEmployee';
+import FambackgroundForm from './FamBackgroundForm';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
 
         <Route path="/" element={<FormTopbar />}>
           <Route path="/create" element={<AddEmployee />} />
+          <Route path="/familybackground" element={<FambackgroundForm />} />
           <Route path="/workexperience" element={<WorkExperience />} />
           <Route path="/learningdevelopment" element={<LearningDev />} />
           <Route path="/otherinformation" element={<OtherInformation />} />

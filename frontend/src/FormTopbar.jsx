@@ -37,6 +37,9 @@ function FormTopbar() {
           <Link to="/create" className={`section-box${location.pathname === '/create' ? ' active' : ''}`}>
             <h3 className='section-text'>Personal Information</h3>
           </Link>
+          <Link to="/familybackground" className={`section-box${location.pathname === '/familybackground' ? ' active' : ''}`}>
+            <h3 className='section-text'>Family Background</h3>
+          </Link>
           <Link to="/workexperience" className={`section-box${location.pathname === '/workexperience' ? ' active' : ''}`}>
             <h3 className='section-text'>Work Experience</h3>
           </Link>
