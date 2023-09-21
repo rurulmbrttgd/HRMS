@@ -1,3 +1,7 @@
+.firt-row{
+  display: inline-block;
+}
+
 .mainContainer{
   margin-top: 20px;
   margin-left: 20px;
@@ -41,7 +45,6 @@
 
 .residential{
   color: grey;
-  margin-bottom: 20px;
 }
 
 #province{
@@ -73,39 +76,3 @@
   height: 35px;
   border-radius: 5px;
 }
-.address{
-  color: grey;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-#province{
-  width: 600px;
-}
-
-#city{
-  width: 397px;
-}
-
-.sameasresidential{
-  margin-left: 10px;
-  margin-bottom: 20px;
-}
-
-#sex{
-  width: 120px;
-  height: 35px;
-  border-radius: 5px;
-}
-
-#status{
-  height: 35px;
-  border-radius: 5px;
-}
-
-#suffix{
-  width: 115px;
-  height: 35px;
-  border-radius: 5px;
-}
-
