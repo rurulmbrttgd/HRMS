@@ -13,7 +13,7 @@ function AddEmployee() {
 		if (!event.target.checked) {
 			setData({
 				...data,
-				primaryAddress: {
+				permanentAddress: {
 					houseNo: '',
 					street: '',
 					subdivision: '',
@@ -24,10 +24,10 @@ function AddEmployee() {
 				},
 			});
 		} else {
-			// If checked, copy residential address to primary address
+			// If checked, copy residential address to permanent address
 			setData({
 				...data,
-				primaryAddress: { ...data.residentialAddress },
+				permanentAddress: { ...data.residentialAddress },
 			});
 		}
 	};
@@ -37,17 +37,24 @@ function AddEmployee() {
 		firstName: '',
 		middleName: '',
 		suffix: '',
-		sex: '',
 		dateOfBirth: '',
 		placeOfBirth: '',
-		citizenship: '',
-		citizenshipType: '',
-		citizenshipCountry: '',
+		sex: '',
 		civilStatus: '',
+		height: '',
+		weight: '',
+		bloodType: '',
+		gsisIDNo: '',
+		pagIbigIDNo: '',
+		philhealthNo: '',
+		sssNo: '',
+		tinNo: '',
+		agencyEmployeeNo: '',
+		citizenship: '',
+		telephoneNo: '',
+		mobileNo: '',
 		email: '',
-		telephone: '',
-		cellphone: '',
-		primaryAddress: {
+		permanentAddress: {
 			houseNo: '',
 			street: '',
 			subdivision: '',
@@ -64,7 +71,10 @@ function AddEmployee() {
 			city: '',
 			province: '',
 			zipCode: '',
-		
+		},
+		dualCitizenship: {
+			citizenshipType: '',
+			citizenshipCountry: '',
 		}
 	});
 	const [viewMode, setViewMode] = useState(false); // Manage view mode state
@@ -100,8 +110,6 @@ function AddEmployee() {
 			});
 		}
 	};
-
-
 
 
 	return (
@@ -255,8 +263,8 @@ function AddEmployee() {
 											<select
 												id='inputcitizenshiptype'
 												className='form-select'
-												onChange={(e) => handleInputChange(e, 'citizenshipType')}
-												value={data.citizenshipType}
+												onChange={(e) => handleInputChange(e, 'dualCitizenship', 'citizenshipType')}
+												value={data.dualCitizenship.citizenshipType}
 												required
 											>
 												<option value='' hidden>
@@ -277,8 +285,8 @@ function AddEmployee() {
 												id='inputcitizenshipcountry'
 												placeholder='Country of Citizenship'
 												autoComplete='off'
-												onChange={(e) => handleInputChange(e, 'citizenshipCountry')}
-												value={data.citizenshipCountry}
+												onChange={(e) => handleInputChange(e, 'dualCitizenship', 'citizenshipCountry')}
+												value={data.dualCitizenship.citizenshipCountry}
 												required
 											/>
 										</div>
@@ -306,9 +314,9 @@ function AddEmployee() {
 								</div>
 							</div>
 
-							<div className='d-flex flex-rows align-items-left first-row'>
+							<div className='d-flex flex-rows align-items-left pb-4 first-row'>
 								<div className='col-1 details'>
-									<label htmlFor='inputheight'  className='form-label'>
+									<label htmlFor='inputheight' className='form-label'>
 										Height <h6 className='tuldok-white'>*</h6>
 									</label>
 									<input
@@ -385,7 +393,7 @@ function AddEmployee() {
 									<input
 										type='text'
 										className='form-control'
-										id='inputmmobile'
+										id='inputmobile'
 										placeholder='0912XXXXXXX'
 										autoComplete='off'
 										onChange={(e) => handleInputChange(e, 'mobileNo')}
@@ -429,7 +437,7 @@ function AddEmployee() {
 									/>
 								</div>
 								<div className='col details'>
-									<label htmlFor='inputsubdvision' className='form-label'>
+									<label htmlFor='inputsubdivision' className='form-label'>
 										Subdivision/Village <h6 className='tuldok-white'>*</h6>
 									</label>
 									<input
@@ -459,7 +467,7 @@ function AddEmployee() {
 								</div>
 							</div>
 
-							<div className='d-flex flex-rows align-items-left first-row mb-2'>
+							<div className='d-flex flex-rows align-items-left pb-2 first-row mb-2'>
 								<div className='col details' id='city'>
 									<label htmlFor='inputcity' className='form-label'>
 										City/Municipality <h6 className='tuldok'>*</h6>
@@ -497,7 +505,7 @@ function AddEmployee() {
 									<input
 										type='number'
 										className='form-control'
-										id='inputzipCode'
+										id='inputzip'
 										placeholder='Zip Code'
 										autoComplete='off'
 										onChange={(e) => handleInputChange(e, 'residentialAddress', 'zipCode')}
@@ -506,14 +514,13 @@ function AddEmployee() {
 									/>
 								</div>
 								<div className='col-5 details'>
-									<label htmlFor='inputempty' className='form-label'></label>
 								</div>
 							</div>
 
 							{/*Primary Address*/}
 							<h6 className='address'>PRIMARY ADDRESS</h6>
-							<div className='checkbox'>
-								<input type='checkbox' onChange={handleCheckboxChange} />
+							<div className='checkbox' id='checkbox'>
+								<input type='checkbox' id='sameasresidential' onChange={handleCheckboxChange} />
 								<label htmlFor='sameasresidential' className='sameasresidential'>
 									Same as Residential Address
 								</label>
@@ -523,17 +530,17 @@ function AddEmployee() {
 								<div>
 									<div className='d-flex flex-rows align-items-left first-row'>
 										<div className='col details'>
-											<label htmlFor='inputhouseNo' className='form-label'>
+											<label htmlFor='inputhouseNo' className='form-label' >
 												House/Block/Lot No <h6 className='tuldok'>*</h6>
 											</label>
 											<input
 												type='text'
 												className='form-control'
-												id='inputhouseNo'
+												id='inputhousenumber'
 												placeholder='House/Block/Lot No'
 												autoComplete='off'
-												onChange={(e) => handleInputChange(e, 'primaryAddress', 'houseNo')}
-												value={data.primaryAddress.houseNo}
+												onChange={(e) => handleInputChange(e, 'permanentAddress', 'houseNo')}
+												value={data.permanentAddress.houseNo}
 												required
 											/>
 										</div>
@@ -544,26 +551,26 @@ function AddEmployee() {
 											<input
 												type='text'
 												className='form-control'
-												id='inputstreet'
+												id='inputstreetnumber'
 												placeholder='Street'
 												autoComplete='off'
-												onChange={(e) => handleInputChange(e, 'primaryAddress', 'street')}
-												value={data.primaryAddress.street}
+												onChange={(e) => handleInputChange(e, 'permanentAddress', 'street')}
+												value={data.permanentAddress.street}
 												required
 											/>
 										</div>
 										<div className='col details'>
-											<label htmlFor='inputsubdvision' className='form-label'>
+											<label htmlFor='inputsubdivision' className='form-label'>
 												Subdivision/Village <h6 className='tuldok-white'>*</h6>
 											</label>
 											<input
 												type='text'
 												className='form-control'
-												id='inputsubdivision'
+												id='inputsubdivisionname'
 												placeholder='Subdivision/Village'
 												autoComplete='off'
-												onChange={(e) => handleInputChange(e, 'primaryAddress', 'subdivision')}
-												value={data.primaryAddress.subdivision}
+												onChange={(e) => handleInputChange(e, 'permanentAddress', 'subdivision')}
+												value={data.permanentAddress.subdivision}
 											/>
 										</div>
 										<div className='col details' id='barangay'>
@@ -573,17 +580,17 @@ function AddEmployee() {
 											<input
 												type='text'
 												className='form-control'
-												id='inputbarangay'
+												id='inputbarangayname'
 												placeholder='Barangay'
 												autoComplete='off'
-												onChange={(e) => handleInputChange(e, 'primaryAddress', 'barangay')}
-												value={data.primaryAddress.barangay}
+												onChange={(e) => handleInputChange(e, 'permanentAddress', 'barangay')}
+												value={data.permanentAddress.barangay}
 												required
 											/>
 										</div>
 									</div>
 
-									<div className='d-flex flex-rows align-items-left first-row mb-5'>
+									<div className='d-flex flex-rows align-items-left first-row mb-3'>
 										<div className='col details' id='city'>
 											<label htmlFor='inputcity' className='form-label'>
 												City/Municipality <h6 className='tuldok'>*</h6>
@@ -591,11 +598,11 @@ function AddEmployee() {
 											<input
 												type='text'
 												className='form-control'
-												id='inputcity'
+												id='inputcityname'
 												placeholder='City/Municipality'
 												autoComplete='off'
-												onChange={(e) => handleInputChange(e, 'primaryAddress', 'city')}
-												value={data.primaryAddress.city}
+												onChange={(e) => handleInputChange(e, 'permanentAddress', 'city')}
+												value={data.permanentAddress.city}
 												required
 											/>
 										</div>
@@ -606,11 +613,11 @@ function AddEmployee() {
 											<input
 												type='text'
 												className='form-control'
-												id='inputprovince'
+												id='inputprovincename'
 												placeholder='Province'
 												autoComplete='off'
-												onChange={(e) => handleInputChange(e, 'primaryAddress', 'province')}
-												value={data.primaryAddress.province}
+												onChange={(e) => handleInputChange(e, 'permanentAddress', 'province')}
+												value={data.permanentAddress.province}
 												required
 											/>
 										</div>
@@ -621,16 +628,15 @@ function AddEmployee() {
 											<input
 												type='number'
 												className='form-control'
-												id='inputzipCode'
+												id='inputzipCodenumber'
 												placeholder='Zip Code'
 												autoComplete='off'
-												onChange={(e) => handleInputChange(e, 'primaryAddress', 'zipCode')}
-												value={data.primaryAddress.zipCode}
+												onChange={(e) => handleInputChange(e, 'permanentAddress', 'zipCode')}
+												value={data.permanentAddress.zipCode}
 												required
 											/>
 										</div>
 										<div className='col-5 details'>
-											<label htmlFor='inputempty' className='form-label'></label>
 										</div>
 									</div>
 								</div>
@@ -638,7 +644,7 @@ function AddEmployee() {
 
 
 							{/* IDs */}
-							< div className='d-flex flex-rows align-items-left first-row'>
+							< div className='d-flex flex-rows align-items-left pt-3 first-row'>
 								<div className='col details'>
 									<label htmlFor='inputgsis' className='form-label'>
 										GSIS ID No <h6 className='tuldok-white'>*</h6>
@@ -730,7 +736,6 @@ function AddEmployee() {
 								</button>
 							</div>
 							<div className='col-5 details'>
-								<label htmlFor='inputempty' className='form-label'></label>
 							</div>
 						</div>
 					</form >
