@@ -4,8 +4,9 @@
 
 .mainContainer{
   margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
   padding-left: 30px;
   border-radius: 10px;
 }
@@ -77,3 +78,4 @@
   height: 35px;
   border-radius: 5px;
 }
+

@@ -33,7 +33,7 @@ function FormTopbar() {
         </Link>
       </div>
       <div className="col p-0 m-0">
-        <div className="p-2 d-flex justify-content-between shadow section">
+        <div className="p-5 d-flex justify-content-between shadow section"  style={{marginLeft: '50px', marginRight: '50px'}}>
           <Link to="/create" className={`section-box${location.pathname === '/create' ? ' active' : ''}`}>
             <h3 className='section-text'>Personal Information</h3>
           </Link>

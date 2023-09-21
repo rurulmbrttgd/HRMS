@@ -731,8 +731,8 @@ function AddEmployee() {
 								</div>
 							</div>
 							<div className='col details'>
-								<button type='submit' className='btn btn-primary'>
-									Submit
+							<button type='submit' className='btn btn-primary btn-lg' style={{width: '150px', height: '50px', fontSize: '20px', marginLeft: '1535px', marginTop: '30px'}}>
+									Next
 								</button>
 							</div>
 							<div className='col-5 details'>
