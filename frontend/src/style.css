@@ -287,7 +287,7 @@ background-color: #6D4C97;
 .section-text {
 text-decoration: none; /* Remove text decoration for links */
 color: #6D4C97;
-font-size: 20px;
+font-size: 18px;
 }
 
 .section-box:hover .section-text h3 {
@@ -522,4 +522,10 @@ margin-right: 10px;
 
 .separated{
 padding-right: 100px;
+}
+
+/* Educational Section */
+
+.custom-input {
+  margin-right: 10px; /* Adjust the margin-right as desired */
 }

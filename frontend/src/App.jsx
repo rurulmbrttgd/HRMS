@@ -11,7 +11,7 @@ import WorkExperience from './WorkExperience';
 import OtherInformation from './OtherInformation';
 import LearningDev from './LearningDev';
 import TopbarEmployee from './TopbarEmployee';
-import PersonalbackgroundForm from './PersonalbackgroundForm';
+import EducationalBackground from './EducationalBackground';
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
 
         <Route path="/" element={<FormTopbar />}>
           <Route path="/create" element={<AddEmployee />} />
-          <Route path="/personalbackground" element={<PersonalbackgroundForm />} />
+          <Route path="/educationalbackground" element={<EducationalBackground />} />
           <Route path="/workexperience" element={<WorkExperience />} />
           <Route path="/learningdevelopment" element={<LearningDev />} />
           <Route path="/otherinformation" element={<OtherInformation />} />
