@@ -61,6 +61,15 @@
 }
 
 /* Updated department counts styling with margins */
+
+.department {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border: 4px solid #313866; 
+  border-radius: 15px;
+  width:740px;
+  height: auto;
+}
 .department-counts {
   display: flex;
   justify-content: space-around;
@@ -115,120 +124,126 @@
 }
 
 .dflex{
-    width: 750px;
-    justify-content: space-between;
-  }
-  
-  /* Style for the Calendar container */
+  width: 740px;
+  justify-content: space-between;
+}
+
+/* Style for the Calendar container */
+/* Modern browsers that support 'width: fit-content;' */
+.react-calendar {
+  width: fit-content;
+  background-color: #645B8B;
+  padding: 10px;
+  border-radius: 10px;
+  color: #222;
+  align-items: center;
+}
+
+/* Fallback for older versions of Firefox */
+@supports (width: -moz-fit-content) {
   .react-calendar {
-      width: 100%;
-      width: 500px; /* Adjust the maximum width as needed */
-      background-color: #645B8B;
-      /* border: 1px solid #ccc;
-      border-radius: 5px; */
-      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-      padding: 10px;
-      border-radius: 10px;
-      color: #222;
-      align-items: center;
-    }
-    
-    /* Style for the Calendar navigation buttons */
-    .react-calendar__navigation {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-      color: #645B8B;
-    }
-    
-    /* Style for the Calendar navigation button icons */
-    .react-calendar__navigation__arrow {
-      font-size: 70px;
-      cursor: pointer;
-      border: none;
-      background-color: #645B8B;
-      color: #ffff;
-    }
-    
-    .react-calendar__navigation__next2-button,
-    .react-calendar__navigation__prev2-button {
-    color: #645B8B;
-    } 
-    /* Style for the Calendar header */
-    .react-calendar__year-view__months__month,
-    .react-calendar__decade-view__years__year {
-      font-weight: normal;
-      color: #ffffff;
-      background-color: #645B8B;
-    }
-    
-    /* Style for the Calendar days of the week */
-    .react-calendar__month-view__weekdays {
-      background-color: #645B8B;
-      display: flex;
-      justify-content: space-around;
-      padding: 5px 0;
-    }
-    
-    /* Style for each day of the week */
-    .react-calendar__month-view__weekdays__weekday {
-      font-weight: bold;
-      color: #ffffff;
-      margin-left: 1px;
-      text-align: center;
-    }
-    
-    /* Style for Calendar days */
-    .react-calendar__tile {
-      padding: 5px;
-      text-align: center;
-      cursor: pointer;
-      border: none;
-      color: #ffffff;
-      background-color: #645B8B;
-      margin-left: 0 ;
+    width: -moz-fit-content;
   }
-    
-    /* Style for Calendar days that are not in the current month */
-    .react-calendar__tile--neighboringMonth {
-      color: #999;
-    }
-    
-    /* Style for Calendar days that are selected */
-    .react-calendar__tile--active {
-      background-color: #332a5b;
-      color: #fff;
-      border-radius: 7px;
-      font-weight:500;
-    }
-    
-    /* Style for Calendar days that are hovered */
-    .react-calendar__tile--hover {
-      background-color: #e0e0e0;
-    }
-    
-    /* Style for Calendar days that are disabled */
-    .react-calendar__tile--disabled {
-      color: #645B8B;
-      pointer-events: none;
-    }
+}
+
+  /* Style for the Calendar navigation buttons */
+  .react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #645B8B;
+  }
   
-    .react-calendar__navigation__label{
-      color: white;
-      background: #645B8B;
-      border: none;
-      text-align: center;
-      font-weight: bold;
-      
-    }
-    .calendardiv{
-      width: 450px;
-      margin-left: 20px;
-      height: auto;
-      /* border-radius: 5px; */
-      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-    }
+  /* Style for the Calendar navigation button icons */
+  .react-calendar__navigation__arrow {
+    font-size: 70px;
+    cursor: pointer;
+    border: none;
+    background-color: #645B8B;
+    color: #ffff;
+  }
+  
+  .react-calendar__navigation__next2-button,
+  .react-calendar__navigation__prev2-button {
+  color: #645B8B;
+  } 
+  /* Style for the Calendar header */
+  .react-calendar__year-view__months__month,
+  .react-calendar__decade-view__years__year {
+    font-weight: normal;
+    color: #ffffff;
+    background-color: #645B8B;
+  }
+  
+  /* Style for the Calendar days of the week */
+  .react-calendar__month-view__weekdays {
+    background-color: #645B8B;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+  }
+  
+  /* Style for each day of the week */
+  .react-calendar__month-view__weekdays__weekday {
+    font-weight: bold;
+    color: #ffffff;
+    margin-left: 1px;
+    text-align: center;
+  }
+  
+  /* Style for Calendar days */
+  .react-calendar__tile {
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    color: #ffffff;
+    background-color: #645B8B;
+    margin-left: 0 ;
+}
+  
+  /* Style for Calendar days that are not in the current month */
+  .react-calendar__tile--neighboringMonth {
+    color: #999;
+  }
+  
+  /* Style for Calendar days that are selected */
+  .react-calendar__tile--active {
+    background-color: #332a5b;
+    color: #fff;
+    border-radius: 7px;
+    font-weight:500;
+  }
+  
+  /* Style for Calendar days that are hovered */
+  .react-calendar__tile--hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Style for Calendar days that are disabled */
+  .react-calendar__tile--disabled {
+    color: #645B8B;
+    pointer-events: none;
+  }
+
+  .react-calendar__navigation__label{
+    color: white;
+    background: #645B8B;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    
+  }
+  .calendardiv{
+    width: 100%;
+    margin-left: 20px;
+    height: auto;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    /* border-radius: 5px; */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  }
 
 .formbanner{
   background-image: url(public/Images/bg-capstone.jpg);
@@ -251,18 +266,18 @@
   padding: 0 20px;
 }
 .section-box {
-  background-color: #ffffff;
-  height: 65px;
-  width: calc(25% - 20px); /* Divide equally and account for margins */
-  border-radius: 5px;
-  text-align: center;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Added transition for hover effect */
-  cursor: pointer; /* Add pointer cursor to indicate clickable */
-  display: flex; /* Add this to center content vertically */
-  flex-direction: column; /* Add this to center content vertically */
-  align-items: center; /* Add this to center content vertically */
-  justify-content: center; /* Add this to center content vertically */
-  text-decoration: none; /* Remove text decoration for links */
+background-color: #ffffff;
+height: 65px;
+width: calc(20% - 20px);
+border-radius: 5px;
+text-align: center;
+transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+cursor: pointer; 
+display: flex; 
+flex-direction: column; 
+align-items: center; 
+justify-content: center;
+text-decoration: none; 
 }
 
 .section-box:hover {
@@ -327,7 +342,64 @@ font-size: 21px;
   word-break: break-word;
 }
 
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5pxpx;
+  border: none;
+  margin-bottom: 10px;
+  
+  color: #000000;
+  border:#3720A4;
+  border-radius: 2%;
+  word-break: break-word; 
+  }
+
+  .task-list-header {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 50px; /* Adjust the height as needed */
+    background-color: #8C94C9; /* Background color of the header */
+    color: white; /* Text color of the header */
+    border-radius: 10px 10px 0 0; /* Apply rounded corners to the top */
+    padding: 10px;
+  
+  }
+  
+  tas-list-title {
+    margin: 0; 
+  
+  }
+  
+  .task-content {
+    background-color: #fff;
+    margin-bottom: 5px;
+    padding-top: 10px;
+    padding-left: 10px;
+    color: #3720A4;
+    font-weight:500;  
+    width:inherit;
+    
+  }
+  .task-list-container{
+   width: 100%;
+  
+  }
 /* Styles for Edit and Delete buttons */
+/* CSS for positioning the buttons */
+.task-buttons {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the start (left) */
+  align-items: center; /* Center vertically within .task-content */
+  gap: 5px; /* Add some spacing between buttons */
+}
+
+
+.address{
+  color: gray;
+}
 .bi-edit,
 .bi-delete {
   background-color: transparent;
@@ -350,14 +422,15 @@ font-size: 21px;
 } */
 /* Styles for the "+" (plus/add) button */
 .bi-add {
-  background-color: #4CAF50; /* Background color */
+  background-color: #4CAF50; 
   border: none;
-  color: white; /* Text color */
+  color: white;
   font-size: larger;
-  padding: 8px 16px; /* Padding */
-  border-radius: 10px; /* Rounded corners */
+  padding: 8px 16px;
+  border-radius: 10px; 
   cursor: pointer;
-  transition: background-color 0.3s; /* Smooth background color transition */
+  transition: background-color 0.3s; 
+  margin-left: 10px;
 
   /* Optional: Add a hover effect */
   &:hover {
