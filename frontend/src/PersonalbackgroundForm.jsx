@@ -124,7 +124,6 @@ function PersonalbackgroundForm() {
         </div>
       </form>
     </div>
-
     
   );
 }
