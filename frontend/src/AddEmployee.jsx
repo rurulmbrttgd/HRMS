@@ -75,7 +75,33 @@ function AddEmployee() {
 		dualCitizenship: {
 			citizenshipType: '',
 			citizenshipCountry: '',
-		}
+		},
+		spouse: {
+			surname: '',
+			firstName: '',
+			middleName: '',
+			suffix: '',
+			occupation: '',
+			employer: '',
+			businessAddress: '',
+			telephone: '',
+		  },
+		  father: {
+			surname: '',
+			firstname: '',
+			middlename: '',
+		  },
+		  mother: {
+			surname: '',
+			firstname: '',
+			middlename: '',
+		  },
+		  children: {
+			surname: '',
+			firstname: '',
+			middlename: '',
+			dateOfBirth: ''
+		  },
 	});
 	const [viewMode, setViewMode] = useState(false); // Manage view mode state
 
@@ -745,7 +771,12 @@ function AddEmployee() {
 						
 						</div>
 					</form >
+
+								
+
 				</div>
+
+				
 			)}
 		</div>
 	);
