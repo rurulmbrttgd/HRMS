@@ -396,6 +396,10 @@ font-size: 21px;
   gap: 5px; /* Add some spacing between buttons */
 }
 
+
+.address{
+  color: gray;
+}
 .bi-edit,
 .bi-delete {
   background-color: transparent;
