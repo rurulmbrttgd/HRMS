@@ -9,7 +9,6 @@
   margin-bottom: 50px;
   padding-left: 30px;
   border-radius: 10px;
-  font-family: Poppins;
 }
 .address{
 
@@ -49,10 +48,8 @@
   width: 370px;
 }
 
-.address{
+.residential{
   color: grey;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 #province{
@@ -84,4 +81,3 @@
   height: 35px;
   border-radius: 5px;
 }
-

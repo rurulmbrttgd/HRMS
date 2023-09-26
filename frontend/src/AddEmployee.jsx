@@ -75,33 +75,7 @@ function AddEmployee() {
 		dualCitizenship: {
 			citizenshipType: '',
 			citizenshipCountry: '',
-		},
-		spouse: {
-			surname: '',
-			firstName: '',
-			middleName: '',
-			suffix: '',
-			occupation: '',
-			employer: '',
-			businessAddress: '',
-			telephone: '',
-		  },
-		  father: {
-			surname: '',
-			firstname: '',
-			middlename: '',
-		  },
-		  mother: {
-			surname: '',
-			firstname: '',
-			middlename: '',
-		  },
-		  children: {
-			surname: '',
-			firstname: '',
-			middlename: '',
-			dateOfBirth: ''
-		  },
+		}
 	});
 	const [viewMode, setViewMode] = useState(false); // Manage view mode state
 
@@ -756,19 +730,19 @@ function AddEmployee() {
 									/>
 								</div>
 							</div>
-							<div className="col-12 text-end"> {/* Use Bootstrap class to right-align */}
-        <button type="submit" className="btn btn-primary btn-lg" 
-		style={{
-			width: '150px',
-			height: '50px',
-			fontSize: '20px',
-			marginTop: '20px',
-			marginBottom: '20px',
-			marginRight: '20px',
-		  }}> Next
-        </button>
+<<<<<<< Updated upstream
+							<div className='col details'>
+								<button type='submit' className='btn btn-permanent'>
+									Submit
+=======
+							<div className='col details '>
+								<button type='submit' className='btn btn-primary btn-lg' style={{width: '100px', height: '50px', fontSize: '20px', marginLeft: '1585px'}}>
+									Next
+>>>>>>> Stashed changes
+								</button>
 							</div>
-						
+							<div className='col-5 details'>
+							</div>
 						</div>
 					</form >
 

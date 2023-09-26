@@ -42,14 +42,18 @@ app.post('/login', (req, res) => {
 
 //show table of employees in EMPLOYEE nav-bar
 app.get('/employee', (req, res) => {
-  const sql = `SELECT e.ID, CONCAT(e.firstName, ' ', e.surname) AS fullName, DATE_FORMAT(e.dateOfBirth, '%M %e, %Y') AS dateOfBirth, e.email, t.typeName, 
-  GROUP_CONCAT(d.deptName ORDER BY d.deptName ASC SEPARATOR ', ') AS departments 
-  FROM employees_personal_info AS e 
-  INNER JOIN type AS t ON e.typeID = t.ID 
-  JOIN department_employee AS de ON e.ID = de.employeeID
-  JOIN department AS d ON de.deptID = d.ID 
-  GROUP BY e.ID, e.firstName, e.surname, e.dateOfBirth, e.email, t.typeName 
-  ORDER BY e.ID`;
+  const sql = `SELECT e.ID,
+  CONCAT(e.firstName, ' ', e.surname) AS fullName,
+  DATE_FORMAT(e.dateOfBirth, '%M %e, %Y') AS dateOfBirth,
+  e.email,
+  t.typeName,
+  GROUP_CONCAT(d.deptName ORDER BY d.deptName ASC SEPARATOR ', ') AS departments
+FROM employees_personal_info AS e
+INNER JOIN type AS t ON e.typeID = t.ID
+JOIN department_employee AS de ON e.ID = de.employeeID
+JOIN department AS d ON de.deptID = d.ID
+GROUP BY e.ID, e.firstName, e.surname, e.dateOfBirth, e.email, t.typeName
+ORDER BY e.ID;`;
 
   db.query(sql, (err, data) => {
     if (err) {
