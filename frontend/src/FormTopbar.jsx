@@ -1,9 +1,4 @@
 import React, { useEffect } from 'react';
-<<<<<<< Updated upstream
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Link, Outlet, useNavigate } from 'react-router-dom';
-=======
->>>>>>> Stashed changes
 import axios from 'axios';
 import './style.css';
 import { Outlet, useNavigate } from 'react-router-dom';
@@ -31,32 +26,6 @@ function FormTopbar({ currentPage }) {
   return (
     <div className="flex-col">
       <div className="col p-0 m-0">
-<<<<<<< Updated upstream
-      <Link to="/">
-            <div className="d-flex justify-content-left shadow formbanner"></div></Link> 
-      </div>
-      <div className="col p-0 m-0">
-        <div className="p-2 d-flex justify-content-between shadow section">
-          <div className='section-box'>
-            <Link to="/create" className='section-text'>
-              <h3>Personal Information</h3>
-            </Link>
-          </div>
-          <div className='section-box'>
-            <Link to="/workexperience" className='section-text'>
-              <h3>Work Experience</h3>
-            </Link>
-          </div>
-          <div className='section-box'>
-            <Link to="/learningdevelopment" className='section-text'>
-              <h3>Learning & Development</h3>
-            </Link>
-          </div>
-          <div className='section-box'>
-            <Link to="/otherinformation" className='section-text'>
-              <h3>Other Information</h3>
-            </Link>
-=======
         <div className="d-flex justify-content-left shadow formbanner"></div>
       </div>
       <div className="col p-0 m-0">
@@ -75,7 +44,6 @@ function FormTopbar({ currentPage }) {
           </div>
           <div className={`section-box${currentPage === 5 ? ' active' : ''}`}>
             <h3 className='section-text'>Other Information</h3>
->>>>>>> Stashed changes
           </div>
         </div>
 
