@@ -118,9 +118,11 @@ function AddEmployee() {
 			{viewMode ? (
 				<EmployeeDetails data={data} />
 			) : (
-				<div className='d-flex flex-column align-items-left pt-4 shadow mainContainer'>
+				<div className='d-flex flex-column align-items-left pt-5 shadow mainContainer'>
+					<div>
 					<h2>Personal Information</h2>
 					<hr />
+					</div>
 					<form className='row g-3 w-100' onSubmit={handleSubmit}>
 						<div className='add-container'>
 							<div className='d-flex flex-rows align-items-left first-row justify-content-start'>
@@ -731,6 +733,7 @@ function AddEmployee() {
 								</div>
 							</div>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 							<div className='col details'>
 								<button type='submit' className='btn btn-permanent'>
 									Submit
@@ -743,6 +746,25 @@ function AddEmployee() {
 							</div>
 							<div className='col-5 details'>
 							</div>
+=======
+							
+							{/* Family Background */}
+							< div className='d-flex flex-rows align-items-left mt-9 first-row'>
+							<h2>Family Background</h2>
+							<hr />
+								<button type="submit" className="btn btn-primary btn-lg"
+									style={{
+										width: '150px',
+										height: '50px',
+										fontSize: '20px',
+										marginTop: '20px',
+										marginBottom: '20px',
+										marginRight: '20px',
+									}}> Next
+								</button>
+							</div>
+
+>>>>>>> Stashed changes
 						</div>
 					</form >
 				</div>
