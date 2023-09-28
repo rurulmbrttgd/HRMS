@@ -10,6 +10,8 @@ function EmployeeDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
+
   useEffect(() => {
     axios
       .get(`http://localhost:8081/employee/${id}`)
@@ -31,6 +33,12 @@ function EmployeeDetails() {
   }, [id]);
   
 
+  const dateOfBirth = new Date(employeeData.dateOfBirth || ''); 
+  const formattedDateOfBirth = dateOfBirth.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
   return (
     <div>
       {loading ? (
@@ -128,8 +136,8 @@ function EmployeeDetails() {
               Date of Birth
             </label>
             <div className='form-control'>
-              {employeeData.dateOfBirth || '-'}
-            </div>
+                  {formattedDateOfBirth}
+                </div>
           </div>
           <div className='col details'>
             <label htmlFor='inputcitizenship' className='form-label'>
@@ -139,75 +147,42 @@ function EmployeeDetails() {
               {employeeData.citizenship || '-'}
             </div>
           </div>
-
-          {/* Dual Citizenship Fields */}
-       
-          {employeeData.citizenship === 'Dual Citizenship' && (
-           
-           <div className='col details'>
-            <div className='row g-1'>
-              <div className='col details'>
-                <label htmlFor='inputcitizenshiptype' className='form-label'>
-                  Type of Citizenship
-                </label>
-                <div className='form-control'>
-                  {employeeData.dualCitizenshipType || '-'}
-                </div>
-              </div>
-
-              <div className='col details'>
-                <label htmlFor='inputcitizenshipcountry' className='form-label'>
-                  Country of Citizenship
-                </label>
-                <div className='form-control'>
-                  {employeeData.dualCitizenshipCountry || '-'}
-                </div>
-              </div>
-            </div>
-            </div>
-          )}
-          
-          <div className='col details'>
-            <label htmlFor='inputstatus' className='form-label'>
-              Civil Status
-            </label>
-            <div className='form-control'>
-              {employeeData.civilStatus || '-'}
-            </div>
+          <div className="col-1 details">
+            <label htmlFor="inputsex" className="form-label">Sex:</label>
+            <div>{data.sex}</div>
           </div>
         </div>
-        <div className='d-flex flex-rows align-items-left pb-4 first-row'>
-        <div className='col-1 details'>
-        <label htmlFor='inputstatus' className='form-label'>
-             Height
-            </label>
-            <div className='form-control'>
-              {employeeData.height || '-'}
-            </div>
-        </div>
-        <div className='col-1 details'>
-        <label htmlFor='inputstatus' className='form-label'>
-              Weight
-            </label>
-            <div className='form-control'>
-              {employeeData.weight || '-'}
-            </div>
-        </div>
-        <div className='col-1 details'>
-        <label htmlFor='inputstatus' className='form-label'>
-              Blood Type
-            </label>
-            <div className='form-control'>
-              {employeeData.bloodType || '-'}
-            </div>
-        </div>
-        <div className='col details'>
-        <label htmlFor='inputstatus' className='form-label'>
-             Email
-            </label>
-            <div className='form-control'>
-              {employeeData.email || '-'}
-            </div>
+        
+        {/* Additional Fields */}
+        <div className="d-flex flex-rows align-items-left first-row">
+          <div className="col-2 details">
+            <label htmlFor="inputdateofbirth" className="form-label">Date of Birth:</label>
+            <div>{data.dateOfBirth}</div>
+          </div>
+          <div className="col-2 details">
+            <label htmlFor="inputplaceofbirth" className="form-label">Place of Birth:</label>
+            <div>{data.placeOfBirth}</div>
+          </div>
+          <div className="col-2 details">
+            <label htmlFor="inputcitizenship" className="form-label">Citizenship:</label>
+            <div>{data.citizenship}</div>
+          </div>
+          <div className="col-2 details">
+            <label htmlFor="inputstatus" className="form-label">Civil Status:</label>
+            <div>{data.civilStatus}</div>
+          </div>
+          <div className="col-1 details">
+            <label htmlFor="inputheight" className="form-label">Height:</label>
+            <div>{data.height}</div>
+          </div>
+          <div className="col-1 details">
+            <label htmlFor="inputweight" className="form-label">Weight:</label>
+            <div>{data.weight}</div>
+          </div>
+          <div className="col-1 details">
+            <label htmlFor="inputbloodtype" className="form-label">Blood Type:</label>
+            <div>{data.bloodType}</div>
+          </div>
         </div>
         <div className='col details'>
         <label htmlFor='inputstatus' className='form-label'>
@@ -414,12 +389,12 @@ function EmployeeDetails() {
 
  </div>
  <div className='col details'>
-              <label htmlFor='viewSex' className='form-label'>
+              <label htmlFor='tinNo' className='form-label'>
               TIN No
               </label>
               <div
   className='form-control'
-  id='viewSex'
+  id='viewTinNo'
 >
   {employeeData.tinNo || '-'}
 </div>
@@ -431,7 +406,7 @@ function EmployeeDetails() {
               </label>
               <div
   className='form-control'
-  id='viewMiddleName'
+  id='viewAgencyEmployeeNo'
 >
   {employeeData.agencyEmployeeNo || '-'}
 </div>

@@ -391,6 +391,7 @@ font-size: 21px;
     color: #3720A4;
     font-weight:500;  
     width:inherit;
+    border-radius: 10px;
     
   }
   .task-list-container{

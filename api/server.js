@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: ["http://localhost:5173"],
-    methods: ["POST", "GET"],
+    methods: ["POST", "GET", "DELETE"],
     credentials: true,
   })
 );
@@ -66,7 +66,7 @@ ORDER BY e.ID;`;
 });
 
 
-
+{/*VIEWFORM */ }
 app.get('/employee/:id', (req, res) => {
   const employeeId = req.params.id;
 
@@ -97,9 +97,6 @@ app.get('/employee/:id', (req, res) => {
     }
   });
 });
-
-
-
 
 /* CREATE EMPLOYEE FORM */
 app.post('/create', (req, response) => {
@@ -331,54 +328,54 @@ app.post('/create', (req, response) => {
       }
     });
   });
+});
 
-  app.delete("/employee/:id", (req, res) => {
-    const employeeId = req.params.id;
-    const dept = "DELETE FROM department_employee WHERE employeeID = ?";
-    const residential = "DELETE FROM residential_address WHERE employeeID =?";
-    const permanent = "DELETE FROM permanent_address WHERE employeeID =?";
-    const citizen = "DELETE FROM dual_citizenship WHERE employeeID = ?";
-    const q = "DELETE FROM employees_personal_info WHERE ID = ?";
+app.delete("/employee/:id", (req, res) => {
+  const employeeId = req.params.id;
+  const dept = "DELETE FROM department_employee WHERE employeeID = ?";
+  const residential = "DELETE FROM residential_address WHERE employeeID =?";
+  const permanent = "DELETE FROM permanent_address WHERE employeeID =?";
+  const citizen = "DELETE FROM dual_citizenship WHERE employeeID = ?";
+  const q = "DELETE FROM employees_personal_info WHERE ID = ?";
 
-    db.query(dept, [employeeId], (err, data) => {
-      if (err) {
-        console.error("Error deleting employee:", err);
-        return res.status(500).json({ error: "An error occurred while deleting the employee." });
-      }
-      return res.status(204).end(); // Respond with a 204 status for success.
-    });
+  db.query(dept, [employeeId], (err, data) => {
+    if (err) {
+      console.error("Error deleting employee:", err);
+      return res.status(500).json({ error: "An error occurred while deleting the employee." });
+    }
+    return res.status(204).end(); // Respond with a 204 status for success.
+  });
 
-    db.query(residential, [employeeId], (err, data) => {
-      if (err) {
-        console.error("Error deleting employee:", err);
-        return res.status(500).json({ error: "An error occurred while deleting the employee." });
-      }
-      return res.status(204).end(); // Respond with a 204 status for success.
-    });
+  db.query(residential, [employeeId], (err, data) => {
+    if (err) {
+      console.error("Error deleting employee:", err);
+      return res.status(500).json({ error: "An error occurred while deleting the employee." });
+    }
+    return res.status(204).end(); // Respond with a 204 status for success.
+  });
 
-    db.query(permanent, [employeeId], (err, data) => {
-      if (err) {
-        console.error("Error deleting employee:", err);
-        return res.status(500).json({ error: "An error occurred while deleting the employee." });
-      }
-      return res.status(204).end(); // Respond with a 204 status for success.
-    });
+  db.query(permanent, [employeeId], (err, data) => {
+    if (err) {
+      console.error("Error deleting employee:", err);
+      return res.status(500).json({ error: "An error occurred while deleting the employee." });
+    }
+    return res.status(204).end(); // Respond with a 204 status for success.
+  });
 
-    db.query(citizen, [employeeId], (err, data) => {
-      if (err) {
-        console.error("Error deleting employee:", err);
-        return res.status(500).json({ error: "An error occurred while deleting the employee." });
-      }
-      return res.status(204).end(); // Respond with a 204 status for success.
-    });
+  db.query(citizen, [employeeId], (err, data) => {
+    if (err) {
+      console.error("Error deleting employee:", err);
+      return res.status(500).json({ error: "An error occurred while deleting the employee." });
+    }
+    return res.status(204).end(); // Respond with a 204 status for success.
+  });
 
-    db.query(q, [employeeId], (err, data) => {
-      if (err) {
-        console.error("Error deleting employee:", err);
-        return res.status(500).json({ error: "An error occurred while deleting the employee." });
-      }
-      return res.status(204).end(); // Respond with a 204 status for success.
-    });
+  db.query(q, [employeeId], (err, data) => {
+    if (err) {
+      console.error("Error deleting employee:", err);
+      return res.status(500).json({ error: "An error occurred while deleting the employee." });
+    }
+    return res.status(204).end(); // Respond with a 204 status for success.
   });
 });
 

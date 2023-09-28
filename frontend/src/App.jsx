@@ -11,22 +11,28 @@ import WorkExperience from './WorkExperience';
 import OtherInformation from './OtherInformation';
 import LearningDev from './LearningDev';
 import TopbarEmployee from './TopbarEmployee';
-import PersonalbackgroundForm from './PersonalbackgroundForm';
+import EducationalBackground from './EducationalBackground';
 import EmployeeDetails from './EmployeeDetails';
 import EmployeeEdit from './EmployeeEdit';
+import Form from './components/Form';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        
+        <Route path="/create-form" element={<Form />}/>
+
         <Route path="/" element={<Dashboard />}>
           <Route path="/" element={<Home />} />
         </Route>
 
-        <Route path="/" element={<TopbarEmployee /> }>
+        <Route path="/" element={<TopbarEmployee />}>
           <Route path="/employee" element={<Employee />} />
         </Route>
+
+        <Route path="/EmployeeDetails/:id" element={<EmployeeDetails />} />
+        <Route path="/EmployeeEdit" element={<EmployeeEdit />} />
+
 
     
         <Route path="/EmployeeDetails/:id" element={<EmployeeDetails />} />
@@ -42,7 +48,7 @@ function App() {
           <Route path="/learningdevelopment" element={<LearningDev />} />
           <Route path="/otherinformation" element={<OtherInformation />} />
         </Route>
-        
+
         <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
