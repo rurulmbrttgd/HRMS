@@ -26,7 +26,7 @@ function Employee() {
       window.location.reload(true);
     }
   }
-  
+
   return (
     <div className='px-5 py-3'>
       <div className='d-flex justify-content-center mt-2'>
@@ -61,7 +61,7 @@ function Employee() {
         <td>
         <Link to={`/EmployeeDetails/${employee.ID}`} className='btn bi-eye-fill text-info view'></Link>
         <Link to={`/EmployeeEdit`} className="btn btn-primary btn-sm me-2">Edit</Link>
-          <button onClick={e => handleDelete(employee.id)} className="btn btn-sm btn-danger">
+          <button onClick={e => handleDelete(employee.ID)} className="btn btn-sm btn-danger">
             delete
           </button>
         </td>
