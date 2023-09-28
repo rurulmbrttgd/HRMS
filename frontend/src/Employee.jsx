@@ -62,7 +62,7 @@ function Employee() {
         <Link to={`/EmployeeDetails/${employee.ID}`} className='btn bi-eye-fill text-info view'></Link>
         <Link to={`/EmployeeEdit`} className="btn btn-primary btn-sm me-2">Edit</Link>
           <button onClick={e => handleDelete(employee.ID)} className="btn btn-sm btn-danger">
-            delete
+            Delete
           </button>
         </td>
       </tr>
