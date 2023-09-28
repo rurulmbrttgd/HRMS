@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
+import { useReactToPrint } from 'react-to-print';
 
 function EmployeeDetails() {
   const { id } = useParams(); 
@@ -31,7 +31,10 @@ function EmployeeDetails() {
         setLoading(false);
       });
   }, [id]);
-  
+
+  // const handlePrint = useReactToPrint({
+  //   content: () => this.componentRef, // Reference to the PrintableEmployeeDetails component
+  // });
 
   const dateOfBirth = new Date(employeeData.dateOfBirth || ''); 
   const formattedDateOfBirth = dateOfBirth.toLocaleDateString('en-US', {
@@ -418,11 +421,18 @@ function EmployeeDetails() {
 
 
 
+            <div className='d-flex justify-content-between col-12'>
+              <div>
+                <Link to='/employee' className='btn btn-primary'>
+                  Back
+                </Link>
+              </div>
 
-            <div className='col-12 text-end'>
-              <Link to='/employee' className='btn btn-primary'>
-                Back
-              </Link>
+              {/* <div>
+                <PrintEmployeeDetails ref={(el) => (this.componentRef = el)} />
+                <button onClick={handlePrint}>Print</button>
+              </div> */}
+
             </div>
             </div>
           </form>

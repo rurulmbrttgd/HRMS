@@ -32,7 +32,7 @@ function Employee() {
       <div className='d-flex justify-content-center mt-2'>
         <h3>Employee List</h3>
       </div>
-      <Link to="/create" className='btn btn-success'>Add Employee</Link>
+      <Link to="/create-form" className='btn btn-success'>Add Employee</Link>
       <div className='mt-3'>
         <table className='table'>
           <thead>
@@ -62,7 +62,7 @@ function Employee() {
         <Link to={`/EmployeeDetails/${employee.ID}`} className='btn bi-eye-fill text-info view'></Link>
         <Link to={`/EmployeeEdit`} className="btn btn-primary btn-sm me-2">Edit</Link>
           <button onClick={e => handleDelete(employee.ID)} className="btn btn-sm btn-danger">
-            delete
+            Delete
           </button>
         </td>
       </tr>
