@@ -1,0 +1,251 @@
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './style.css';
+import './addemployee.css';
+import EmployeeDetails from './EmployeeDetails'; // Import the EmployeeDetails component
+
+function AddEmployee() {
+  const [data, setData] = useState({
+    surname: '',
+    firstName: '',
+    middleName: '',
+    suffix: '',
+    sex: '',
+    dateOfBirth: '',
+    placeOfBirth: '',
+    citizenship: '',
+    civilStatus: '',
+    email: '',
+    telephone: '',
+    cellphone: '',
+  });
+  const [viewMode, setViewMode] = useState(false); // Manage view mode state
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // Send the data to the server
+    axios
+      .post('http://localhost:8081/create', data)
+      .then((res) => {
+        setViewMode(true); // Switch to view mode after successful submission
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const handleInputChange = (e, fieldName) => {
+    const value = e.target.value;
+    setData({ ...data, [fieldName]: value });
+  };
+
+  return (
+    <div>
+      {/* Display either the create mode or view mode based on viewMode state */}
+      {viewMode ? (
+        <EmployeeDetails data={data} />
+      ) : (
+        <div className='d-flex flex-column align-items-left pt-4 shadow mainContainer'>
+          <h2>Personal Information</h2>
+          <hr />
+          <form className='w-100' onSubmit={handleSubmit}>
+            <div className='add-container'>
+              <div className='row g-3'>
+                {/* Personal Information Fields */}
+                <div className='col-md-2'>
+                  <label htmlFor='inputsurname' className='form-label'>
+                    Surname <h6 className='tuldok'>*</h6>
+                  </label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    placeholder='Surname'
+                    autoComplete='off'
+                    onChange={(e) => handleInputChange(e, 'surname')}
+                    value={data.surname}
+                    required
+                  />
+                </div>
+                <div className='col-md-2'>
+                  <label htmlFor='inputfirstname' className='form-label'>
+                    First Name <h6 className='tuldok'>*</h6>
+                  </label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    placeholder='First Name'
+                    autoComplete='off'
+                    onChange={(e) => handleInputChange(e, 'firstName')}
+                    value={data.firstName}
+                    required
+                  />
+                </div>
+                <div className='col-md-2'>
+                  <label htmlFor='inputmiddlename' className='form-label'>
+                    Middle Name <h6 className='tuldok-white'>*</h6>
+                  </label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    placeholder='Middle Name'
+                    autoComplete='off'
+                    onChange={(e) => handleInputChange(e, 'middleName')}
+                    value={data.middleName}
+                  />
+                </div>
+                <div className='col-md-1'>
+                  <label htmlFor='inputsuffix' className='form-label'>
+                    Suffix <h6 className='tuldok-white'>*</h6>
+                  </label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    placeholder='Suffix'
+                    autoComplete='off'
+                    onChange={(e) => handleInputChange(e, 'suffix')}
+                    value={data.suffix}
+                  />
+                </div>
+                <div className='col-md-1'>
+                  <label htmlFor='inputsex' className='form-label'>
+                    Sex <h6 className='tuldok'>*</h6>
+                  </label>
+                  <select
+                    id='inputsex'
+                    className='form-select'
+                    onChange={(e) => handleInputChange(e, 'sex')}
+                    value={data.sex}
+                    required
+                  >
+                    <option value='' hidden>Sex</option>
+                    <option value='Male'>Male</option>
+                    <option value='Female'>Female</option>
+                  </select>
+                </div>
+                <div className='col-md-2'>
+                  <label htmlFor='inputdateofbirth' className='form-label'>
+                    Date of Birth <h6 className='tuldok'>*</h6>
+                  </label>
+                  <input
+                    type='date'
+                    className='form-control'
+                    id='inputdateofbirth'
+                    autoComplete='off'
+                    onChange={(e) => handleInputChange(e, 'dateOfBirth')}
+                    value={data.dateOfBirth}
+                    required
+                  />
+                </div>
+                <div className='col-md-2'>
+                  <label htmlFor='inputplaceofbirth' className='form-label'>
+                    Place of Birth <h6 className='tuldok'>*</h6>
+                  </label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    id='inputplaceofbirth'
+                    placeholder='Place of Birth'
+                    autoComplete='off'
+                    onChange={(e) => handleInputChange(e, 'placeOfBirth')}
+                    value={data.placeOfBirth}
+                    required
+                  />
+                </div>
+                <div className='col-md-4'>
+                  <label htmlFor='inputcitizenship' className='form-label'>
+                    Citizenship <h6 className='tuldok'>*</h6>
+                  </label>
+                  <select
+                    id='inputcitizenship'
+                    className='form-select'
+                    onChange={(e) => handleInputChange(e, 'citizenship')}
+                    value={data.citizenship}
+                    required
+                  >
+                    <option value=''>Citizenship</option>
+                    <option value='Filipino'>Filipino</option>
+                    <option value='Dual Citizenship'>Dual Citizenship</option>
+                  </select>
+                </div>
+                <div className='col-md-4'>
+                  <label htmlFor='inputcivilstatus' className='form-label'>
+                    Civil Status <h6 className='tuldok'>*</h6>
+                  </label>
+                  <select
+                    id='inputcivilstatus'
+                    className='form-select'
+                    onChange={(e) => handleInputChange(e, 'civilStatus')}
+                    value={data.civilStatus}
+                    required
+                  >
+                    <option value=''>Civil Status</option>
+                    <option value='Single'>Single</option>
+                    <option value='Married'>Married</option>
+                    <option value='Separated'>Separated</option>
+                    <option value='Divorced'>Divorced</option>
+                    <option value='Widowed'>Widowed</option>
+                    <option value='Others'>Others</option>
+                  </select>
+                </div>
+                <div className='col-md-4'>
+                  <label htmlFor='inputemail' className='form-label'>
+                    Email <h6 className='tuldok'>*</h6>
+                  </label>
+                  <input
+                    type='email'
+                    className='form-control'
+                    id='inputemail'
+                    placeholder='Email'
+                    autoComplete='off'
+                    onChange={(e) => handleInputChange(e, 'email')}
+                    value={data.email}
+                    required
+                  />
+                </div>
+                <div className='col-md-4'>
+                  <label htmlFor='inputtelephone' className='form-label'>
+                    Telephone No <h6 className='tuldok-white'>*</h6>
+                  </label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    id='inputtelephone'
+                    placeholder='02-XXXX-YYYY'
+                    autoComplete='off'
+                    onChange={(e) => handleInputChange(e, 'telephone')}
+                    value={data.telephone}
+                  />
+                </div>
+                <div className='col-md-4'>
+                  <label htmlFor='inputcellphone' className='form-label'>
+                    Cellphone No <h6 className='tuldok'>*</h6>
+                  </label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    id='inputcellphone'
+                    placeholder='+63 (XXX) XXX-XXXX'
+                    autoComplete='off'
+                    onChange={(e) => handleInputChange(e, 'cellphone')}
+                    value={data.cellphone}
+                    required
+                  />
+                </div>
+
+                <h6 className='residential'>RESIDENTIAL ADDRESS</h6>
+              </div>
+              <div className='col-12'>
+                <button type='submit' className='btn btn-primary'>
+                  Create
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default AddEmployee;

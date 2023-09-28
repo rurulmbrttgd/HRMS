@@ -139,6 +139,16 @@
   align-items: center;
 }
 
+/* CSS click employee*/
+.clickable-row {
+  cursor: pointer;
+}
+
+.clickable-row:hover {
+  background-color: #008EC2; 
+}
+
+
 /* Fallback for older versions of Firefox */
 @supports (width: -moz-fit-content) {
   .react-calendar {

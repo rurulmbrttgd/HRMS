@@ -1,185 +1,458 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-function EmployeeDetails({ data }) {
-  const readOnlyClass = 'read-only-field'; // CSS class for read-only fields
+
+function EmployeeDetails() {
+  const { id } = useParams(); 
+  const [employeeData, setEmployeeData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8081/employee/${id}`)
+      .then((res) => {
+        console.log('API Response:', res.data);
+        if (res.data.status === 'Success') {
+          setEmployeeData(res.data.data);
+          setLoading(false);
+        } else {
+          setError('Error: Unable to fetch employee data');
+          setLoading(false);
+        }
+      })
+      .catch((err) => {
+        console.error('API error:', err);
+        setError(`Error: ${err.message}`);
+        setLoading(false);
+      });
+  }, [id]);
+  
 
   return (
-    <div className='d-flex flex-column align-items-left pt-4 shadow mainContainer'>
-      <h2>Personal Information (View Mode)</h2>
-      <hr className='bold' />
-      <div className="add-container">
-        {/* Display the input values */}
-        <div className="d-flex flex-rows align-items-left first-row">
-          <div className={`col-3 details ${readOnlyClass}`}>
-            <label htmlFor="inputsurname" className="form-label">Surname:</label>
-            <div>{data.surname}</div>
+    <div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>{error}</p>
+      ) : (
+        <div className='d-flex flex-column align-items-left pt-4 shadow mainContainer'>
+          <h2>Employee Details (View Mode)</h2>
+          <hr className='bold' />
+          <form className='row g-3 w-100'>
+          <div className='add-container'>
+          <div className='d-flex flex-rows align-items-left first-row justify-content-start'>
+            <div className='col details'>
+              <label htmlFor='viewSurname' className='form-label'>
+                Surname
+              </label>
+              <div
+  className='form-control'
+  id='viewSurname'
+>
+  {employeeData.surname || ''}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewFirstname' className='form-label'>
+                First Name
+              </label>
+              <div
+  className='form-control'
+  id='viewFirstname'
+>
+  {employeeData.firstName || ''}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewMiddleName' className='form-label'>
+                Middle Name
+              </label>
+              <div
+  className='form-control'
+  id='viewMiddleName'
+>
+  {employeeData.middleName || ''}
+</div>
+
+
+ </div>
+ <div className='col-1 details'>
+              <label htmlFor='viewSuffix' className='form-label'>
+                Suffix
+              </label>
+              <div
+  className='form-control'
+  id='viewSuffix'
+>
+  {employeeData.suffix || '-'}
+</div>
+
+
+ </div>
+ <div className='col-1 details'>
+              <label htmlFor='viewSex' className='form-label'>
+                Sex
+              </label>
+              <div
+  className='form-control'
+  id='viewSex'
+>
+  {employeeData.sex || ''}
+</div>
+
+
+ </div>
+ 
+
+ 
+           
+            </div>
+                 <div className='d-flex flex-rows align-items-center first-row'>
+          <div className='col-2 details'>
+            <label htmlFor='inputplaceofbirth' className='form-label'>
+              Place of Birth
+            </label>
+            <div className='form-control'>
+              {employeeData.placeOfBirth || '-'}
+            </div>
           </div>
-          <div className={`col-3 details ${readOnlyClass}`}>
-            <label htmlFor="inputfirstname" className="form-label">First Name:</label>
-            <div>{data.firstName}</div>
+          <div className='col details'>
+            <label htmlFor='inputdateofbirth' className='form-label'>
+              Date of Birth
+            </label>
+            <div className='form-control'>
+              {employeeData.dateOfBirth || '-'}
+            </div>
           </div>
-          <div className={`col-3 details ${readOnlyClass}`}>
-            <label htmlFor="inputmiddlename" className="form-label">Middle Name:</label>
-            <div>{data.middleName}</div>
+          <div className='col details'>
+            <label htmlFor='inputcitizenship' className='form-label'>
+              Citizenship
+            </label>
+            <div className='form-control'>
+              {employeeData.citizenship || '-'}
+            </div>
           </div>
-          <div className={`col-1 details ${readOnlyClass}`}>
-            <label htmlFor="inputsuffix" className="form-label">Suffix:</label>
-            <div>{data.suffix}</div>
-          </div>
-          <div className={`col-1 details ${readOnlyClass}`}>
-            <label htmlFor="inputsex" className="form-label">Sex:</label>
-            <div>{data.sex}</div>
+
+          {/* Dual Citizenship Fields */}
+       
+          {employeeData.citizenship === 'Dual Citizenship' && (
+           
+           <div className='col details'>
+            <div className='row g-1'>
+              <div className='col details'>
+                <label htmlFor='inputcitizenshiptype' className='form-label'>
+                  Type of Citizenship
+                </label>
+                <div className='form-control'>
+                  {employeeData.dualCitizenshipType || '-'}
+                </div>
+              </div>
+
+              <div className='col details'>
+                <label htmlFor='inputcitizenshipcountry' className='form-label'>
+                  Country of Citizenship
+                </label>
+                <div className='form-control'>
+                  {employeeData.dualCitizenshipCountry || '-'}
+                </div>
+              </div>
+            </div>
+            </div>
+          )}
+          
+          <div className='col details'>
+            <label htmlFor='inputstatus' className='form-label'>
+              Civil Status
+            </label>
+            <div className='form-control'>
+              {employeeData.civilStatus || '-'}
+            </div>
           </div>
         </div>
-        
-        {/* Additional Fields */}
-        <div className="d-flex flex-rows align-items-left first-row">
-          <div className={`col-2 details ${readOnlyClass}`}>
-            <label htmlFor="inputdateofbirth" className="form-label">Date of Birth:</label>
-            <div>{data.dateOfBirth}</div>
-          </div>
-          <div className={`col-3 details ${readOnlyClass}`}>
-            <label htmlFor="inputplaceofbirth" className="form-label">Place of Birth:</label>
-            <div>{data.placeOfBirth}</div>
-          </div>
-          <div className={`col-3 details ${readOnlyClass}`}>
-            <label htmlFor="inputcitizenship" className="form-label">Citizenship:</label>
-            <div>{data.citizenship}</div>
-          </div>
-          <div className={`col-3 details ${readOnlyClass}`}>
-            <label htmlFor="inputstatus" className="form-label">Civil Status:</label>
-            <div>{data.civilStatus}</div>
-          </div>
-          <div className="col-1 details">
-            <label htmlFor="inputheight" className="form-label">Height:</label>
-            <div>{data.height}</div>
-          </div>
-          <div className="col-1 details">
-            <label htmlFor="inputweight" className="form-label">Weight:</label>
-            <div>{data.weight}</div>
-          </div>
-          <div className="col-1 details">
-            <label htmlFor="inputbloodtype" className="form-label">Blood Type:</label>
-            <div>{data.bloodType}</div>
-          </div>
+        <div className='d-flex flex-rows align-items-left pb-4 first-row'>
+        <div className='col-1 details'>
+        <label htmlFor='inputstatus' className='form-label'>
+             Height
+            </label>
+            <div className='form-control'>
+              {employeeData.height || '-'}
+            </div>
+        </div>
+        <div className='col-1 details'>
+        <label htmlFor='inputstatus' className='form-label'>
+              Weight
+            </label>
+            <div className='form-control'>
+              {employeeData.weight || '-'}
+            </div>
+        </div>
+        <div className='col-1 details'>
+        <label htmlFor='inputstatus' className='form-label'>
+              Blood Type
+            </label>
+            <div className='form-control'>
+              {employeeData.bloodType || '-'}
+            </div>
+        </div>
+        <div className='col details'>
+        <label htmlFor='inputstatus' className='form-label'>
+             Email
+            </label>
+            <div className='form-control'>
+              {employeeData.email || '-'}
+            </div>
+        </div>
+        <div className='col details'>
+        <label htmlFor='inputstatus' className='form-label'>
+              Civil Status
+            </label>
+            <div className='form-control'>
+              {employeeData.civilStatus || '-'}
+            </div>
+        </div>
+        <div className='col details'>
+        <label htmlFor='inputstatus' className='form-label'>
+              Civil Status
+            </label>
+            <div className='form-control'>
+              {employeeData.civilStatus || '-'}
+            </div>
         </div>
         
-        {/* Contact Information */}
-        <div className="d-flex flex-rows align-items-left first-row">
-          <div className={`col-4 details ${readOnlyClass}`}>
-            <label htmlFor="inputemail" className="form-label">Email:</label>
-            <div>{data.email}</div>
-          </div>
-          <div className={`col-3 details ${readOnlyClass}`}>
-            <label htmlFor="inputtelephone" className="form-label">Telephone No:</label>
-            <div>{data.telephone}</div>
-          </div>
-          <div className={`col-3 details ${readOnlyClass}`}>
-            <label htmlFor="inputcellphone" className="form-label">Cellphone No:</label>
-            <div>{data.cellphone}</div>
-          </div>
-        </div>
-        
-        {/* Residential Address */}
-        <h6 className='residential'>RESIDENTIAL ADDRESS</h6>
-        <div className="d-flex flex-rows align-items-left first-row">
-          <div className="col details">
-            <label htmlFor="inputhouseNo" className="form-label">House/Block/Lot No:</label>
-            <div>{data.residentialAddress.houseNo}</div>
-          </div>
-          <div className="col details">
-            <label htmlFor="inputstreet" className="form-label">Street:</label>
-            <div>{data.residentialAddress.street}</div>
-          </div>
-          <div className="col details">
-            <label htmlFor="inputsubdivision" className="form-label">Subdivision/Village:</label>
-            <div>{data.residentialAddress.subdivision}</div>
-          </div>
-          <div className="col details">
-            <label htmlFor="inputbarangay" className="form-label">Barangay:</label>
-            <div>{data.residentialAddress.barangay}</div>
-          </div>
         </div>
 
-        {/* City Column */}
-        <div className="d-flex flex-rows align-items-left first-row">
-          <div className="col details">
-            <label htmlFor="inputcity" className="form-label">City/Municipality:</label>
-            <div>{data.residentialAddress.city}</div>
-          </div>
-          <div className="col details">
-            <label htmlFor="inputprovince" className="form-label">Province:</label>
-            <div>{data.residentialAddress.province}</div>
-          </div>
-          <div className="col details">
-            <label htmlFor="inputzipCode" className="form-label">Zip Code:</label>
-            <div>{data.residentialAddress.zipCode}</div>
-          </div>
-        </div>
+        {/* Residential Address Details */}
+        <h6 className='address'>RESIDENTIAL ADDRESS</h6>
+<div className="d-flex flex-rows align-items-left first-row justify-content-start">
+  <div className="col details">
+    <label htmlFor="viewStreetAddress" className="form-label">
+      Street Address
+    </label>
+    <div className="form-control" id="viewStreetAddress">
+      {employeeData.residentialHouseNo || '-'}
+    </div>
+  </div>
+  <div className="col details">
+    <label htmlFor="viewCity" className="form-label">
+    Street
+    </label>
+    <div className="form-control" id="viewCity">
+      {employeeData.residentialStreet|| '-'}
+    </div>
+  </div>
+  <div className="col details">
+    <label htmlFor="viewState" className="form-label">
+    Subdivision/Village
+    </label>
+    <div className="form-control" id="viewState">
+      {employeeData.residentialSubdivision || '-'}
+    </div>
+  </div>
+  <div className="col details">
+    <label htmlFor="viewPostalCode" className="form-label">
+      Barangay
+    </label>
+    <div className="form-control" id="viewPostalCode">
+      {employeeData.residentialBarangay || '-'}
+    </div>
+  </div>
+</div>
+<div className="d-flex flex-rows align-items-left first-row justify-content-start">
+  <div className="col details">
+    <label htmlFor="viewStreetAddress" className="form-label">
+    City/Municipality
+    </label>
+    <div className="form-control" id="viewStreetAddress">
+      {employeeData.residentialCity || '-'}
+    </div>
+  </div>
+  <div className="col details">
+    <label htmlFor="viewCity" className="form-label">
+    Province
+    </label>
+    <div className="form-control" id="viewCity">
+      {employeeData.residentialProvince || '-'}
+    </div>
+  </div>
+  <div className="col details">
+    <label htmlFor="viewState" className="form-label">
+    Zip Code
+    </label>
+    <div className="form-control" id="viewState">
+      {employeeData.residentialZipCode || '-'}
+    </div>
+  </div>
+ 
+</div>
 
-        {/* Primary Address */}
-        <h6 className='residential'>PRIMARY ADDRESS</h6>
-        <div className="d-flex flex-rows align-items-left first-row">
-          <div className="col details">
-            <label htmlFor="inputhouseNo" className="form-label">House/Block/Lot No:</label>
-            <div>{data.primaryAddress.houseNo}</div>
-          </div>
-          <div className="col details">
-            <label htmlFor="inputstreet" className="form-label">Street:</label>
-            <div>{data.primaryAddress.street}</div>
-          </div>
-          <div className="col details">
-            <label htmlFor="inputsubdivision" className="form-label">Subdivision/Village:</label>
-            <div>{data.primaryAddress.subdivision}</div>
-          </div>
-          <div className="col details">
-            <label htmlFor="inputbarangay" className="form-label">Barangay:</label>
-            <div>{data.primaryAddress.barangay}</div>
-          </div>
+
+        {/* Primary Address Details */}
+        <h6 className='address'>PERMANENT ADDRESS</h6>
+<div className="d-flex flex-rows align-items-left first-row justify-content-start">
+  <div className="col details">
+    <label htmlFor="viewStreetAddress" className="form-label">
+      Street Address
+    </label>
+    <div className="form-control" id="viewStreetAddress">
+      {employeeData.permanentHouseNo || '-'}
+    </div>
+  </div>
+  <div className="col details">
+    <label htmlFor="viewCity" className="form-label">
+    Street
+    </label>
+    <div className="form-control" id="viewCity">
+      {employeeData.permanentStreet || '-'}
+    </div>
+  </div>
+  <div className="col details">
+    <label htmlFor="viewState" className="form-label">
+    Subdivision/Village
+    </label>
+    <div className="form-control" id="viewState">
+      {employeeData.permanentSubdivision || '-'}
+    </div>
+  </div>
+  <div className="col details">
+    <label htmlFor="viewPostalCode" className="form-label">
+      Barangay
+    </label>
+    <div className="form-control" id="viewPostalCode">
+      {employeeData.permanentBarangay || '-'}
+    </div>
+  </div>
+</div>
+<div className="d-flex flex-rows align-items-left first-row justify-content-start">
+  <div className="col details">
+    <label htmlFor="viewStreetAddress" className="form-label">
+    City/Municipality
+    </label>
+    <div className="form-control" id="viewStreetAddress">
+      {employeeData.permanentCity || '-'}
+    </div>
+  </div>
+  <div className="col details">
+    <label htmlFor="viewCity" className="form-label">
+    Province
+    </label>
+    <div className="form-control" id="viewCity">
+      {employeeData.permanentProvince || '-'}
+    </div>
+  </div>
+  <div className="col details">
+    <label htmlFor="viewState" className="form-label">
+    Zip Code
+    </label>
+    <div className="form-control" id="viewState">
+      {employeeData.permanentZipCode || '-'}
+    </div>
+  </div>
+  
+ 
+</div>
+
+
+{/*Government IDs*/ }
+<div className='d-flex flex-rows align-items-left first-row justify-content-start'>
+            <div className='col details'>
+              <label htmlFor='viewSurname' className='form-label'>
+              GSIS ID No 
+              </label>
+              <div
+  className='form-control'
+  id='viewSurname'
+>
+  {employeeData.gsisIDNo || '-'}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewFirstname' className='form-label'>
+              Pag-Ibig ID No
+              </label>
+              <div
+  className='form-control'
+  id='viewFirstname'
+>
+  {employeeData.pagIbigIDNo || '-'}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewMiddleName' className='form-label'>
+              PhilHealth No
+              </label>
+              <div
+  className='form-control'
+  id='viewMiddleName'
+>
+  {employeeData.philhealthNo || '-'}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewSuffix' className='form-label'>
+              SSS No
+              </label>
+              <div
+  className='form-control'
+  id='viewSuffix'
+>
+  {employeeData.sssNo || '-'}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewSex' className='form-label'>
+              TIN No
+              </label>
+              <div
+  className='form-control'
+  id='viewSex'
+>
+  {employeeData.tinNo || '-'}
+</div>
+</div>
+
+<div className='col details'>
+              <label htmlFor='viewMiddleName' className='form-label'>
+              Agency Employee No 
+              </label>
+              <div
+  className='form-control'
+  id='viewMiddleName'
+>
+  {employeeData.agencyEmployeeNo || '-'}
+</div>
+
+
+ </div>
+
+ </div>
+
+
+
+
+            <div className='col-12 text-end'>
+              <Link to='/employee' className='btn btn-primary'>
+                Back
+              </Link>
+            </div>
+            </div>
+          </form>
         </div>
-        {/* City Column */}
-        <div className="d-flex flex-rows align-items-left first-row">
-          <div className="col details">
-            <label htmlFor="inputcity" className="form-label">City/Municipality:</label>
-            <div>{data.primaryAddress.city}</div>
-          </div>
-          <div className="col details">
-            <label htmlFor="inputprovince" className="form-label">Province:</label>
-            <div>{data.primaryAddress.province}</div>
-          </div>
-          <div className="col details">
-            <label htmlFor="inputzipCode" className="form-label">Zip Code:</label>
-            <div>{data.primaryAddress.zipCode}</div>
-          </div>
-        </div>
-        {/* ID information */}
-        <div className="d-flex flex-rows align-items-left first-row">
-          <div className="col-1 details">
-            <label htmlFor="inputgsis" className="form-label">GSIS ID No:</label>
-            <div>{data.gsisIDNo}</div>
-          </div>
-          <div className="col-2 details">
-            <label htmlFor="inputpagibig" className="form-label">Pag-Ibig ID No:</label>
-            <div>{data.pagibigIDNo}</div>
-          </div>
-          <div className="col-2 details">
-            <label htmlFor="inputphilhealth" className="form-label">PhilHealth No:</label>
-            <div>{data.philhealthNo}</div>
-          </div>
-          <div className="col-2 details">
-            <label htmlFor="inputsss" className="form-label">SSS No:</label>
-            <div>{data.sssNo}</div>
-          </div>
-          <div className="col-2 details">
-            <label htmlFor="inputtin" className="form-label">TIN No:</label>
-            <div>{data.tinNo}</div>
-          </div>
-          <div className="col-2 details">
-              <label htmlFor="inputagency" className="form-label">Agency Employee No:</label>
-              <div>{data.agencyEmployeeNo}</div>
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 }

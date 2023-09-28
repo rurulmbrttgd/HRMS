@@ -20,16 +20,11 @@ function Employee() {
       });
   }, []);
 
-  const handleDelete = (id) => {
-    axios.delete('http://localhost:8081/delete/'+id)
-    .then(res => {
-      if(res.data.Status === "Success") {
-        window.location.reload(true);
-      } else {
-        alert("Error")
-      }
-    })
-    .catch(err => console.log(err));
+  const handleDelete = (ID) => {
+    if (confirm("Do you want to delete this employee?") == true){
+      axios.delete('http://localhost:8081/employee/'+ID)
+      window.location.reload(true);
+    }
   }
 
   return (
@@ -51,22 +46,30 @@ function Employee() {
               <th scope="col">Actions</th>
             </tr>
           </thead>
-          <tbody>
-            {data.map((employee, index) => {
-              return <tr key={index}>
-                  <td>{employee.ID}</td>
-                  <td>{employee.fullName}</td>
-                  <td>{employee.dateOfBirth}</td>
-                  <td>{employee.email}</td>
-                  <td>{employee.typeName}</td>
-                  <td>{employee.departmentNames}</td>
-                  <td>
-                    <Link to={`/employeeEdit/`+employee.id} className='btn btn-primary btn-sm me-2'>edit</Link>
-                    <button onClick={e => handleDelete(employee.id)} className='btn btn-sm btn-danger'>delete</button>
-                  </td>
-              </tr>
-            })}
-          </tbody>
+      <tbody>
+        
+  {data.map((employee, index) => {
+    return (  
+      <tr key={index} className="clickable-row" onClick={() => handleRowClick(employee.id)}>
+     
+        <td>{employee.ID}</td>
+        <td>{employee.fullName}</td>
+        <td>{employee.dateOfBirth}</td>
+        <td>{employee.email}</td>
+        <td>{employee.typeName}</td>
+        <td>{employee.departments}</td>
+        <td>
+        <Link to={`/EmployeeDetails/${employee.ID}`} className='btn bi-eye-fill text-info view'></Link>
+        <Link to={`/EmployeeEdit`} className="btn btn-primary btn-sm me-2">Edit</Link>
+          <button onClick={e => handleDelete(employee.id)} className="btn btn-sm btn-danger">
+            delete
+          </button>
+        </td>
+      </tr>
+    );
+  })}
+</tbody>
+
         </table>
       </div>
     </div>
