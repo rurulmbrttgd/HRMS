@@ -180,16 +180,16 @@ function PersonalInformation() {
 
 
 	return (
-		<div className='d-flex flex-column align-items-left pt-4 pb-4 first-row justify-content-start shadow mainContainer '>
+		<div className='d-flex flex-column align-items-left pt-4 shadow mainContainer '>
 			<div>
 				<h2>Personal Information</h2>
 				<hr />
 			</div>
-			<form className='row g-3 w-100' onSubmit={handleSubmit}>
+			<form className='w-100' onSubmit={handleSubmit}>
 				<div className='add-container'>
-					<div className='d-flex flex-rows align-items-left first-row pb-4 first-row justify-content-start'>
+					<div className='row mb-3'>
 						{/* Personal Information Fields */}
-						<div className='col details'>
+						<div className='col-md-3 mb-4'>
 							<label htmlFor='inputsurname' className='form-label'>
 								Surname <h6 className='tuldok'>*</h6>
 							</label>
@@ -204,13 +204,13 @@ function PersonalInformation() {
 								required
 							/>
 						</div>
-						<div className='col details'>
+						<div className='col-md-3 mb-4'>
 							<label htmlFor='inputfirstname' className='form-label'>
 								First Name <h6 className='tuldok'>*</h6>
 							</label>
 							<input
 								type='text'
-								className='form-control'
+								className='form-control mr-2'
 								id='inputfirstname'
 								placeholder='First Name'
 								autoComplete='off'
@@ -219,7 +219,7 @@ function PersonalInformation() {
 								//required
 							/>
 						</div>
-						<div className='col details'>
+						<div className='col-md-3 mb-4'>
 							<label htmlFor='inputmiddlename' className='form-label'>
 								Middle Name <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -233,7 +233,7 @@ function PersonalInformation() {
 								value={data.middleName}
 							/>
 						</div>
-						<div className='col-1 details'>
+						<div className='col-md-1 mb-4'>
 							<label htmlFor='inputsuffix' className='form-label'>
 								Suffix <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -247,7 +247,7 @@ function PersonalInformation() {
 								value={data.suffix}
 							/>
 						</div>
-						<div className='col-1 details'>
+						<div className='col-md-2 mb-4'>
 							<label htmlFor='inputsex' className='form-label'>
 								Sex <h6 className='tuldok'>*</h6>
 							</label>
@@ -267,8 +267,8 @@ function PersonalInformation() {
 						</div>
 					</div>
 
-					<div className='d-flex flex-rows align-items-center first-row justify-content-start'>
-						<div className='col-2 details'>
+					<div className='row mb-3'>
+						<div className='col-md-3 mb-4'>
 							<label htmlFor='inputplaceofbirth' className='form-label'>
 								Place of Birth <h6 className='tuldok'>*</h6>
 							</label>
@@ -283,7 +283,7 @@ function PersonalInformation() {
 								//required
 							/>
 						</div>
-						<div className='col details'>
+						<div className='col-md-2 mb-4'>
 							<label htmlFor='inputdateofbirth' className='form-label'>
 								Date of Birth <h6 className='tuldok'>*</h6>
 							</label>
@@ -298,7 +298,7 @@ function PersonalInformation() {
 								//required
 							/>
 						</div>
-						<div className='col details'>
+						<div className='col-md-3 mb-4'>
 							<label htmlFor='inputcitizenship' className='form-label'>
 								Citizenship <h6 className='tuldok'>*</h6>
 							</label>
@@ -319,8 +319,8 @@ function PersonalInformation() {
 
 						{/* Dual Citizenship Fields */}
 						{data.citizenship === 'Dual Citizenship' && (
-							<div className='row g-1'>
-								<div className='col details'>
+							<div className='row'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputcitizenshiptype' className='form-label'>
 										Type of Citizenship <h6 className='tuldok'>*</h6>
 									</label>
@@ -339,7 +339,7 @@ function PersonalInformation() {
 									</select>
 								</div>
 
-								<div className='col details'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputcitizenshipcountry' className='form-label'>
 										Country of Citizenship <h6 className='tuldok'>*</h6>
 									</label>
@@ -356,7 +356,7 @@ function PersonalInformation() {
 								</div>
 							</div>
 						)}
-						<div className='col details'>
+						<div className='col-md-4 mb-4'>
 							<label htmlFor='inputstatus' className='form-label'>
 								Civil Status <h6 className='tuldok'>*</h6>
 							</label>
@@ -378,8 +378,8 @@ function PersonalInformation() {
 						</div>
 					</div>
 
-					<div className='d-flex flex-rows align-items-left pb-4 first-row justify-content-start'>
-						<div className='col-1 details'>
+					<div className='row mb-3'>
+						<div className='col-md-1 mb-4'>
 							<label htmlFor='inputheight' className='form-label'>
 								Height <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -393,7 +393,7 @@ function PersonalInformation() {
 								value={data.height}
 							/>
 						</div>
-						<div className='col-1 details'>
+						<div className='col-md-1 mb-4'>
 							<label htmlFor='inputweight' className='form-label'>
 								Weight <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -407,7 +407,7 @@ function PersonalInformation() {
 								value={data.weight}
 							/>
 						</div>
-						<div className='col-1 details'>
+						<div className='col-md-2 mb-4'>
 							<label htmlFor='inputbloodtype' className='form-label'>
 								Blood Type <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -421,7 +421,7 @@ function PersonalInformation() {
 								value={data.bloodType}
 							/>
 						</div>
-						<div className='col-3 details'>
+						<div className='col-md-3 mb-4'>
 							<label htmlFor='inputemail' className='form-label'>
 								Email <h6 className='tuldok'>*</h6>
 							</label>
@@ -436,7 +436,7 @@ function PersonalInformation() {
 								//required
 							/>
 						</div>
-						<div className='col-2 details'>
+						<div className='col-md-2 mb-4'>
 							<label htmlFor='inputtelephone' className='form-label'>
 								Telephone No. <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -450,7 +450,7 @@ function PersonalInformation() {
 								value={data.telephoneNo}
 							/>
 						</div>
-						<div className='col-2 details'>
+						<div className='col-md-3 mb-4'>
 							<label htmlFor='inputmobile' className='form-label'>
 								Mobile No. <h6 className='tuldok'>*</h6>
 							</label>
@@ -469,8 +469,8 @@ function PersonalInformation() {
 
 					{/*Residential Address */}
 					<h6 className='address'>RESIDENTIAL ADDRESS</h6>
-					<div className='d-flex flex-rows align-items-left first-row justify-content-start'>
-						<div className='col details'>
+					<div className='row mb-3'>
+						<div className='col-md-3 mb-4'>
 							<label htmlFor='inputhouseNo' className='form-label'>
 								House/Block/Lot No <h6 className='tuldok'>*</h6>
 							</label>
@@ -485,7 +485,7 @@ function PersonalInformation() {
 								//required
 							/>
 						</div>
-						<div className='col details'>
+						<div className='col-md-3 mb-4'>
 							<label htmlFor='inputstreet' className='form-label'>
 								Street <h6 className='tuldok'>*</h6>
 							</label>
@@ -500,7 +500,7 @@ function PersonalInformation() {
 								//required
 							/>
 						</div>
-						<div className='col details'>
+						<div className='col-md-3 mb-4'>
 							<label htmlFor='inputsubdivision' className='form-label'>
 								Subdivision/Village <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -514,7 +514,7 @@ function PersonalInformation() {
 								value={data.residentialAddress.subdivision}
 							/>
 						</div>
-						<div className='col details' id='barangay'>
+						<div className='col-md-3 mb-4' id='barangay'>
 							<label htmlFor='inputbarangay' className='form-label'>
 								Barangay <h6 className='tuldok'>*</h6>
 							</label>
@@ -531,8 +531,8 @@ function PersonalInformation() {
 						</div>
 					</div>
 
-					<div className='d-flex flex-rows align-items-left pb-2 first-row justify-content-start mb-2'>
-						<div className='col details' id='city'>
+					<div className='row mb-3'>
+						<div className='col-md-3 mb-4'>
 							<label htmlFor='inputcity' className='form-label'>
 								City/Municipality <h6 className='tuldok'>*</h6>
 							</label>
@@ -547,7 +547,7 @@ function PersonalInformation() {
 								//required
 							/>
 						</div>
-						<div className='col details' id='province'>
+						<div className='col-md-3 mb-4'>
 							<label htmlFor='inputprovince' className='form-label'>
 								Province <h6 className='tuldok'>*</h6>
 							</label>
@@ -562,24 +562,20 @@ function PersonalInformation() {
 								//required
 							/>
 						</div>
-						<div>
-							<div className='col details'>
-								<label htmlFor='inputzip' className='form-label'>
-									Zip Code <h6 className='tuldok'>*</h6>
-								</label>
-								<input
-									type='number'
-									className='form-control'
-									id='inputzip'
-									placeholder='Zip Code'
-									autoComplete='off'
-									onChange={(e) => handleInputChange(e, 'residentialAddress', 'zipCode')}
-									value={data.residentialAddress.zipCode}
-									//required
-								/>
-							</div>
-						</div>
-						<div className='col-5 details'>
+						<div className='col-md-3 mb-4'>
+							<label htmlFor='inputzip' className='form-label'>
+								Zip Code <h6 className='tuldok'>*</h6>
+							</label>
+							<input
+								type='number'
+								className='form-control'
+								id='inputzip'
+								placeholder='Zip Code'
+								autoComplete='off'
+								onChange={(e) => handleInputChange(e, 'residentialAddress', 'zipCode')}
+								value={data.residentialAddress.zipCode}
+								//required
+							/>
 						</div>
 					</div>
 
@@ -594,8 +590,8 @@ function PersonalInformation() {
 
 					{isDivVisible && (
 						<div>
-							<div className='d-flex flex-rows align-items-left first-row justify-content-start'>
-								<div className='col details'>
+							<div className='row mb-3'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputhouseNo' className='form-label' >
 										House/Block/Lot No <h6 className='tuldok'>*</h6>
 									</label>
@@ -610,7 +606,7 @@ function PersonalInformation() {
 										//required
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputstreet' className='form-label'>
 										Street <h6 className='tuldok'>*</h6>
 									</label>
@@ -625,7 +621,7 @@ function PersonalInformation() {
 										//required
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputsubdivision' className='form-label'>
 										Subdivision/Village <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -639,7 +635,7 @@ function PersonalInformation() {
 										value={data.permanentAddress.subdivision}
 									/>
 								</div>
-								<div className='col details' id='barangay'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputbarangay' className='form-label'>
 										Barangay <h6 className='tuldok'>*</h6>
 									</label>
@@ -656,8 +652,8 @@ function PersonalInformation() {
 								</div>
 							</div>
 
-							<div className='d-flex flex-rows align-items-left first-row mb-3 justify-content-start'>
-								<div className='col details' id='city'>
+							<div className='row mb-3'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputcity' className='form-label'>
 										City/Municipality <h6 className='tuldok'>*</h6>
 									</label>
@@ -672,7 +668,7 @@ function PersonalInformation() {
 										//required
 									/>
 								</div>
-								<div className='col details' id='province'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputprovince' className='form-label'>
 										Province <h6 className='tuldok'>*</h6>
 									</label>
@@ -687,24 +683,20 @@ function PersonalInformation() {
 										//required
 									/>
 								</div>
-								<div>
-									<div className='col details'>
-										<label htmlFor='inputzip' className='form-label'>
-											Zip Code <h6 className='tuldok'>*</h6>
-										</label>
-										<input
-											type='number'
-											className='form-control'
-											id='inputzip'
-											placeholder='Zip Code'
-											autoComplete='off'
-											onChange={(e) => handleInputChange(e, 'permanentAddress', 'zipCode')}
-											value={data.permanentAddress.zipCode}
-											//required
-										/>
-									</div>
-								</div>
-								<div className='col-5 details'>
+								<div className='col-md-3 mb-4'>
+									<label htmlFor='inputzip' className='form-label'>
+										Zip Code <h6 className='tuldok'>*</h6>
+									</label>
+									<input
+										type='number'
+										className='form-control'
+										id='inputzip'
+										placeholder='Zip Code'
+										autoComplete='off'
+										onChange={(e) => handleInputChange(e, 'permanentAddress', 'zipCode')}
+										value={data.permanentAddress.zipCode}
+										//required
+									/>
 								</div>
 							</div>
 						</div>
@@ -712,8 +704,8 @@ function PersonalInformation() {
 
 
 					{/* IDs */}
-					< div className='d-flex flex-rows align-items-left pt-3 first-row justify-content-start'>
-						<div className='col details'>
+					< div className='row mb-3	'>
+						<div className='col-md-4 mb-4'>
 							<label htmlFor='inputgsis' className='form-label'>
 								GSIS ID No. <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -727,7 +719,7 @@ function PersonalInformation() {
 								value={data.gsisIDNo}
 							/>
 						</div>
-						<div className='col details'>
+						<div className='col-md-4 mb-4'>
 							<label htmlFor='inputpagibig' className='form-label'>
 								Pag-Ibig ID No. <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -741,7 +733,7 @@ function PersonalInformation() {
 								value={data.pagIbigIDNo}
 							/>
 						</div>
-						<div className='col details'>
+						<div className='col-md-4 mb-4'>
 							<label htmlFor='inputphilhealth' className='form-label'>
 								PhilHealth No. <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -755,7 +747,9 @@ function PersonalInformation() {
 								value={data.philhealthNo}
 							/>
 						</div>
-						<div className='col details'>
+					</div>
+					<div className='row mb-3'>
+					<div className='col-md-4 mb-4'>
 							<label htmlFor='inputsss' className='form-label'>
 								SSS No. <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -769,7 +763,7 @@ function PersonalInformation() {
 								value={data.sssNo}
 							/>
 						</div>
-						<div className='col details' id='status'>
+						<div className='col-md-4 mb-4'>
 							<label htmlFor='inputtin' className='form-label'>
 								TIN No. <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -783,7 +777,7 @@ function PersonalInformation() {
 								value={data.tinNo}
 							/>
 						</div>
-						<div className='col details' id='status'>
+						<div className='col-md-4 mb-4'>
 							<label htmlFor='inputagency' className='form-label'>
 								Agency Employee No. <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -798,8 +792,10 @@ function PersonalInformation() {
 							/>
 						</div>
 					</div>
+						
+				
 
-					<div className='d-flex flex-column align-items-left pt-4 first-row justify-content-start'>
+					<div className='row mb-3'>
 						<div>
 							<h2>Family Background</h2>
 							<hr />
@@ -810,8 +806,8 @@ function PersonalInformation() {
 						<div className='add-container'>
 							{/*Spouse*/}
 							<h6 className='address'>Spouse Information</h6>
-							<div className='d-flex flex-rows align-items-left first-row justify-content-start'>
-								<div className='col details'>
+							<div className='row mb-3'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputspouse-surname' className='form-label'>
 										Surname <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -825,7 +821,7 @@ function PersonalInformation() {
 										value={data.spouse.surname}
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputspouse-firstname' className='form-label'>
 										First Name <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -839,7 +835,7 @@ function PersonalInformation() {
 										value={data.spouse.firstName}
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputspouse-middlename' className='form-label'>
 										Middle Name <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -853,7 +849,7 @@ function PersonalInformation() {
 										value={data.spouse.middleName}
 									/>
 								</div>
-								<div className='col-1 details'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputspouse-suffix' className='form-label'>
 										Suffix <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -869,8 +865,8 @@ function PersonalInformation() {
 								</div>
 							</div>
 
-							<div className='d-flex flex-rows align-items-left first-row pb-4 justify-content-start'>
-								<div className='col details'>
+							<div className='row mb-3'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputspouse-occupation' className='form-label'>
 										Occupation <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -884,7 +880,7 @@ function PersonalInformation() {
 										value={data.spouse.occupation}
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputemployers' className='form-label'>
 										Employers/Business Name <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -898,7 +894,7 @@ function PersonalInformation() {
 										value={data.spouse.employerName}
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputbusaddress' className='form-label'>
 										Business Address <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -912,7 +908,7 @@ function PersonalInformation() {
 										value={data.spouse.businessAddress}
 									/>
 								</div>
-								<div className='col-2 details'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputspouse-telephone' className='form-label'>
 										Telephone No. <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -930,8 +926,8 @@ function PersonalInformation() {
 
 							{/*Father*/}
 							<h6 className='address'>Father's Information</h6>
-							<div className='d-flex flex-rows align-items-left pb-4 first-row justify-content-start'>
-								<div className='col details'>
+							<div className='row mb-3'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputfathersurname' className='form-label'>
 										Surname <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -945,7 +941,7 @@ function PersonalInformation() {
 										value={data.father.surname}
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputfatherfirstname' className='form-label'>
 										First Name <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -959,7 +955,7 @@ function PersonalInformation() {
 										value={data.father.firstName}
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputfathermiddlename' className='form-label'>
 										Middle Name <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -973,7 +969,7 @@ function PersonalInformation() {
 										value={data.father.middleName}
 									/>
 								</div>
-								<div className='col-1 details'>
+								<div className='col-md-2 mb-4'>
 									<label htmlFor='inputfathersuffix' className='form-label'>
 										Suffix <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -991,8 +987,8 @@ function PersonalInformation() {
 
 							{/*Mother*/}
 							<h6 className='address'>Mother's Maiden Name Information</h6>
-							<div className='d-flex flex-rows align-items-left pb-4 first-row justify-content-start'>
-								<div className='col details'>
+							<div className='row mb-3'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputmothersurname' className='form-label'>
 										Surname <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -1006,7 +1002,7 @@ function PersonalInformation() {
 										value={data.mother.surname}
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputmotherfirstname' className='form-label'>
 										First Name <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -1020,7 +1016,7 @@ function PersonalInformation() {
 										value={data.mother.firstName}
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col-md-3 mb-4'>
 									<label htmlFor='inputmothermiddlename' className='form-label'>
 										Middle Name <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -1034,8 +1030,6 @@ function PersonalInformation() {
 										value={data.mother.middleName}
 									/>
 								</div>
-								<div className='col-1 details'>
-								</div>
 							</div>
 
 							<div>
@@ -1043,8 +1037,8 @@ function PersonalInformation() {
 								<h6 className='children-info'>Children's Information</h6>
 								{childrenData.map((child, index) => (
 									<div key={index}>
-										<div className='d-flex flex-rows align-items-left pb-4 first-row justify-content-start'>
-											<div className='col details'>
+										<div className='row mb-3'>
+											<div className='col-md-6 mb-4'>
 												<label htmlFor={`childName${index}`} className='form-label'>
 													Name of Children {index + 1} <h6 className='tuldok-white'>*</h6>
 												</label>
@@ -1060,7 +1054,7 @@ function PersonalInformation() {
 													}
 												/>
 											</div>
-											<div className='col-3 details'>
+											<div className='col-md-3 mb-4'>
 												<label htmlFor={`childDOB${index}`} className='form-label'>
 													Date of Birth <h6 className='tuldok-white'>*</h6>
 												</label>
@@ -1075,7 +1069,7 @@ function PersonalInformation() {
 													}
 												/>
 											</div>
-											<div className='col-1 details'>
+											<div className='col-md-3 mb-4'>
 												{index > 0 && ( // Allow removing only if there's more than one child
 													<button
 														className='btn btn-danger'

@@ -1,6 +1,3 @@
-.firt-row{
-  display: inline-block;
-}
 
 .mainContainer{
   margin-top: 20px;
@@ -10,25 +7,6 @@
   padding-left: 30px;
   padding-right: 30px;
   border-radius: 10px;
-}
-.address{
-
-}
-.details{
-  margin-bottom: 20px;
-}
-
-.form-label{
-  margin-bottom: 10px;
-}
-
-.add-container{
-  margin-left: 10px;
-}
-
-.details{
-  margin-right: 20px;
-  width: 325px;
 }
 
 .tuldok{
@@ -43,44 +21,9 @@
   vertical-align: top;
 }
 
-
-
-#status{
-  width: 370px;
-}
-
-.residential{
-  color: grey;
-  margin-bottom: 20px;
-}
-
-#province{
-  width: 600px;
-}
-
-#city{
-  width: 397px;
-}
-
 .sameasresidential{
   margin-left: 10px;
   margin-bottom: 20px;
 }
 
-#sex{
-  width: 120px;
-  height: 35px;
-  border-radius: 5px;
-}
-
-#status{
-  height: 35px;
-  border-radius: 5px;
-}
-
-#suffix{
-  width: 115px;
-  height: 35px;
-  border-radius: 5px;
-}
 

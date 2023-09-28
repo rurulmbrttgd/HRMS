@@ -151,7 +151,7 @@ function AddEmployee() {
 						<div className='add-container'>
 							<div className='d-flex flex-rows align-items-left first-row justify-content-start'>
 								{/* Personal Information Fields */}
-								<div className='col details'>
+								<div className='col '>
 									<label htmlFor='inputsurname' className='form-label'>
 										Surname <h6 className='tuldok'>*</h6>
 									</label>
@@ -166,7 +166,7 @@ function AddEmployee() {
 										required
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col '>
 									<label htmlFor='inputfirstname' className='form-label'>
 										First Name <h6 className='tuldok'>*</h6>
 									</label>
@@ -181,7 +181,7 @@ function AddEmployee() {
 										required
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col '>
 									<label htmlFor='inputmiddlename' className='form-label'>
 										Middle Name <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -195,7 +195,7 @@ function AddEmployee() {
 										value={data.middleName}
 									/>
 								</div>
-								<div className='col-1 details'>
+								<div className='col-1 '>
 									<label htmlFor='inputsuffix' className='form-label'>
 										Suffix <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -209,7 +209,7 @@ function AddEmployee() {
 										value={data.suffix}
 									/>
 								</div>
-								<div className='col-1 details'>
+								<div className='col-1 '>
 									<label htmlFor='inputsex' className='form-label'>
 										Sex <h6 className='tuldok'>*</h6>
 									</label>
@@ -230,7 +230,7 @@ function AddEmployee() {
 							</div>
 
 							<div className='d-flex flex-rows align-items-center first-row'>
-								<div className='col-2 details'>
+								<div className='col-2 '>
 									<label htmlFor='inputplaceofbirth' className='form-label'>
 										Place of Birth <h6 className='tuldok'>*</h6>
 									</label>
@@ -245,7 +245,7 @@ function AddEmployee() {
 										required
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col '>
 									<label htmlFor='inputdateofbirth' className='form-label'>
 										Date of Birth <h6 className='tuldok'>*</h6>
 									</label>
@@ -260,7 +260,7 @@ function AddEmployee() {
 										required
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col '>
 									<label htmlFor='inputcitizenship' className='form-label'>
 										Citizenship <h6 className='tuldok'>*</h6>
 									</label>
@@ -282,7 +282,7 @@ function AddEmployee() {
 								{/* Dual Citizenship Fields */}
 								{data.citizenship === 'Dual Citizenship' && (
 									<div className='row g-1'>
-										<div className='col details'>
+										<div className='col '>
 											<label htmlFor='inputcitizenshiptype' className='form-label'>
 												Type of Citizenship <h6 className='tuldok'>*</h6>
 											</label>
@@ -301,7 +301,7 @@ function AddEmployee() {
 											</select>
 										</div>
 
-										<div className='col details'>
+										<div className='col '>
 											<label htmlFor='inputcitizenshipcountry' className='form-label'>
 												Country of Citizenship <h6 className='tuldok'>*</h6>
 											</label>
@@ -318,7 +318,7 @@ function AddEmployee() {
 										</div>
 									</div>
 								)}
-								<div className='col details'>
+								<div className='col '>
 									<label htmlFor='inputstatus' className='form-label'>
 										Civil Status <h6 className='tuldok'>*</h6>
 									</label>
@@ -341,7 +341,7 @@ function AddEmployee() {
 							</div>
 
 							<div className='d-flex flex-rows align-items-left pb-4 first-row'>
-								<div className='col-1 details'>
+								<div className='col-1 '>
 									<label htmlFor='inputheight' className='form-label'>
 										Height <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -355,7 +355,7 @@ function AddEmployee() {
 										value={data.height}
 									/>
 								</div>
-								<div className='col-1 details'>
+								<div className='col-1 '>
 									<label htmlFor='inputweight' className='form-label'>
 										Weight <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -369,7 +369,7 @@ function AddEmployee() {
 										value={data.weight}
 									/>
 								</div>
-								<div className='col-1 details'>
+								<div className='col-1 '>
 									<label htmlFor='inputbloodtype' className='form-label'>
 										Blood Type <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -383,7 +383,7 @@ function AddEmployee() {
 										value={data.bloodType}
 									/>
 								</div>
-								<div className='col-3 details'>
+								<div className='col-3 '>
 									<label htmlFor='inputemail' className='form-label'>
 										Email <h6 className='tuldok'>*</h6>
 									</label>
@@ -398,7 +398,7 @@ function AddEmployee() {
 										required
 									/>
 								</div>
-								<div className='col-2 details'>
+								<div className='col-2 '>
 									<label htmlFor='inputtelephone' className='form-label'>
 										Telephone No <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -412,7 +412,7 @@ function AddEmployee() {
 										value={data.telephoneNo}
 									/>
 								</div>
-								<div className='col-2 details'>
+								<div className='col-2 '>
 									<label htmlFor='inputmobile' className='form-label'>
 										Mobile No <h6 className='tuldok'>*</h6>
 									</label>
@@ -432,7 +432,7 @@ function AddEmployee() {
 							{/*Residential Address */}
 							<h6 className='address'>RESIDENTIAL ADDRESS</h6>
 							<div className='d-flex flex-rows align-items-left first-row'>
-								<div className='col details'>
+								<div className='col '>
 									<label htmlFor='inputhouseNo' className='form-label'>
 										House/Block/Lot No <h6 className='tuldok'>*</h6>
 									</label>
@@ -447,7 +447,7 @@ function AddEmployee() {
 										required
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col '>
 									<label htmlFor='inputstreet' className='form-label'>
 										Street <h6 className='tuldok'>*</h6>
 									</label>
@@ -462,7 +462,7 @@ function AddEmployee() {
 										required
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col '>
 									<label htmlFor='inputsubdivision' className='form-label'>
 										Subdivision/Village <h6 className='tuldok-white'>*</h6>
 									</label>
@@ -476,7 +476,7 @@ function AddEmployee() {
 										value={data.residentialAddress.subdivision}
 									/>
 								</div>
-								<div className='col details' id='barangay'>
+								<div className='col ' id='barangay'>
 									<label htmlFor='inputbarangay' className='form-label'>
 										Barangay <h6 className='tuldok'>*</h6>
 									</label>
@@ -494,7 +494,7 @@ function AddEmployee() {
 							</div>
 
 							<div className='d-flex flex-rows align-items-left pb-2 first-row mb-2'>
-								<div className='col details' id='city'>
+								<div className='col ' id='city'>
 									<label htmlFor='inputcity' className='form-label'>
 										City/Municipality <h6 className='tuldok'>*</h6>
 									</label>
@@ -509,7 +509,7 @@ function AddEmployee() {
 										required
 									/>
 								</div>
-								<div className='col details' id='province'>
+								<div className='col ' id='province'>
 									<label htmlFor='inputprovince' className='form-label'>
 										Province <h6 className='tuldok'>*</h6>
 									</label>
@@ -524,7 +524,7 @@ function AddEmployee() {
 										required
 									/>
 								</div>
-								<div className='col details'>
+								<div className='col '>
 									<label htmlFor='inputzip' className='form-label'>
 										Zip Code <h6 className='tuldok'>*</h6>
 									</label>
@@ -539,7 +539,7 @@ function AddEmployee() {
 										required
 									/>
 								</div>
-								<div className='col-5 details'>
+								<div className='col-5 '>
 								</div>
 							</div>
 
@@ -555,7 +555,7 @@ function AddEmployee() {
 							{isDivVisible && (
 								<div>
 									<div className='d-flex flex-rows align-items-left first-row'>
-										<div className='col details'>
+										<div className='col '>
 											<label htmlFor='inputhouseNo' className='form-label' >
 												House/Block/Lot No <h6 className='tuldok'>*</h6>
 											</label>
