@@ -32,7 +32,7 @@ function Employee() {
       <div className='d-flex justify-content-center mt-2'>
         <h3>Employee List</h3>
       </div>
-      <Link to="/create" className='btn btn-success'>Add Employee</Link>
+      <Link to="/create-form" className='btn btn-success'>Add Employee</Link>
       <div className='mt-3'>
         <table className='table'>
           <thead>
