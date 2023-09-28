@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import './style.css';
+import { Outlet, useNavigate } from 'react-router-dom';
 
-function FormTopbar() {
+function FormTopbar({ currentPage }) {
   const navigate = useNavigate();
-  const location = useLocation();
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
@@ -28,27 +26,25 @@ function FormTopbar() {
   return (
     <div className="flex-col">
       <div className="col p-0 m-0">
-        <Link to="/"> {/* Add Link component */}
-          <div className="d-flex justify-content-left shadow formbanner"></div>
-        </Link>
+        <div className="d-flex justify-content-left shadow formbanner"></div>
       </div>
       <div className="col p-0 m-0">
-        <div className="p-5 d-flex justify-content-between shadow section"  style={{marginLeft: '50px', marginRight: '50px'}}>
-          <Link to="/create" className={`section-box${location.pathname === '/create' ? ' active' : ''}`}>
+        <div className="p-5 d-flex justify-content-between shadow section" style={{ marginLeft: '50px', marginRight: '50px' }}>
+          <div className={`section-box${currentPage === 1 ? ' active' : ''}`}>
             <h3 className='section-text'>Personal Information</h3>
-          </Link>
-          <Link to="/educationalbackground" className={`section-box${location.pathname === '/educationalbackground' ? ' active' : ''}`}>
+          </div>
+          <div className={`section-box${currentPage === 2 ? ' active' : ''}`}>
             <h3 className='section-text'>Educational Background</h3>
-          </Link>
-          <Link to="/workexperience" className={`section-box${location.pathname === '/workexperience' ? ' active' : ''}`}>
+          </div>
+          <div className={`section-box${currentPage === 3 ? ' active' : ''}`}>
             <h3 className='section-text'>Work Experience</h3>
-          </Link>
-          <Link to="/learningdevelopment" className={`section-box${location.pathname === '/learningdevelopment' ? ' active' : ''}`}>
+          </div>
+          <div className={`section-box${currentPage === 4 ? ' active' : ''}`}>
             <h3 className='section-text'>Learning & Development</h3>
-          </Link>
-          <Link to="/otherinformation" className={`section-box${location.pathname === '/otherinformation' ? ' active' : ''}`}>
+          </div>
+          <div className={`section-box${currentPage === 5 ? ' active' : ''}`}>
             <h3 className='section-text'>Other Information</h3>
-          </Link>
+          </div>
         </div>
 
         <Outlet />
