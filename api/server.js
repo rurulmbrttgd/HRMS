@@ -45,9 +45,9 @@ app.get('/employee', (req, res) => {
   const sql = `SELECT e.ID, CONCAT(e.firstName, ' ', e.surname) AS fullName, DATE_FORMAT(e.dateOfBirth, '%M %e, %Y') AS dateOfBirth, e.email, t.typeName, 
   GROUP_CONCAT(d.deptName ORDER BY d.deptName ASC SEPARATOR ', ') AS departments 
   FROM employees_personal_info AS e 
-  INNER JOIN type AS t ON e.typeID = t.ID 
-  JOIN department_employee AS de ON e.ID = de.employeeID
-  JOIN department AS d ON de.deptID = d.ID 
+  LEFT JOIN type AS t ON e.typeID = t.ID 
+  LEFT JOIN department_employee AS de ON e.ID = de.employeeID
+  LEFT JOIN department AS d ON de.deptID = d.ID 
   GROUP BY e.ID, e.firstName, e.surname, e.dateOfBirth, e.email, t.typeName 
   ORDER BY e.ID`;
 
@@ -121,9 +121,12 @@ app.post('/create', (req, response) => {
     permanentAddress,
     residentialAddress,
     dualCitizenship,
+    spouse,
+    father,
+    mother,
+    children,
   } = req.body;
 
-  // Start a transaction
   db.beginTransaction((err) => {
     if (err) {
       console.error('Error starting transaction:', err);
@@ -132,7 +135,6 @@ app.post('/create', (req, response) => {
         .json({ status: 'Error', message: 'Internal server error' });
     }
 
-    // Insert into employees_personal_info
     const employeeInfoSql = `
       INSERT INTO employees_personal_info (
         ID,
@@ -186,20 +188,16 @@ app.post('/create', (req, response) => {
       email,
     ];
 
-    // Insert data into employees_info
     db.query(employeeInfoSql, employeeInfoValues, (err, res) => {
       if (err) {
-        // Roll back the transaction in case of an error
         console.error('Error inserting employee_info: ', err);
         db.rollback(() => {
           console.error('Transaction rolled back');
           return response.status(500).json({ status: 'Error', message: 'Internal server error' });
         });
       } else {
-        // Get the last inserted ID (employee ID)
         const employeeID = res.insertId;
 
-        // Insert into dual_citizenship
         const dualCitizenshipSql = `
           INSERT INTO dual_citizenship (
             ID,
@@ -219,14 +217,12 @@ app.post('/create', (req, response) => {
 
         db.query(dualCitizenshipSql, dualCitizenshipValues, (err, res) => {
           if (err) {
-            // Roll back the transaction in case of an error
             console.error('Error inserting dual_citizenship: ', err);
             db.rollback(() => {
               console.error('Transaction rolled back');
               return response.status(500).json({ status: 'Error', message: 'Internal server error' });
             });
           } else {
-            // Update the placeholder values for permanent and residential addresses
             const permanentAddressSql = `
               INSERT INTO permanent_address (
                 ID,
@@ -301,18 +297,141 @@ app.post('/create', (req, response) => {
                       return response.status(500).json({ status: 'Error', message: 'Internal server error' });
                     });
                   } else {
-                    // Commit the transaction if all inserts are successful
-                    db.commit((err) => {
+                    const spouseInfoSql = `
+                    INSERT INTO spouse (
+                      ID,
+                      employeeID,
+                      firstName,
+                      surname,
+                      suffix,
+                      middleName,
+                      occupation,
+                      employerName,
+                      businessAddress,
+                      telephoneNo
+                    ) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                  `;
+                    const spouseInfoValues = [
+                      null,
+                      employeeID,
+                      spouse.firstName,
+                      spouse.surname,
+                      spouse.suffix,
+                      spouse.middleName,
+                      spouse.occupation,
+                      spouse.employerName,
+                      spouse.businessAddress,
+                      spouse.telephoneNo
+                    ];
+                    db.query(spouseInfoSql, spouseInfoValues, (err, res) => {
                       if (err) {
-                        // Roll back the transaction in case of an error during commit
-                        console.error('Error committing transaction: ', err);
+                        console.error('Error inserting father: ', err);
                         db.rollback(() => {
                           console.error('Transaction rolled back');
                           return response.status(500).json({ status: 'Error', message: 'Internal server error' });
                         });
                       } else {
-                        console.log('Transaction committed successfully');
-                        return response.json({ status: 'Success', message: 'Data inserted successfully' });
+                        const fatherInfoSql = `
+                    INSERT INTO father (
+                      ID,
+                      employeeID,
+                      firstName,
+                      surname,
+                      suffix,
+                      middleName
+                    ) 
+                    VALUES (?, ?, ?, ?, ?, ?)
+                  `;
+
+                        const fatherInfoValues = [
+                          null,
+                          employeeID,
+                          father.firstName,
+                          father.surname,
+                          father.suffix,
+                          father.middleName,
+                        ];
+
+                        db.query(fatherInfoSql, fatherInfoValues, (err, res) => {
+                          if (err) {
+                            console.error('Error inserting father: ', err);
+                            db.rollback(() => {
+                              console.error('Transaction rolled back');
+                              return response.status(500).json({ status: 'Error', message: 'Internal server error' });
+                            });
+                          } else {
+                            const motherInfoSql = `
+                        INSERT INTO mother (
+                          ID,  
+                          employeeID,
+                          surname,
+                          firstName,
+                          middleName
+                        ) 
+                        VALUES (?, ?, ?, ?, ?)
+                      `;
+
+                            const motherInfoValues = [
+                              null,
+                              employeeID,
+                              mother.surname,
+                              mother.firstName,
+                              mother.middleName,
+                            ];
+
+                            db.query(motherInfoSql, motherInfoValues, (err, res) => {
+                              if (err) {
+                                console.error('Error inserting mother: ', err);
+                                db.rollback(() => {
+                                  console.error('Transaction rolled back');
+                                  response.status(500).json({ status: 'Error', message: 'Error inserting mother' });
+                                });
+                              } else {
+
+                                const childrenInfoSql = `
+                            INSERT INTO children (
+                              ID,
+                              employeeID,
+                              name,  
+                              dateOfBirth
+                            ) 
+                            VALUES (?, ?, ?, ?)
+                          `;
+
+                                const childrenInfoValues = [
+                                  null,
+                                  employeeID,
+                                  children.name,
+                                  children.dateOfBirth,
+                                ];
+
+                                db.query(childrenInfoSql, childrenInfoValues, (err, res) => {
+                                  if (err) {
+                                    console.error('Error inserting children: ', err);
+                                    db.rollback(() => {
+                                      console.error('Transaction rolled back');
+                                      return response.status(500).json({ status: 'Error', message: 'Internal server error' });
+                                    });
+                                  } else {
+                                    db.commit((err) => {
+                                      if (err) {
+                                        console.error('Error committing transaction: ', err);
+                                        db.rollback(() => {
+                                          console.error('Transaction rolled back');
+                                          return response.status(500).json({ status: 'Error', message: 'Internal server error' });
+                                        });
+                                      } else {
+                                        console.log('Transaction committed successfully');
+                                        return response.json({ status: 'Success', message: 'Data inserted successfully' });
+                                      }
+                                    });
+                                  }
+                                });
+                              }
+                            });
+                          }
+                        });
                       }
                     });
                   }
