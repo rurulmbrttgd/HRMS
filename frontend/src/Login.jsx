@@ -40,7 +40,7 @@ export default function Login() {
                 </div>
                 <div className="text-center">
                     <img
-                        src="https://res.cloudinary.com/dxzvh2xex/image/upload/v1692943459/capstone-logo_rj4krr.png"
+                        src="public/Images/Capstone-logo.png"
                         alt=""
                         className="width-172px logo"
                     />
