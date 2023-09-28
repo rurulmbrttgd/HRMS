@@ -61,6 +61,39 @@ app.get('/employee', (req, res) => {
   });
 });
 
+
+{/*VIEWFORM */ }
+app.get('/employee/:id', (req, res) => {
+  const employeeId = req.params.id;
+
+  const sql = `
+      SELECT e.*,
+             r.houseNo AS residentialHouseNo, r.street AS residentialStreet, r.subdivision AS residentialSubdivision,
+             r.barangay AS residentialBarangay, r.city AS residentialCity, r.province AS residentialProvince, r.zipCode AS residentialZipCode,
+             p.houseNo AS permanentHouseNo, p.street AS permanentStreet, p.subdivision AS permanentSubdivision,
+             p.barangay AS permanentBarangay, p.city AS permanentCity, p.province AS permanentProvince, p.zipCode AS permanentZipCode,
+             d.citizenshipType AS dualCitizenshipType, d.citizenshipCountry AS dualCitizenshipCountry
+      FROM employees_personal_info AS e
+      LEFT JOIN residential_address AS r ON e.ID = r.employeeID
+      LEFT JOIN permanent_address AS p ON e.ID = p.employeeID
+      LEFT JOIN dual_citizenship AS d ON e.ID = d.employeeID
+      WHERE e.ID = ?
+    `;
+
+  db.query(sql, [employeeId], (err, data) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      res.status(500).json({ status: 'Error', message: 'Internal server error' });
+    } else if (data.length === 0) {
+      // If no employee with the specified ID is found
+      res.status(404).json({ status: 'Error', message: 'Employee not found' });
+    } else {
+      // If the employee is found, send the data in the response
+      res.json({ status: 'Success', data: data[0] });
+    }
+  });
+});
+
 /* CREATE EMPLOYEE FORM */
 app.post('/create', (req, response) => {
   const {
@@ -290,6 +323,55 @@ app.post('/create', (req, response) => {
         });
       }
     });
+  });
+});
+
+app.delete("/employee/:id", (req, res) => {
+  const employeeId = req.params.id;
+  const dept = "DELETE FROM department_employee WHERE employeeID = ?";
+  const residential = "DELETE FROM residential_address WHERE employeeID =?";
+  const permanent = "DELETE FROM permanent_address WHERE employeeID =?";
+  const citizen = "DELETE FROM dual_citizenship WHERE employeeID = ?";
+  const q = "DELETE FROM employees_personal_info WHERE ID = ?";
+
+  db.query(dept, [employeeId], (err, data) => {
+    if (err) {
+      console.error("Error deleting employee:", err);
+      return res.status(500).json({ error: "An error occurred while deleting the employee." });
+    }
+    return res.status(204).end(); // Respond with a 204 status for success.
+  });
+
+  db.query(residential, [employeeId], (err, data) => {
+    if (err) {
+      console.error("Error deleting employee:", err);
+      return res.status(500).json({ error: "An error occurred while deleting the employee." });
+    }
+    return res.status(204).end(); // Respond with a 204 status for success.
+  });
+
+  db.query(permanent, [employeeId], (err, data) => {
+    if (err) {
+      console.error("Error deleting employee:", err);
+      return res.status(500).json({ error: "An error occurred while deleting the employee." });
+    }
+    return res.status(204).end(); // Respond with a 204 status for success.
+  });
+
+  db.query(citizen, [employeeId], (err, data) => {
+    if (err) {
+      console.error("Error deleting employee:", err);
+      return res.status(500).json({ error: "An error occurred while deleting the employee." });
+    }
+    return res.status(204).end(); // Respond with a 204 status for success.
+  });
+
+  db.query(q, [employeeId], (err, data) => {
+    if (err) {
+      console.error("Error deleting employee:", err);
+      return res.status(500).json({ error: "An error occurred while deleting the employee." });
+    }
+    return res.status(204).end(); // Respond with a 204 status for success.
   });
 });
 
