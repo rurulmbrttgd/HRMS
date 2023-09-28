@@ -108,7 +108,7 @@ function LearningDevelopment() {
         <div className="add-container">
           <div className="d-flex flex-rows align-items-left first-row">
             <div className="col-2 details">
-              <label htmlFor="from" className="form-label">From<h6 className='tuldok'>*</h6></label>
+              <label htmlFor="from" className="form-label">From</label>
               <select
                 className="form-select"
                 id="from"
@@ -126,7 +126,7 @@ function LearningDevelopment() {
               <div className="text-danger">{formErrors.from}</div>
             </div>
             <div className="col-2 details">
-              <label htmlFor="to" className="form-label">To<h6 className='tuldok'>*</h6></label>
+              <label htmlFor="to" className="form-label">To</label>
               <select
                 className="form-select"
                 id="to"
@@ -144,7 +144,7 @@ function LearningDevelopment() {
               <div className="text-danger">{formErrors.to}</div>
             </div>
             <div className="col-4 details">
-              <label htmlFor="ldPrograms" className="form-label">Title of Training Programs<h6 className='tuldok'>*</h6></label>
+              <label htmlFor="ldPrograms" className="form-label">Title of Training Programs</label>
               <input
                 type="text"
                 className="form-control"
@@ -157,7 +157,7 @@ function LearningDevelopment() {
               <div className="text-danger">{formErrors.ldPrograms}</div>
             </div>
             <div className="col-3 details">
-              <label htmlFor="ldhours" className="form-label">No. of hours<h6 className='tuldok'>*</h6></label>
+              <label htmlFor="ldhours" className="form-label">No. of hours</label>
               <input
                 type="number"
                 className="form-control"

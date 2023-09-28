@@ -115,7 +115,7 @@ function WorkExperience() {
         <div className="add-container">
           <div className="d-flex flex-rows align-items-left first-row">
             <div className="col-2 details">
-              <label htmlFor="from" className="form-label">From<h6 className='tuldok'>*</h6></label>
+              <label htmlFor="from" className="form-label">From</label>
               <select
                 className="form-select"
                 id="from"
@@ -133,7 +133,7 @@ function WorkExperience() {
               <div className="text-danger">{formErrors.from}</div>
             </div>
             <div className="col-2 details">
-              <label htmlFor="to" className="form-label">To<h6 className='tuldok'>*</h6></label>
+              <label htmlFor="to" className="form-label">To</label>
               <select
                 className="form-select"
                 id="to"
@@ -151,7 +151,7 @@ function WorkExperience() {
               <div className="text-danger">{formErrors.to}</div>
             </div>
             <div className="col-4 details">
-              <label htmlFor="positionTitle" className="form-label">Position Title<h6 className='tuldok'>*</h6></label>
+              <label htmlFor="positionTitle" className="form-label">Position Title</label>
               <input
                 type="text"
                 className="form-control"
@@ -165,7 +165,7 @@ function WorkExperience() {
               <div className="text-danger">{formErrors.positionTitle}</div>
             </div>
             <div className="col-3 details">
-              <label htmlFor="company" className="form-label">Company<h6 className='tuldok'>*</h6></label>
+              <label htmlFor="company" className="form-label">Company</label>
               <input
                 type="text"
                 className="form-control"
