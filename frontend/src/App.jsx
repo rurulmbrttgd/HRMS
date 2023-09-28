@@ -14,22 +14,24 @@ import TopbarEmployee from './TopbarEmployee';
 import EducationalBackground from './EducationalBackground';
 import EmployeeDetails from './EmployeeDetails';
 import EmployeeEdit from './EmployeeEdit';
+import Form from './components/Form';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        
+        <Route path="/create-form" element={<Form />}/>
+
         <Route path="/" element={<Dashboard />}>
           <Route path="/" element={<Home />} />
         </Route>
 
-        <Route path="/" element={<TopbarEmployee /> }>
+        <Route path="/" element={<TopbarEmployee />}>
           <Route path="/employee" element={<Employee />} />
-        </Route> 
-               
+        </Route>
+
         <Route path="/EmployeeDetails/:id" element={<EmployeeDetails />} />
-<Route path="/EmployeeEdit" element={<EmployeeEdit />} />
+        <Route path="/EmployeeEdit" element={<EmployeeEdit />} />
 
 
         <Route path="/" element={<FormTopbar />}>
@@ -39,7 +41,7 @@ function App() {
           <Route path="/learningdevelopment" element={<LearningDev />} />
           <Route path="/otherinformation" element={<OtherInformation />} />
         </Route>
-        
+
         <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
