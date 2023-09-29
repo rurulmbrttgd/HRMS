@@ -72,11 +72,20 @@ app.get('/employee/:id', (req, res) => {
              r.barangay AS residentialBarangay, r.city AS residentialCity, r.province AS residentialProvince, r.zipCode AS residentialZipCode,
              p.houseNo AS permanentHouseNo, p.street AS permanentStreet, p.subdivision AS permanentSubdivision,
              p.barangay AS permanentBarangay, p.city AS permanentCity, p.province AS permanentProvince, p.zipCode AS permanentZipCode,
-             d.citizenshipType AS dualCitizenshipType, d.citizenshipCountry AS dualCitizenshipCountry
-      FROM employees_personal_info AS e
+             d.citizenshipType AS dualCitizenshipType, d.citizenshipCountry AS dualCitizenshipCountry,
+             s.firstName AS spouseFirstName, s.surname AS spouseSurname, s.firstName AS spouseFirstName, s.middleName AS spouseMiddleName, s.suffix AS spouseSuffix, 
+             s.occupation AS spouseOccupation, s.employerName AS spouseEmployerName, s.businessAddress AS spouseBusinessAddress, s.telephoneNo AS spouseTelNo,
+             f.firstName AS fatherFirstName, f.surname AS fatherSurname, f.firstName AS fatherFirstName, f.middleName AS fatherMiddleName, f.suffix AS fatherSuffix,
+             m.firstName AS motherFirstName, m.surname AS motherSurname, m.firstName AS motherFirstName, m.middleName AS motherMiddleName,
+             c.name AS childName, c.dateOfBirth AS childDateOfBirth
+             FROM employees_personal_info AS e
       LEFT JOIN residential_address AS r ON e.ID = r.employeeID
       LEFT JOIN permanent_address AS p ON e.ID = p.employeeID
       LEFT JOIN dual_citizenship AS d ON e.ID = d.employeeID
+      LEFT JOIN spouse AS s ON e.ID = s.employeeID
+      LEFT JOIN father AS f ON e.ID = f.employeeID 
+      LEFT JOIN mother AS m ON e.ID = m.employeeID
+      LEFT JOIN children AS c ON e.ID = c.employeeID
       WHERE e.ID = ?
     `;
 

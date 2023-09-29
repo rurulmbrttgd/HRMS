@@ -136,7 +136,7 @@ function OtherInformation() {
               </div>
               <div className='d-inline-block invisible w-50'>hell</div>
               <div className='d-inline-block w-50'>
-                <textarea name="details" form='details' className='w-100'></textarea>
+                <textarea name="details" form='details' className='w-100 h-auto'></textarea>
               </div>
           </div>
           <div className="col-12">

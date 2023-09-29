@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { useReactToPrint } from 'react-to-print';
+/*import { useReactToPrint } from 'react-to-print';*/
 
 function EmployeeDetails() {
   const { id } = useParams(); 
@@ -450,7 +450,262 @@ function EmployeeDetails() {
 
  </div>
 
+
  </div>
+
+ {/* FAMILY*/}
+ <div className='d-flex flex-column align-items-left pt-4 first-row justify-content-start'>
+						<div>
+							<h2>Family Background</h2>
+							<hr />
+						</div>
+						{/* Family Background Fields */}
+            <div className='add-container'>
+							{/*Spouse*/}
+							<h6 className='address'>Spouse Information</h6>
+ <div className='d-flex flex-rows align-items-left first-row justify-content-start'>
+            <div className='col details'>
+              <label htmlFor='viewSurname' className='form-label'>
+                Surname
+              </label>
+              <div
+  className='form-control'
+  id='viewSurname'
+>
+  {employeeData.spouseSurname || ''}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewFirstname' className='form-label'>
+                First Name
+              </label>
+              <div
+  className='form-control'
+  id='viewFirstname'
+>
+  {employeeData.spouseFirstName || ''}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewMiddleName' className='form-label'>
+                Middle Name
+              </label>
+              <div
+  className='form-control'
+  id='viewMiddleName'
+>
+  {employeeData.spouseMiddleName || '-'}
+</div>
+
+
+ </div>
+ <div className='col-1 details'>
+              <label htmlFor='viewSuffix' className='form-label'>
+                Suffix
+              </label>
+              <div
+  className='form-control'
+  id='viewSuffix'
+>
+  {employeeData.spouseSuffix || '-'}
+</div>
+</div>
+</div>
+
+<div className='d-flex flex-rows align-items-left first-row justify-content-start'>
+            <div className='col details'>
+              <label htmlFor='viewOccupation' className='form-label'>
+                Occupation
+              </label>
+              <div
+  className='form-control'
+  id='viewOccupation'
+>
+  {employeeData.spouseOccupation || ''}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewFirstname' className='form-label'>
+              Employers/Business Name *
+              </label>
+              <div
+  className='form-control'
+  id='viewFirstname'
+>
+  {employeeData.spouseEmployerName || ''}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewMiddleName' className='form-label'>
+              Business Address
+              </label>
+              <div
+  className='form-control'
+  id='viewMiddleName'
+>
+  {employeeData.spouseBusinessAddress || '-'}
+</div>
+
+
+ </div>
+ <div className='col-2 details'>
+              <label htmlFor='viewSuffix' className='form-label'>
+              Telephone No. 
+              </label>
+              <div
+  className='form-control'
+  id='viewSuffix'
+>
+  {employeeData.spouseTelNo || '-'}
+</div>
+</div>
+</div>
+
+{/*Father*/}
+<h6 className='address'>Father's Information</h6>
+							<div className='d-flex flex-rows align-items-left pb-4 first-row justify-content-start'>
+              <div className='col details'>
+              <label htmlFor='viewSurname' className='form-label'>
+                Surname
+              </label>
+              <div
+  className='form-control'
+  id='viewSurname'
+>
+  {employeeData.fatherSurname || ''}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewFirstname' className='form-label'>
+                First Name
+              </label>
+              <div
+  className='form-control'
+  id='viewFirstname'
+>
+  {employeeData.fatherFirstName || ''}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewMiddleName' className='form-label'>
+                Middle Name
+              </label>
+              <div
+  className='form-control'
+  id='viewMiddleName'
+>
+  {employeeData.fatherMiddleName || '-'}
+</div>
+
+
+ </div>
+ <div className='col-1 details'>
+              <label htmlFor='viewSuffix' className='form-label'>
+                Suffix
+              </label>
+              <div
+  className='form-control'
+  id='viewSuffix'
+>
+  {employeeData.fatherSuffix || '-'}
+</div>
+</div>
+                </div>
+
+                {/*Mother*/}
+<h6 className='address'>Mother's Information</h6>
+							<div className='d-flex flex-rows align-items-left pb-4 first-row justify-content-start'>
+              <div className='col details'>
+              <label htmlFor='viewSurname' className='form-label'>
+                Surname
+              </label>
+              <div
+  className='form-control'
+  id='viewSurname'
+>
+  {employeeData.motherSurname || ''}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewFirstname' className='form-label'>
+                First Name
+              </label>
+              <div
+  className='form-control'
+  id='viewFirstname'
+>
+  {employeeData.motherFirstName || ''}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewMiddleName' className='form-label'>
+                Middle Name
+              </label>
+              <div
+  className='form-control'
+  id='viewMiddleName'
+>
+  {employeeData.motherMiddleName || '-'}
+</div>
+
+
+ </div>
+
+                </div>
+
+                  {/*Children*/}
+<h6 className='address'>Children's Information</h6>
+							<div className='d-flex flex-rows align-items-left pb-4 first-row justify-content-start'>
+              <div className='col details'>
+              <label htmlFor='viewSurname' className='form-label'>
+                Name of Child
+              </label>
+              <div
+  className='form-control'
+  id='viewSurname'
+>
+  {employeeData.childName || '-'}
+</div>
+
+
+ </div>
+ <div className='col details'>
+              <label htmlFor='viewFirstname' className='form-label'>
+                Birthdate
+              </label>
+              <div
+  className='form-control'
+  id='viewFirstname'
+>
+  {employeeData.childDateOfBirth || '-'}
+</div>
+
+
+ </div>
+ 
+                </div>
+
+               
+  
+ </div> {/*Container of fam */}
+ </div>
+ 
 
 
 
