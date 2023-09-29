@@ -283,7 +283,7 @@ function PersonalInformation() {
 								//required
 							/>
 						</div>
-						<div className='col-2 mb-4'>
+						<div className='col-md-2 mb-4'>
 							<label htmlFor='inputdateofbirth' className='form-label'>
 								Date of Birth <h6 className='tuldok'>*</h6>
 							</label>
@@ -298,7 +298,7 @@ function PersonalInformation() {
 								//required
 							/>
 						</div>
-						<div className='col-2 mb-4'>
+						<div className='col-md-2 mb-4'>
 							<label htmlFor='inputcitizenship' className='form-label'>
 								Citizenship <h6 className='tuldok'>*</h6>
 							</label>
@@ -316,7 +316,7 @@ function PersonalInformation() {
 								<option value='Dual Citizenship'>Dual Citizenship</option>
 							</select>
 						</div>
-						<div className='col'>
+						<div className='col-md-2'>
 							<label htmlFor='inputcitizenshiptype' className='form-label'>
 								Type of Citizenship <h6 className='tuldok'>*</h6>
 							</label>
@@ -335,7 +335,7 @@ function PersonalInformation() {
 								<option value='By Naturalization'>By Naturalization</option>
 							</select>
 						</div>
-						<div className='col'>
+						<div className='col-md-2'>
 							<label htmlFor='inputcitizenshipcountry' className='form-label'>
 								Country of Citizenship <h6 className='tuldok'>*</h6>
 							</label>
@@ -394,7 +394,7 @@ function PersonalInformation() {
 								
 							</div>
 						)} */}
-						<div className='col-2 mb-4'>
+						<div className='col-md-2 mb-4'>
 							<label htmlFor='inputstatus' className='form-label'>
 								Civil Status <h6 className='tuldok'>*</h6>
 							</label>
