@@ -268,7 +268,7 @@ function PersonalInformation() {
 					</div>
 
 					<div className='row mb-3'>
-						<div className='col-md-3 mb-4'>
+						<div className='col-md-2 mb-4'>
 							<label htmlFor='inputplaceofbirth' className='form-label'>
 								Place of Birth <h6 className='tuldok'>*</h6>
 							</label>
@@ -283,7 +283,7 @@ function PersonalInformation() {
 								//required
 							/>
 						</div>
-						<div className='col-md-2 mb-4'>
+						<div className='col-2 mb-4'>
 							<label htmlFor='inputdateofbirth' className='form-label'>
 								Date of Birth <h6 className='tuldok'>*</h6>
 							</label>
@@ -298,7 +298,7 @@ function PersonalInformation() {
 								//required
 							/>
 						</div>
-						<div className='col-md-3 mb-4'>
+						<div className='col-2 mb-4'>
 							<label htmlFor='inputcitizenship' className='form-label'>
 								Citizenship <h6 className='tuldok'>*</h6>
 							</label>
@@ -316,47 +316,85 @@ function PersonalInformation() {
 								<option value='Dual Citizenship'>Dual Citizenship</option>
 							</select>
 						</div>
+						<div className='col'>
+							<label htmlFor='inputcitizenshiptype' className='form-label'>
+								Type of Citizenship <h6 className='tuldok'>*</h6>
+							</label>
+							<select
+								id='inputcitizenshiptype'
+								className={`form-select ${data.citizenship !== 'Dual Citizenship' ? 'disabled' : ''}`}
+								onChange={(e) => handleInputChange(e, 'dualCitizenship', 'citizenshipType')}
+								value={data.dualCitizenship.citizenshipType}
+								disabled={data.citizenship !== 'Dual Citizenship'}
+								//required
+							>
+								<option value='' hidden>
+									Type of Citizenship
+								</option>
+								<option value='By Birth'>By Birth</option>
+								<option value='By Naturalization'>By Naturalization</option>
+							</select>
+						</div>
+						<div className='col'>
+							<label htmlFor='inputcitizenshipcountry' className='form-label'>
+								Country of Citizenship <h6 className='tuldok'>*</h6>
+							</label>
+							<input
+								type='text'
+								className={`form-select ${data.citizenship !== 'Dual Citizenship' ? 'disabled' : ''}`}
+								id='inputcitizenshipcountry'
+								placeholder='Country of Citizenship'
+								autoComplete='off'
+								onChange={(e) => handleInputChange(e, 'dualCitizenship', 'citizenshipCountry')}
+								value={data.dualCitizenship.citizenshipCountry}
+								disabled={data.citizenship !== 'Dual Citizenship'}
+								//required
+							/>
+						</div>
 
 						{/* Dual Citizenship Fields */}
-						{data.citizenship === 'Dual Citizenship' && (
-							<div className='row'>
-								<div className='col-md-3 mb-4'>
-									<label htmlFor='inputcitizenshiptype' className='form-label'>
-										Type of Citizenship <h6 className='tuldok'>*</h6>
-									</label>
-									<select
-										id='inputcitizenshiptype'
-										className='form-select'
-										onChange={(e) => handleInputChange(e, 'dualCitizenship', 'citizenshipType')}
-										value={data.dualCitizenship.citizenshipType}
-										//required
-									>
-										<option value='' hidden>
-											Type of Citizenship
-										</option>
-										<option value='By Birth'>By Birth</option>
-										<option value='By Naturalization'>By Naturalization</option>
-									</select>
-								</div>
+						{/* {data.citizenship === 'Filipino' && (
+							<div className='col'>
+								<div className='row'>
+									<div className='col mb-4'>
+										<label htmlFor='inputcitizenshiptype' className='form-label'>
+											Type of Citizenship <h6 className='tuldok'>*</h6>
+										</label>
+										<select disabled
+											id='inputcitizenshiptype'
+											className='form-select'
+											onChange={(e) => handleInputChange(e, 'dualCitizenship', 'citizenshipType')}
+											value={data.dualCitizenship.citizenshipType}
+											//required
+										>
+											<option value='' hidden>
+												Type of Citizenship
+											</option>
+											<option value='By Birth'>By Birth</option>
+											<option value='By Naturalization'>By Naturalization</option>
+										</select>
+									</div>
 
-								<div className='col-md-3 mb-4'>
-									<label htmlFor='inputcitizenshipcountry' className='form-label'>
-										Country of Citizenship <h6 className='tuldok'>*</h6>
-									</label>
-									<input
-										type='text'
-										className='form-control'
-										id='inputcitizenshipcountry'
-										placeholder='Country of Citizenship'
-										autoComplete='off'
-										onChange={(e) => handleInputChange(e, 'dualCitizenship', 'citizenshipCountry')}
-										value={data.dualCitizenship.citizenshipCountry}
-										//required
-									/>
+									<div className='col mb-4'>
+										<label htmlFor='inputcitizenshipcountry' className='form-label'>
+											Country of Citizenship <h6 className='tuldok'>*</h6>
+										</label>
+										<input disabled
+											type='text'
+											className='form-control'
+											id='inputcitizenshipcountry'
+											placeholder='Country of Citizenship'
+											autoComplete='off'
+											onChange={(e) => handleInputChange(e, 'dualCitizenship', 'citizenshipCountry')}
+											value={data.dualCitizenship.citizenshipCountry}
+											//required
+										/>
+									</div>
 								</div>
+								
 							</div>
-						)}
-						<div className='col-md-4 mb-4'>
+						)} */}
+						<div className='col-2 mb-4'>
 							<label htmlFor='inputstatus' className='form-label'>
 								Civil Status <h6 className='tuldok'>*</h6>
 							</label>
@@ -379,7 +417,7 @@ function PersonalInformation() {
 					</div>
 
 					<div className='row mb-3'>
-						<div className='col-md-1 mb-4'>
+						<div className='col mb-4'>
 							<label htmlFor='inputheight' className='form-label'>
 								Height <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -393,7 +431,7 @@ function PersonalInformation() {
 								value={data.height}
 							/>
 						</div>
-						<div className='col-md-1 mb-4'>
+						<div className='col mb-4'>
 							<label htmlFor='inputweight' className='form-label'>
 								Weight <h6 className='tuldok-white'>*</h6>
 							</label>
@@ -450,7 +488,7 @@ function PersonalInformation() {
 								value={data.telephoneNo}
 							/>
 						</div>
-						<div className='col-md-3 mb-4'>
+						<div className='col-md-2 mb-4'>
 							<label htmlFor='inputmobile' className='form-label'>
 								Mobile No. <h6 className='tuldok'>*</h6>
 							</label>
@@ -1069,7 +1107,7 @@ function PersonalInformation() {
 													}
 												/>
 											</div>
-											<div className='col-md-3 mb-4'>
+											<div className='col align-self-center mt-2'>
 												{index > 0 && ( // Allow removing only if there's more than one child
 													<button
 														className='btn btn-danger'
